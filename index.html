@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuropsicóloga Rodriguez</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/cerebro.png" type="image/jpeg"> <!-- Aquí pones el favicon -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet"> <!-- Fuente elegante -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Akaya Telivigala', cursive;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fa;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #004080;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        nav {
+            background-color: #003366;
+            overflow: hidden;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px; /* Aumenté el tamaño del padding */
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            font-family: 'Roboto Slab', serif; /* Cambié la fuente a una más firme y elegante */
+            font-size: 1.2em; /* Aumenté el tamaño de la fuente */
+            font-weight: 500; /* Hice la fuente más firme */
+        }
+
+        nav a:hover {
+            background-color: #0059b3;
+        }
+
+        .content-container {
+            padding: 50px 0;
+            opacity: 0;
+            animation: fadeIn 3s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .about-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+            text-align: center;
+            background-image: url('img/fondo.png');
+            background-size: cover;
+            background-position: center;
+            padding: 40px;
+            border-radius: 10px;
+            transform: translateY(50px);
+            animation: slideUp 1s ease-out forwards;
+            color: white;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .about-container img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-left: 15px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #003366;
+            font-size: 2.5em;
+            margin-top: 40px;
+            opacity: 0;
+            animation: fadeIn 2s ease-out forwards;
+        }
+
+        .services-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .service-item {
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-item i {
+            font-size: 30px;
+            color: #003366;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .service-item:hover i {
+            color: #004080;
+        }
+
+        .service-item h3 {
+            color: #004080;
+        }
+
+        .service-item p {
+            color: #555;
+        }
+
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .about-container h3 {
+            color: #304d72;
+        }
+
+        .about-container p {
+            color: #002f6c;
+        }
+
+        /* Nuevo estilo para hacer el título de servicios más llamativo con un azul más claro */
+        h2 {
+            background-color: #304d72;  /* Azul más claro */
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            width: fit-content;
+            margin: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 2.8em;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="img/cerebro.png" alt="Logo Mabela" class="header-img">
+            <h1>Neuropsicóloga Rodríguez</h1>
+        </div>
+    </header>
+    
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="sobremi.html">Sobre Mí</a>
+        <a href="reservarcita.html">Reservar Cita</a>
+    </nav>
+
+    <div class="content-container">
+        <section>
+            <div class="about-container">
+                <div>
+                    <h3>Hola, soy Mabela Rodríguez 👩‍⚕️, neuropsicóloga y psicoterapeuta 🧠.</h3>
+                    <h3>Mi misión es acompañarte en el camino hacia tu bienestar emocional y mental 🌿💙,</h3>
+                    <h3>ayudándote a mejorar tu calidad de vida con dedicación y empatía. 💫😊</h3>
+                </div>
+                <img src="img/mabela.jpg" alt="Mabela Rodríguez">
+            </div>
+        </section>
+
+        <h2>Servicios</h2> <!-- Título de servicios modificado con azul más claro -->
+
+        <div class="services-container">
+            <div class="service-item">
+                <i class="fas fa-brain"></i>
+                <h3>Evaluación neuropsicológica</h3>
+                <p>Análisis del funcionamiento cerebral para identificar alteraciones cognitivas.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-user-md"></i>
+                <h3>Evaluación psicológica</h3>
+                <p>Diagnóstico de estados emocionales, conductuales y psicológicos.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Orientación vocacional</h3>
+                <p>Ayuda para elegir una carrera o camino profesional acorde a tus intereses y habilidades.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-heartbeat"></i>
+                <h3>Psicoterapia cognitiva-conductual</h3>
+                <p>Terapia basada en modificar pensamientos y conductas disfuncionales.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-users"></i>
+                <h3>Psicoterapia familiar y de pareja</h3>
+                <p>Resolución de conflictos y mejora de relaciones familiares o de pareja.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <h3>Escuela de padres</h3>
+                <p>Asesoramiento para mejorar habilidades de crianza y manejo de conflictos familiares.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-book"></i>
+                <h3>Talleres y capacitaciones</h3>
+                <p>Formación grupal en temas psicológicos y desarrollo personal.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Neuropsicóloga Rodríguez</p>
+    </footer>
+</body>
+</html>

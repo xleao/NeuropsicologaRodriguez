@@ -1,0 +1,21 @@
+.mensaje-exito {
+    text-align: center;
+    font-size: 1.5em;
+    color: green;
+    padding: 20px;
+    background-color: #d4edda;
+    border: 2px solid #c3e6cb;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+.mensaje-error {
+    text-align: center;
+    font-size: 1.5em;
+    color: red;
+    padding: 20px;
+    background-color: #f8d7da;
+    border: 2px solid #f5c6cb;
+    border-radius: 10px;
+    margin-top: 50px;
+}

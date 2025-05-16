@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuropsicóloga Rodríguez</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/cerebro.png" type="image/jpeg"> <!-- Aquí pones el favicon -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet"> <!-- Fuente elegante -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Akaya Telivigala', cursive;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fa;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #004080;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        nav {
+            background-color: #003366;
+            overflow: hidden;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px; /* Aumenté el tamaño del padding */
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            font-family: 'Roboto Slab', serif; /* Cambié la fuente a una más firme y elegante */
+            font-size: 1.2em; /* Aumenté el tamaño de la fuente */
+            font-weight: 500; /* Hice la fuente más firme */
+        }
+
+        nav a:hover {
+            background-color: #0059b3;
+        }
+
+        .content-container {
+            padding: 50px 0;
+            opacity: 0;
+            animation: fadeIn 3s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: slideUp 1s ease-out forwards;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h2 {
+            text-align: center;
+            color: #003366;
+            font-size: 2.5em;
+            margin-top: 40px;
+            opacity: 0;
+            animation: fadeIn 2s ease-out forwards;
+        }
+
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        /* Estilos del formulario */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        label {
+            font-size: 1.2em;
+            color: #003366;
+        }
+
+        input, textarea, select {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 15px;
+            background-color: #004080;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #003366;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="img/cerebro.png" alt="Logo Mabela" class="header-img">
+            <h1>Neuropsicóloga Rodríguez</h1>
+        </div>
+    </header>
+    
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="sobremi.html">Sobre Mí</a>
+        <a href="reservarcita.html">Reservar Cita</a>
+    </nav>
+
+    <div class="content-container">
+        <section>
+            <h2>Reserve su cita</h2>
+
+            <div class="form-container">
+                <form action="https://formsubmit.co/neuropsicologarodriguez@gmail.com" method="POST" />
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+
+                    <label for="telefono">Número de Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" required>
+
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="servicio">Seleccionar Servicio:</label>
+                    <select id="servicio" name="servicio" required>
+                        <option value="Evaluación Neuropsicológica">Evaluación Neuropsicológica</option>
+                        <option value="Terapia Cognitivo-Conductual">Evaluación Psicológica</option>
+                        <option value="Psicoterapia Infantil">Orientación Vocacional</option>
+                        <option value="Evaluación del Desarrollo">Psicoterapia cognitiva-conductual</option>
+                        <option value="Terapia de Pareja">Psicoterapia familiar y de pareja</option>
+                        <option value="Intervención en Ansiedad">Escuela de padres</option>
+                        <option value="Asesoramiento Psicoeducativo">Talleres y capacitaciones</option>
+                    </select>
+
+                    <label for="mensaje">Mensaje Adicional:</label>
+                    <textarea id="mensaje" name="mensaje" rows="10" required></textarea>
+
+                    <button type="submit">Reservar Cita</button>
+                    <input type="hidden" name="_next" value="http://127.0.0.1:5500/index.html">
+                    <input type="hidden" name="_captcha" value="false">
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Neuropsicóloga Rodríguez</p>
+    </footer>
+</body>
+</html>

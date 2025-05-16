@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuropsicóloga Rodriguez</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/cerebro.png" type="image/jpeg"> <!-- Aquí pones el favicon -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet"> <!-- Fuente elegante -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Akaya Telivigala', cursive;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fa;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #004080;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        nav {
+            background-color: #003366;
+            overflow: hidden;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px; /* Aumenté el tamaño del padding */
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            font-family: 'Roboto Slab', serif; /* Cambié la fuente a una más firme y elegante */
+            font-size: 1.2em; /* Aumenté el tamaño de la fuente */
+            font-weight: 500; /* Hice la fuente más firme */
+        }
+
+        nav a:hover {
+            background-color: #0059b3;
+        }
+
+        .content-container {
+            padding: 50px 0;
+            opacity: 0;
+            animation: fadeIn 3s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .about-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+            text-align: center;
+            background-image: url('img/fondoazul.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 40px;
+            border-radius: 10px;
+            transform: translateY(50px);
+            animation: slideUp 1s ease-out forwards;
+            color: white;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .about-container img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-left: 15px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #003366;
+            font-size: 2.5em;
+            margin-top: 40px;
+            opacity: 0;
+            animation: fadeIn 2s ease-out forwards;
+        }
+
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .about-container h3 {
+            color: #031d3e;
+        }
+
+        .about-container p {
+            color: #002f6c;
+        }
+
+        /* Nuevo estilo para hacer el título de la biografía más llamativo con un azul más claro */
+        h2 {
+            background-color: #304d72;  /* Azul más claro */
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            width: fit-content;
+            margin: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 2.8em;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="img/cerebro.png" alt="Logo Mabela" class="header-img">
+            <h1>Neuropsicóloga Rodríguez</h1>
+        </div>
+    </header>
+    
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="sobremi.html">Sobre Mí</a>
+        <a href="reservarcita.html">Reservar Cita</a>
+    </nav>
+
+    <div class="content-container">
+        <section>
+            <div class="about-container">
+                <div>
+                    <h2>- Sobre Mí -</h2>
+                    <h3>Hola, soy Mabela Rodríguez 👩‍⚕️, neuropsicóloga y psicoterapeuta 🧠.</h3>
+                    <h3>Mi misión es acompañarte en el camino hacia tu bienestar emocional y mental 🌿💙,</h3>
+                    <h3>ayudándote a mejorar tu calidad de vida con dedicación y empatía. 💫😊</h3>
+                </div>
+                <!-- Imagen eliminada aquí -->
+            </div>
+        </section>
+
+        <h2>Biografía</h2> <!-- Título de biografía -->
+
+        <section>
+            <div class="about-container">
+                <div>
+                    <h3>Formación Académica</h3>
+                    <h3>Mabela Rodríguez es graduada en Psicología por la Universidad Nacional de Psicología, donde obtuvo su licenciatura con mención honorífica. Posteriormente, se especializó en Neuropsicología en la Universidad de Buenos Aires, adquiriendo una profunda comprensión sobre los procesos cognitivos y emocionales del ser humano.</h3>
+                    <h3>Experiencia Profesional</h3>
+                    <h3>Con más de 10 años de experiencia en el campo de la neuropsicología, Mabela ha trabajado en diversos centros de salud mental, tanto en el ámbito público como privado. Ha colaborado con equipos multidisciplinarios en la rehabilitación cognitiva de pacientes con daño cerebral, trastornos de aprendizaje y enfermedades neurodegenerativas. Además, ha participado en proyectos de investigación relacionados con el impacto de la neuropsicología en la terapia psicológica y el bienestar emocional.</h3>
+                    <h3>Enfoque Terapéutico</h3>
+                    <h3>Su enfoque terapéutico se basa en la combinación de técnicas de psicoterapia cognitivo-conductual y herramientas neuropsicológicas, lo que le permite brindar un tratamiento integral y personalizado a cada uno de sus pacientes. Mabela se dedica a proporcionar apoyo emocional, ayudar en la gestión del estrés y mejorar el bienestar psicológico de quienes acuden a su consulta.</h3>
+                </div>
+                <img src="img/mabela2.png" alt="Mabela Rodríguez">
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Neuropsicóloga Rodríguez</p>
+    </footer>
+</body>
+</html>
