@@ -8,10 +8,13 @@
   <!-- Favicon -->
   <link rel="icon" href="img/cerebro.png" type="image/jpeg"/>
 
-  <!-- Fuentes: Roboto Slab para el cuerpo y Akaya Telivigala para la marca -->
+  <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Roboto+Slab:wght@400;500;700&display=swap" rel="stylesheet">
   <!-- Iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+
+  <!-- Google Identity Services -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
 
   <style>
     :root{
@@ -19,26 +22,25 @@
       --blue-800:#003366;
       --blue-700:#004a99;
       --blue-600:#005bbf;
-      --sky-100:#e6f2ff;           /* azul muy claro (lo usaremos en el fondo del bloque) */
-      --sky-50:#f3f8ff;            /* aún más claro para degradados */
+      --sky-100:#e6f2ff;
+      --sky-50:#f3f8ff;
       --white:#ffffff;
       --shadow:0 14px 30px rgba(0,0,0,.12);
       --radius:18px;
     }
-
     *{box-sizing:border-box}
 
     /* ===== BASE ===== */
     body{
       margin:0;
-      font-family:'Roboto Slab',serif; /* tipografía del sitio */
+      font-family:'Roboto Slab',serif;
       background:linear-gradient(135deg,var(--sky-100),#fff);
       color:var(--blue-800);
       overflow-x:hidden;
     }
     a{color:inherit}
 
-    /* ===== HEADER + NAV (igual al diseño solicitado) ===== */
+    /* ===== HEADER + NAV ===== */
     header{
       position:sticky;top:0;z-index:1000;
       background:linear-gradient(90deg,var(--blue-900),var(--blue-700));
@@ -52,7 +54,7 @@
     }
     .brand{display:flex;align-items:center;gap:10px}
     .brand h1{
-      font-family:'Akaya Telivigala',cursive; /* marca */
+      font-family:'Akaya Telivigala',cursive;
       font-size:28px;margin:0;letter-spacing:.6px;
     }
     .quick{display:flex;gap:10px;opacity:.95}
@@ -84,28 +86,41 @@
     .navlinks a:hover{background:#66b3ff;color:#002244}
 
     /* ===== CONTENIDO ===== */
-    .content-container{padding:50px 0} /* sin animaciones */
+    .content-container{padding:50px 0}
 
-    /* Título de sección (estilo pastilla como en el diseño) */
     h2{
       text-align:center;color:#fff;background:linear-gradient(90deg,#304d72,#003366);
       padding:14px 22px;border-radius:999px;width:fit-content;margin:28px auto 18px;
       box-shadow:var(--shadow);font-size:2.0em;letter-spacing:.5px;border:1px solid rgba(255,255,255,.45);
     }
 
-    /* ===== FORMULARIO ===== */
+    /* ===== LOGIN BOX + FORM ===== */
     .form-container{
       display:flex;justify-content:center;align-items:flex-start;
       margin:20px; padding:40px;
-      /* Azul clarito agradable que combina con el tema */
       background:linear-gradient(180deg,var(--sky-50) 0%, var(--sky-100) 100%);
       border:1.8px solid #cfe2ff;
       border-radius:22px;
-      /* un poco más de presencia al bloque */
-      box-shadow:
-        0 10px 30px rgba(0,40,100,.08),
-        inset 0 1px 0 rgba(255,255,255,.6);
+      box-shadow: 0 10px 30px rgba(0,40,100,.08), inset 0 1px 0 rgba(255,255,255,.6);
+      flex-direction:column; gap:18px;
+      max-width:900px; margin-inline:auto;
     }
+
+    .auth-row{
+      display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+      background:#fff; border:1.5px solid #cfe2ff; border-radius:14px; padding:12px 14px;
+      box-shadow:0 6px 14px rgba(0,0,0,.06);
+    }
+    .auth-status{font-size:.95rem;color:#24415f}
+    .chip{
+      background:#eef6ff;border:1px solid #cde3ff;color:#003a7a;
+      padding:6px 10px;border-radius:999px;font-size:.9rem
+    }
+    .signout-btn{
+      border:none;border-radius:999px;padding:10px 14px;font-weight:700;cursor:pointer;
+      background:#f0f5ff;border:1px solid #cfe2ff;color:#003a7a;
+    }
+
     form{
       display:flex;flex-direction:column;gap:16px;
       width:100%;max-width:700px;
@@ -113,24 +128,17 @@
     label{font-size:1.05em;color:var(--blue-800)}
     input, textarea, select{
       padding:12px 12px; font-size:1rem;
-      /* Bordes más gruesos y visibles */
       border:2px solid #cfe2ff;
       border-radius:14px; width:100%;
-      /* Fondo muy suave para distinguir del bloque */
       background:#f9fcff;
       outline:none;
       transition:border-color .2s, box-shadow .2s, background-color .2s;
       font-family:'Roboto Slab',serif;
       box-shadow: inset 0 1px 2px rgba(0,0,0,.03);
     }
-    input::placeholder, textarea::placeholder{
-      color:#7a93b2;
-      opacity:.9;
-    }
+    input::placeholder, textarea::placeholder{color:#7a93b2;opacity:.9}
     input:focus, textarea:focus, select:focus{
-      border-color:#66aaff;
-      background:#ffffff;
-      box-shadow:0 0 0 4px rgba(102,170,255,.18);
+      border-color:#66aaff;background:#ffffff;box-shadow:0 0 0 4px rgba(102,170,255,.18);
     }
     textarea{min-height:140px; resize:vertical}
 
@@ -140,15 +148,15 @@
       background:#66aaff;color:#002244;font-size:1.1rem;
       display:inline-flex;align-items:center;gap:10px;justify-content:center;
     }
-    .btn-submit:hover{transform:translateY(-2px)}
+    .btn-submit[disabled]{opacity:.55;cursor:not-allowed;box-shadow:none}
+    .btn-submit:hover:not([disabled]){transform:translateY(-2px)}
 
-    /* ===== FOOTER ===== */
     footer{
       background:var(--blue-800);color:#fff;text-align:center;
       padding:18px;margin-top:24px;box-shadow:0 -6px 18px rgba(0,0,0,.06)
     }
 
-    /* ===== Responsive ===== */
+    /* Responsive */
     @media (max-width:640px){
       .brand h1{font-size:24px}
       .quick span{font-size:14px;padding:8px 12px}
@@ -186,7 +194,31 @@
       <h2>Reserve su cita</h2>
 
       <div class="form-container">
-        <form action="https://formsubmit.co/neuropsicologarodriguez@gmail.com" method="POST">
+
+        <!-- Bloque de autenticación -->
+        <div class="auth-row">
+          <div id="g_id_onload"
+               data-client_id="YOUR_GOOGLE_CLIENT_ID"
+               data-callback="handleCredentialResponse"
+               data-context="signin"
+               data-auto_prompt="false">
+          </div>
+          <div class="g_id_signin"
+               data-type="standard"
+               data-size="large"
+               data-theme="outline"
+               data-text="sign_in_with"
+               data-shape="pill"
+               data-logo_alignment="left">
+          </div>
+
+          <span class="auth-status" id="authStatus">Debes iniciar sesión con Google para enviar la reserva.</span>
+          <span class="chip" id="userChip" style="display:none;"></span>
+          <button class="signout-btn" id="signOutBtn" type="button" style="display:none;">Salir</button>
+        </div>
+
+        <!-- Formulario -->
+        <form id="reservaForm" action="https://formsubmit.co/neuropsicologarodriguez@gmail.com" method="POST">
           <label for="nombre">Nombre Completo:</label>
           <input type="text" id="nombre" name="nombre" placeholder="Tu nombre y apellidos" required>
 
@@ -210,7 +242,14 @@
           <label for="mensaje">Mensaje Adicional:</label>
           <textarea id="mensaje" name="mensaje" placeholder="Cuéntame brevemente el motivo de tu consulta..." required></textarea>
 
-          <button type="submit" class="btn-submit">
+          <!-- Campos ocultos con datos del login -->
+          <input type="hidden" name="login_email" id="login_email">
+          <input type="hidden" name="google_id_token" id="google_id_token">
+
+          <!-- Honeypot anti-bots (no llenar) -->
+          <input type="text" name="_honey" style="display:none">
+
+          <button id="submitBtn" type="submit" class="btn-submit" disabled>
             <i class="fas fa-paper-plane" aria-hidden="true"></i> Reservar Cita
           </button>
 
@@ -225,5 +264,62 @@
   <footer>
     <p>&copy; 2025 Neuropsicóloga Rodríguez</p>
   </footer>
+
+  <script>
+    // Decodifica el JWT para obtener el email/nombre
+    function decodeJwtResponse(token) {
+      const base64Url = token.split('.')[1];
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+      const jsonPayload = decodeURIComponent(atob(base64).split('').map(c =>
+        '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+      ).join(''));
+      return JSON.parse(jsonPayload);
+    }
+
+    // Callback de Google Identity
+    function handleCredentialResponse(resp) {
+      try{
+        const payload = decodeJwtResponse(resp.credential);
+        const email = payload.email || '';
+        const name  = payload.name  || '';
+        // Rellena campos ocultos
+        document.getElementById('login_email').value = email;
+        document.getElementById('google_id_token').value = resp.credential;
+        // Marca visual y habilita envío
+        const chip = document.getElementById('userChip');
+        chip.textContent = name ? (name + ' • ' + email) : email;
+        chip.style.display = 'inline-block';
+        document.getElementById('authStatus').textContent = 'Sesión iniciada con Google.';
+        document.getElementById('signOutBtn').style.display = 'inline-block';
+        document.getElementById('submitBtn').disabled = false;
+
+        // También pre-llena el campo email del formulario si está vacío
+        const emailInput = document.getElementById('email');
+        if(email && !emailInput.value) emailInput.value = email;
+      }catch(e){
+        console.error(e);
+        alert('Hubo un problema con el inicio de sesión. Inténtalo otra vez.');
+      }
+    }
+
+    // "Cerrar sesión" (solo limpia el estado del front)
+    document.getElementById('signOutBtn').addEventListener('click', () => {
+      document.getElementById('login_email').value = '';
+      document.getElementById('google_id_token').value = '';
+      document.getElementById('userChip').style.display = 'none';
+      document.getElementById('authStatus').textContent = 'Debes iniciar sesión con Google para enviar la reserva.';
+      document.getElementById('signOutBtn').style.display = 'none';
+      document.getElementById('submitBtn').disabled = true;
+    });
+
+    // Evita envío si no hay login (doble seguridad en front)
+    document.getElementById('reservaForm').addEventListener('submit', (e) => {
+      const tok = document.getElementById('google_id_token').value;
+      if(!tok){
+        e.preventDefault();
+        alert('Por favor, inicia sesión con Google antes de enviar.');
+      }
+    });
+  </script>
 </body>
 </html>
