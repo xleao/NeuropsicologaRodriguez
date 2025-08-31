@@ -1,286 +1,237 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neuropsicóloga Rodriguez</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Neuropsicóloga Rodriguez</title>
 
-    <!-- Favicon -->
-    <link rel="icon" href="img/cerebro.png" type="image/jpeg"> <!-- Aquí pones el favicon -->
+  <!-- Favicon -->
+  <link rel="icon" href="img/cerebro.png" type="image/jpeg"/>
 
-    <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet"> <!-- Fuente elegante -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Akaya Telivigala', cursive;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f7fa;
-            overflow-x: hidden;
-        }
+  <!-- Fuentes (igual que el otro código): Roboto Slab para el cuerpo y Akaya Telivigala para la marca -->
+  <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Roboto+Slab:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-        header {
-            background-color: #004080;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            animation: fadeIn 2s ease-out;
-        }
+  <style>
+    :root{
+      --blue-900:#002b5c;
+      --blue-800:#003366;
+      --blue-700:#004a99;
+      --blue-600:#005bbf;
+      --sky-100:#e6f2ff;
+      --white:#ffffff;
+      --shadow:0 14px 30px rgba(0,0,0,.12);
+      --radius:18px;
+    }
 
-        .header-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-        }
+    *{box-sizing:border-box}
 
-        .header-img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
+    /* ===== BASE ===== */
+    body{
+      font-family:'Roboto Slab',serif; /* cambiado aquí */
+      margin:0;
+      background:linear-gradient(135deg,var(--sky-100),#fff);
+      color:var(--blue-800);
+      overflow-x:hidden;
+    }
 
-        nav {
-            background-color: #003366;
-            overflow: hidden;
-            text-align: center;
-            padding: 10px 0;
-        }
+    /* ===== HEADER + NAV (idéntico al de “Reservar Cita”) ===== */
+    header{
+      position:sticky;top:0;z-index:1000;
+      background:linear-gradient(90deg,var(--blue-900),var(--blue-700));
+      color:#fff;
+      padding:16px 22px;
+      box-shadow:var(--shadow);
+    }
+    .topbar{
+      max-width:1200px;margin:auto;
+      display:flex;align-items:center;gap:14px;justify-content:space-between;
+    }
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand h1{
+      font-family:'Akaya Telivigala',cursive; /* mantiene Akaya para la marca */
+      font-size:28px;
+      margin:0;letter-spacing:.6px;
+    }
+    .quick{display:flex;gap:10px;opacity:.95}
+    .quick span{
+      display:flex;align-items:center;gap:8px;
+      background:rgba(255,255,255,.14);
+      padding:10px 16px;
+      border:1.5px solid rgba(255,255,255,.28);
+      border-radius:999px;
+      font-size:15px;
+      box-shadow:0 8px 16px rgba(0,0,0,.12);
+    }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 12px 20px; /* Aumenté el tamaño del padding */
-            display: inline-block;
-            transition: background-color 0.3s ease;
-            font-family: 'Roboto Slab', serif; /* Cambié la fuente a una más firme y elegante */
-            font-size: 1.2em; /* Aumenté el tamaño de la fuente */
-            font-weight: 500; /* Hice la fuente más firme */
-        }
+    nav{background:var(--blue-800);}
+    .navlinks{
+      max-width:1200px;margin:auto;
+      display:flex;justify-content:center;gap:28px;
+      padding:10px 0;
+    }
+    .navlinks a{
+      color:#fff;text-decoration:none;position:relative;
+      background:rgba(255,255,255,.12);
+      border:1.5px solid rgba(255,255,255,.28);
+      border-radius:999px;padding:12px 20px;
+      font-weight:700;font-size:1.05rem;transition:.3s;
+      display:inline-flex;align-items:center;gap:8px;
+    }
+    @media (min-width:768px){.navlinks a{font-size:1.15rem;padding:14px 24px}}
+    .navlinks a:hover{background:#66b3ff;color:#002244}
 
-        nav a:hover {
-            background-color: #0059b3;
-        }
+    /* ===== CONTENIDO ===== */
+    /* Sin animaciones: visible desde el inicio */
+    .content-container{padding:50px 0 36px;opacity:1;animation:none}
 
-        .content-container {
-            padding: 50px 0;
-            opacity: 0;
-            animation: fadeIn 3s forwards;
-        }
+    /* HERO / ABOUT (misma estructura, estilo vidrio) */
+    .about-container{
+      position:relative;
+      display:flex;justify-content:center;align-items:center;
+      margin:20px;text-align:center;
+      background-image:url('img/fondo.png');background-size:cover;background-position:center;
+      padding:48px 28px;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);
+      color:#fff;
+      font-family:'Roboto Slab',serif; /* texto del about en Roboto Slab */
+    }
+    .about-container::before{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(180deg,rgba(0,29,61,.25) 0%,rgba(0,51,102,.65) 55%,rgba(0,51,102,.80) 100%);
+    }
+    .about-container>div,.about-container>img{position:relative;z-index:1}
+    .about-container img{
+      width:200px;height:200px;border-radius:50%;margin-left:15px;object-fit:cover;
+      border:6px solid rgba(255,255,255,.55);
+      box-shadow:0 20px 50px rgba(0,0,0,.35),0 0 0 8px rgba(255,255,255,.08) inset;
+    }
+    .about-container h3{color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.35)}
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
+    /* Título de sección */
+    h2{
+      text-align:center;color:#fff;background:linear-gradient(90deg,#304d72,#003366);
+      padding:14px 22px;border-radius:999px;width:fit-content;margin:28px auto 18px;
+      box-shadow:var(--shadow);font-size:2.0em;letter-spacing:.5px;border:1px solid rgba(255,255,255,.45);
+      font-family:'Roboto Slab',serif; /* asegura Roboto Slab */
+    }
 
-        .about-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 20px;
-            text-align: center;
-            background-image: url('img/fondo.png');
-            background-size: cover;
-            background-position: center;
-            padding: 40px;
-            border-radius: 10px;
-            transform: translateY(50px);
-            animation: slideUp 1s ease-out forwards;
-            color: white;
-        }
+    /* Tarjetas de servicios */
+    .services-container{
+      display:flex;flex-wrap:wrap;justify-content:center;align-items:stretch;
+      gap:22px;padding:20px;max-width:1200px;margin:0 auto;
+    }
+    /* Sin animaciones: visibles desde el inicio */
+    .service-item{
+      background:#fff;border:1px solid #e8effa;border-radius:var(--radius);
+      padding:18px 18px 20px;width:300px;text-align:center;box-shadow:var(--shadow);
+      transition:transform .3s,box-shadow .3s,border-color .3s;
+      opacity:1;animation:none;
+      font-family:'Roboto Slab',serif; /* texto de la tarjeta */
+    }
+    .service-item:hover{transform:translateY(-6px);box-shadow:0 16px 28px rgba(0,0,0,.18);border-color:#cfe2ff}
 
-        @keyframes slideUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
+    .service-item i{
+      font-size:30px;color:#fff;margin-bottom:12px;display:inline-grid;place-items:center;
+      width:56px;height:56px;border-radius:50%;
+      background:linear-gradient(135deg,#66aaff,#2f6cb8);
+      box-shadow:0 10px 22px rgba(47,108,184,.35);
+      border:2px solid #e6f2ff;transition:transform .25s,box-shadow .25s;
+    }
+    .service-item h3{color:#003a7a;margin:8px 0 6px;font-weight:700}
+    .service-item p{color:#24415f;margin:0;line-height:1.45;font-size:.98rem}
 
-        .about-container img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            margin-left: 15px;
-        }
+    /* Footer */
+    footer{background:var(--blue-800);color:#fff;text-align:center;padding:18px;margin-top:24px;box-shadow:0 -6px 18px rgba(0,0,0,.06);
+      font-family:'Roboto Slab',serif;}
 
-        h2 {
-            text-align: center;
-            color: #003366;
-            font-size: 2.5em;
-            margin-top: 40px;
-            opacity: 0;
-            animation: fadeIn 2s ease-out forwards;
-        }
-
-        .services-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .service-item {
-            background-color: #ffffff;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 15px;
-            width: 300px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            opacity: 0;
-            animation: fadeInUp 1.5s ease-out forwards;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .service-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .service-item i {
-            font-size: 30px;
-            color: #003366;
-            margin-bottom: 10px;
-            transition: color 0.3s ease;
-        }
-
-        .service-item:hover i {
-            color: #004080;
-        }
-
-        .service-item h3 {
-            color: #004080;
-        }
-
-        .service-item p {
-            color: #555;
-        }
-
-        footer {
-            background-color: #003366;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            margin-top: 20px;
-            width: 100%;
-        }
-
-        .about-container h3 {
-            color: #304d72;
-        }
-
-        .about-container p {
-            color: #002f6c;
-        }
-
-        /* Nuevo estilo para hacer el título de servicios más llamativo con un azul más claro */
-        h2 {
-            background-color: #304d72;  /* Azul más claro */
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            width: fit-content;
-            margin: auto;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            font-size: 2.8em;
-            letter-spacing: 2px;
-        }
-    </style>
+    /* Responsive */
+    @media (max-width:640px){
+      .brand h1{font-size:24px}
+      .quick span{font-size:14px;padding:8px 12px}
+      .navlinks{gap:16px}
+      .navlinks a{font-size:1rem;padding:10px 16px}
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <div class="header-container">
-            <img src="img/cerebro.png" alt="Logo Mabela" class="header-img">
-            <h1>Neuropsicóloga Rodríguez</h1>
-        </div>
-    </header>
-    
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="sobremi.html">Sobre Mí</a>
-        <a href="reservarcita.html">Reservar Cita</a>
-    </nav>
-
-    <div class="content-container">
-        <section>
-            <div class="about-container">
-                <div>
-                    <h3>Hola, soy Mabela Rodríguez 👩‍⚕️, neuropsicóloga y psicoterapeuta 🧠.</h3>
-                    <h3>Mi misión es acompañarte en el camino hacia tu bienestar emocional y mental 🌿💙,</h3>
-                    <h3>ayudándote a mejorar tu calidad de vida con dedicación y empatía. 💫😊</h3>
-                </div>
-                <img src="img/mabela.jpg" alt="Mabela Rodríguez">
-            </div>
-        </section>
-
-        <h2>Servicios</h2> <!-- Título de servicios modificado con azul más claro -->
-
-        <div class="services-container">
-            <div class="service-item">
-                <i class="fas fa-brain"></i>
-                <h3>Evaluación neuropsicológica</h3>
-                <p>Análisis del funcionamiento cerebral para identificar alteraciones cognitivas.</p>
-            </div>
-            <div class="service-item">
-                <i class="fas fa-user-md"></i>
-                <h3>Evaluación psicológica</h3>
-                <p>Diagnóstico de estados emocionales, conductuales y psicológicos.</p>
-            </div>
-            <div class="service-item">
-                <i class="fas fa-graduation-cap"></i>
-                <h3>Orientación vocacional</h3>
-                <p>Ayuda para elegir una carrera o camino profesional acorde a tus intereses y habilidades.</p>
-            </div>
-            <div class="service-item">
-                <i class="fas fa-heartbeat"></i>
-                <h3>Psicoterapia cognitiva-conductual</h3>
-                <p>Terapia basada en modificar pensamientos y conductas disfuncionales.</p>
-            </div>
-            <div class="service-item">
-                <i class="fas fa-users"></i>
-                <h3>Psicoterapia familiar y de pareja</h3>
-                <p>Resolución de conflictos y mejora de relaciones familiares o de pareja.</p>
-            </div>
-            <div class="service-item">
-                <i class="fas fa-chalkboard-teacher"></i>
-                <h3>Escuela de padres</h3>
-                <p>Asesoramiento para mejorar habilidades de crianza y manejo de conflictos familiares.</p>
-            </div>
-            <div class="service-item">
-                <i class="fas fa-book"></i>
-                <h3>Talleres y capacitaciones</h3>
-                <p>Formación grupal en temas psicológicos y desarrollo personal.</p>
-            </div>
-        </div>
+  <!-- ===== HEADER (idéntico) ===== -->
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <h1>Neuropsicóloga Rodríguez</h1>
+      </div>
+      <div class="quick">
+        <span>Estar bien — empieza aquí</span>
+      </div>
     </div>
+  </header>
 
-    <footer>
-        <p>&copy; 2025 Neuropsicóloga Rodríguez</p>
-    </footer>
+  <!-- ===== NAV (idéntico, con iconos) ===== -->
+  <nav>
+    <div class="navlinks">
+      <a href="index.html"><i class="fas fa-home" aria-hidden="true"></i> Inicio</a>
+      <a href="sobremi.html"><i class="fas fa-user" aria-hidden="true"></i> Sobre Mí</a>
+      <a href="reservarcita.html"><i class="fas fa-calendar-check" aria-hidden="true"></i> Reservar Cita</a>
+    </div>
+  </nav>
+
+  <!-- ===== CONTENIDO ===== -->
+  <div class="content-container">
+    <section>
+      <div class="about-container">
+        <div>
+          <h3>Hola, soy Mabela Rodríguez 👩‍⚕️, neuropsicóloga y psicoterapeuta 🧠.</h3>
+          <h3>Mi misión es acompañarte en el camino hacia tu bienestar emocional y mental 🌿💙,</h3>
+          <h3>ayudándote a mejorar tu calidad de vida con dedicación y empatía. 💫😊</h3>
+        </div>
+        <img src="img/mabela.jpg" alt="Mabela Rodríguez">
+      </div>
+    </section>
+
+    <h2>Servicios</h2>
+
+    <div class="services-container">
+      <div class="service-item">
+        <i class="fas fa-brain"></i>
+        <h3>Evaluación neuropsicológica</h3>
+        <p>Analisis del funcionamiento cerebral para identificar alteraciones cognitivas.</p>
+      </div>
+      <div class="service-item">
+        <i class="fas fa-user-md"></i>
+        <h3>Evaluación psicológica</h3>
+        <p>Diagnóstico de estados emocionales, conductuales y psicológicos.</p>
+      </div>
+      <div class="service-item">
+        <i class="fas fa-graduation-cap"></i>
+        <h3>Orientación vocacional</h3>
+        <p>Ayuda para elegir una carrera o camino profesional acorde a tus intereses y habilidades.</p>
+      </div>
+      <div class="service-item">
+        <i class="fas fa-heartbeat"></i>
+        <h3>Psicoterapia cognitiva-conductual</h3>
+        <p>Terapia basada en modificar pensamientos y conductas disfuncionales.</p>
+      </div>
+      <div class="service-item">
+        <i class="fas fa-users"></i>
+        <h3>Psicoterapia familiar y de pareja</h3>
+        <p>Resolución de conflictos y mejora de relaciones familiares o de pareja.</p>
+      </div>
+      <div class="service-item">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <h3>Escuela de padres</h3>
+        <p>Asesoramiento para mejorar habilidades de crianza y manejo de conflictos familiares.</p>
+      </div>
+      <div class="service-item">
+        <i class="fas fa-book"></i>
+        <h3>Talleres y capacitaciones</h3>
+        <p>Formación grupal en temas psicológicos y desarrollo personal.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Neuropsicóloga Rodríguez</p>
+  </footer>
 </body>
 </html>

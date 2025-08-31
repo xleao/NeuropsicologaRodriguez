@@ -1,204 +1,385 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neuropsicóloga Rodriguez</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neuropsicóloga Rodríguez</title>
+  <link rel="icon" href="img/cerebro.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Roboto+Slab:wght@400;500;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    :root{
+      --blue-900:#002b5c;/*azul profundo*/
+      --blue-800:#003366;
+      --blue-700:#004a99;
+      --blue-600:#005bbf;
+      --blue-500:#2f6cb8;
+      --sky-100:#e6f2ff;
+      --white:#ffffff;
+      --shadow:0 14px 30px rgba(0,0,0,.12);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Roboto Slab',serif;background:linear-gradient(135deg,var(--sky-100),#fff);color:var(--blue-800);overflow-x:hidden}
+    a{color:inherit}
 
-    <!-- Favicon -->
-    <link rel="icon" href="img/cerebro.png" type="image/jpeg"> <!-- Aquí pones el favicon -->
+    /* ===== Header + Nav (compacto, sin icono) ===== */
+    header{
+      position:sticky;top:0;z-index:1000;
+      background:linear-gradient(90deg,var(--blue-900),var(--blue-700));
+      color:#fff;padding:16px 22px;box-shadow:var(--shadow)
+    }
+    .topbar{
+      max-width:1200px;margin:auto;display:flex;align-items:center;gap:14px;justify-content:space-between
+    }
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand h1{font-family:'Akaya Telivigala',cursive;font-size:28px;margin:0;letter-spacing:.6px}
+    .quick{display:flex;gap:10px;opacity:.95}
+    .quick span{
+      display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);
+      padding:10px 16px;border:1.5px solid rgba(255,255,255,.28);border-radius:999px;
+      font-family:'Roboto Slab',serif;font-size:15px;box-shadow:0 8px 16px rgba(0,0,0,.12)
+    }
 
-    <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet"> <!-- Fuente elegante -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Akaya Telivigala', cursive;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f7fa;
-            overflow-x: hidden;
-        }
+    nav{background:var(--blue-800)}
+    .navlinks{
+      max-width:1200px;margin:auto;display:flex;justify-content:center;gap:28px;padding:10px 0
+    }
+    .navlinks a{
+      color:#fff;text-decoration:none;position:relative;background:rgba(255,255,255,.12);
+      border:1.5px solid rgba(255,255,255,.28);border-radius:999px;padding:12px 20px;
+      font-weight:700;font-size:1.05rem;transition:.3s
+    }
+    @media (min-width:768px){.navlinks a{font-size:1.15rem;padding:14px 24px}}
+    .navlinks a:hover{background:#66b3ff;color:#002244}
 
-        header {
-            background-color: #004080;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            animation: fadeIn 2s ease-out;
-        }
+    /* ===== Hero ===== */
+    .hero{
+      position:relative;min-height:72vh;display:grid;place-items:center;text-align:left;color:#fff;
+    }
+    .hero::before{
+      content:"";position:absolute; inset:0;
+      background:url('img/fondoazul.jpg') center/cover no-repeat;filter:brightness(.8);
+    }
+    .hero::after{
+      content:"";position:absolute; inset:0;
+      background:linear-gradient(180deg,rgba(0,29,61,.30) 0%,rgba(0,51,102,.65) 55%,rgba(0,51,102,.85) 100%);
+    }
+    .hero-inner{position:relative; z-index:1; padding:24px;}
+    .glass{
+      backdrop-filter: blur(10px);background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.22);border-radius: 28px;padding: 28px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.25);
+    }
+    .hero-grid{
+      display:grid;grid-template-columns: 260px 1fr;gap: 26px;align-items:center;max-width: 1000px;
+    }
+    .hero-photo{
+      width:240px; height:240px; object-fit:cover; border-radius:50%;
+      border: 6px solid rgba(255,255,255,.55);
+      box-shadow: 0 20px 50px rgba(0,0,0,.35), 0 0 0 8px rgba(255,255,255,.08) inset;
+    }
+    .hero h2{font-family:'Akaya Telivigala',cursive; font-size:46px; margin:6px 0 8px;}
+    .name-underline{background: linear-gradient(transparent 60%, rgba(255,255,255,.25) 60%);padding: 0 .2rem;border-radius: 6px;}
+    .hero p{margin:4px 0 14px; font-size:18px; opacity:.95}
 
-        .header-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-        }
+    .badges{display:flex; flex-wrap:wrap; gap:10px; margin:8px 0 12px}
+    .badges .badge{background: rgba(255,255,255,.18);border: 1px solid rgba(255,255,255,.3);padding: 6px 12px;border-radius: 999px;font-size: 13px;white-space: nowrap;}
+    .chips{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:12px}
+    .chip{background: rgba(255,255,255,.14);border: 1px solid rgba(255,255,255,.28);padding: 6px 12px;border-radius: 999px;font-size: 13px;}
+    .cta{display:flex; gap:14px; flex-wrap:wrap; align-items:center; margin-top:8px}
+    .btn{border:none; border-radius:999px; padding:14px 22px; font-weight:800; cursor:pointer; box-shadow:0 10px 24px rgba(0,0,0,.18)}
+    .btn-primary{background:#66aaff; color:#002244}
+    .btn-outline{background:transparent; color:#fff; border:1.6px solid #cde3ff}
+    .btn:hover{transform:translateY(-2px)}
 
-        .header-img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
+    .trust{display:flex; align-items:center; gap:12px; margin-top:14px;font-size:14px; opacity:.95}
+    .trust i{opacity:.9}
+    .trust .dot{width:6px; height:6px; border-radius:50%; background:#cfe2ff; opacity:.9}
 
-        nav {
-            background-color: #003366;
-            overflow: hidden;
-            text-align: center;
-            padding: 10px 0;
-        }
+    /* Floating soft bubbles */
+    .bubble{position:absolute; border-radius:50%;filter: blur(18px); opacity:.22; z-index:0;animation: float 14s ease-in-out infinite;}
+    .b1{width:180px; height:180px; left:6%; top:12%;background: radial-gradient(circle at 30% 30%, #7fb7ff, transparent 60%);}
+    .b2{width:220px; height:220px; right:8%; bottom:8%;background: radial-gradient(circle at 70% 70%, #9ac6ff, transparent 60%); animation-delay:2s}
+    .b3{width:140px; height:140px; right:35%; top:16%;background: radial-gradient(circle at 50% 50%, #b9d8ff, transparent 60%); animation-delay:1s}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 12px 20px; /* Aumenté el tamaño del padding */
-            display: inline-block;
-            transition: background-color 0.3s ease;
-            font-family: 'Roboto Slab', serif; /* Cambié la fuente a una más firme y elegante */
-            font-size: 1.2em; /* Aumenté el tamaño de la fuente */
-            font-weight: 500; /* Hice la fuente más firme */
-        }
+    .scroll-indicator{position:absolute; left:50%; bottom:14px; transform:translateX(-50%);color:#e7f1ff; text-decoration:none; opacity:.9; font-size:18px;animation:bounce 1.6s infinite;}
+    @keyframes bounce{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-6px)}}
 
-        nav a:hover {
-            background-color: #0059b3;
-        }
+    /* Responsive */
+    @media (max-width:760px){
+      .hero-grid{grid-template-columns:1fr}
+      .hero-photo{margin:auto}
+      .hero h2{font-size:36px}
+    }
 
-        .content-container {
-            padding: 50px 0;
-            opacity: 0;
-            animation: fadeIn 3s forwards;
-        }
+    /* Wave divider */
+    .wave{display:block;line-height:0}
+    .wave svg{display:block;width:100%;height:80px}
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
+    /* Sections */
+    .container{max-width:1200px;margin:auto;padding:38px 20px}
+    .section-title{font-size:28px;text-align:center;margin:10px 0 26px;color:var(--blue-900)}
 
-        .about-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 20px;
-            text-align: center;
-            background-image: url('img/fondoazul.jpg');
-            background-size: cover;
-            background-position: center;
-            padding: 40px;
-            border-radius: 10px;
-            transform: translateY(50px);
-            animation: slideUp 1s ease-out forwards;
-            color: white;
-        }
+    /* Feature cards */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+    .card{background:#fff;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);transition:.35s;position:relative;overflow:hidden}
+    .card:hover{transform:translateY(-6px)}
+    .card i{font-size:26px;color:var(--blue-600)}
+    .card h3{margin:10px 0;color:var(--blue-800)}
+    .card p{margin:0;color:#24415f;font-size:15px}
+    .badge{position:absolute;top:14px;right:-18px;background:#e6f2ff;color:var(--blue-700);padding:6px 18px;border-radius:999px;transform:rotate(15deg);font-size:12px;border:1px solid #cfe2ff}
 
-        @keyframes slideUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
+    /* Horizontal Experience Carousel */
+    .scroller{display:flex;gap:16px;overflow:auto;padding:10px;scroll-snap-type:x mandatory}
+    .scroller::-webkit-scrollbar{height:10px}
+    .scroller::-webkit-scrollbar-thumb{background:#cde3ff;border-radius:20px}
+    .xp-card{flex:0 0 300px;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;scroll-snap-align:start}
+    .xp-card h4{margin:8px 0 6px;color:var(--blue-700)}
+    .xp-card small{color:#55779e}
 
-        .about-container img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            margin-left: 15px;
-        }
+    /* Credentials strip */
+    .strip{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:10px}
+    .pill{background:#eef6ff;border:1px solid #cde3ff;color:var(--blue-700);padding:8px 12px;border-radius:999px;font-size:13px}
 
-        h2 {
-            text-align: center;
-            color: #003366;
-            font-size: 2.5em;
-            margin-top: 40px;
-            opacity: 0;
-            animation: fadeIn 2s ease-out forwards;
-        }
+    /* Highlight band */
+    .band{background:linear-gradient(90deg,#004a99,#003366);color:#fff}
+    .band .container{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center}
+    .band .msg{font-size:18px;line-height:1.5}
+    .band .poster{background:url('img/fondoazul.jpg') center/cover;border-radius:20px;min-height:220px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.3)}
 
-        footer {
-            background-color: #003366;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            margin-top: 20px;
-            width: 100%;
-        }
+    /* FAQ (marketing sin JS) */
+    details{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:16px;margin:12px 0}
+    summary{cursor:pointer;font-weight:700;color:var(--blue-800)}
+    details p{margin:10px 0 0;color:#24415f}
 
-        .about-container h3 {
-            color: #031d3e;
-        }
+    /* Floating WhatsApp */
+    .whatsapp{position:fixed;right:16px;bottom:16px;background:#25d366;color:#fff;border-radius:999px;padding:12px 16px;display:flex;align-items:center;gap:8px;text-decoration:none;box-shadow:var(--shadow);z-index:999}
 
-        .about-container p {
-            color: #002f6c;
-        }
+    footer{background:var(--blue-800);color:#fff;text-align:center;padding:24px;margin-top:24px}
 
-        /* Nuevo estilo para hacer el título de la biografía más llamativo con un azul más claro */
-        h2 {
-            background-color: #304d72;  /* Azul más claro */
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            width: fit-content;
-            margin: auto;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            font-size: 2.8em;
-            letter-spacing: 2px;
-        }
-    </style>
+    /* Bio */
+    .bio{display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:center}
+    .bio-photo{width:260px;height:260px;border-radius:50%;object-fit:cover;border:6px solid #cde3ff;box-shadow:var(--shadow)}
+    .bio-list{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:8px}
+    .bio-list li{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #e6f2ff;border-radius:12px;padding:10px 12px;box-shadow:0 8px 18px rgba(0,0,0,.05)}
+    .bio-list i{color:var(--blue-600)}
+
+    @media (max-width:760px){
+      .bio{grid-template-columns:1fr}
+      .bio-photo{width:200px;height:200px;margin:auto}
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <img src="img/cerebro.png" alt="Logo Mabela" class="header-img">
-            <h1>Neuropsicóloga Rodríguez</h1>
+  <!-- HEADER (compacto, sin icono) -->
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <h1>Neuropsicóloga Rodríguez</h1>
+      </div>
+      <div class="quick">
+        <span>Estar bien — empieza aquí</span>
+      </div>
+    </div>
+  </header>
+  <nav>
+    <div class="navlinks">
+      <a href="index.html"><i class="fas fa-home" aria-hidden="true"></i> Inicio</a>
+      <a href="#bio"><i class="fas fa-user" aria-hidden="true"></i> Sobre Mí</a>
+      <a href="reservarcita.html"><i class="fas fa-calendar-check" aria-hidden="true"></i> Reservar Cita</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="glass hero-grid">
+        <!-- Foto -->
+        <img src="img/cerebro.png" alt="Mabela Rodríguez" class="hero-photo">
+
+        <!-- Texto y acciones -->
+        <div class="hero-copy">
+          <h2>Mabela Rodríguez Neyra</h2>
+          <p>Psicóloga clínica y neuropsicóloga. Acompaño procesos de cambio con ciencia, empatía y calidez humana.</p>
+
+          <div class="chips">
+            <span class="chip">Atención presencial y online</span>
+            <span class="chip">Espacio confidencial</span>
+            <span class="chip">+10 años de experiencia</span>
+          </div>
+
+          <div class="cta">
+            <a class="btn btn-primary" href="reservarcita.html">
+              <i class="fas fa-calendar-check"></i> Reservar Cita
+            </a>
+            <a class="btn btn-outline" href="https://wa.me/51954056912" target="_blank" rel="noopener">
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+          </div>
         </div>
-    </header>
-    
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="sobremi.html">Sobre Mí</a>
-        <a href="reservarcita.html">Reservar Cita</a>
-    </nav>
+      </div>
+    </div>
+  </section>
 
-    <div class="content-container">
-        <section>
-            <div class="about-container">
-                <div>
-                    <h2>- Sobre Mí -</h2>
-                    <h3>Hola, soy Mabela Rodríguez 👩‍⚕️, neuropsicóloga y psicoterapeuta 🧠.</h3>
-                    <h3>Mi misión es acompañarte en el camino hacia tu bienestar emocional y mental 🌿💙,</h3>
-                    <h3>ayudándote a mejorar tu calidad de vida con dedicación y empatía. 💫😊</h3>
-                </div>
-                <!-- Imagen eliminada aquí -->
-            </div>
-        </section>
+  <div class="wave">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+      <path fill="#ffffff" d="M0,64L80,69.3C160,75,320,85,480,74.7C640,64,800,32,960,26.7C1120,21,1280,43,1360,53.3L1440,64L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+    </svg>
+  </div>
 
-        <h2>Biografía</h2> <!-- Título de biografía -->
+  <!-- BIO -->
+  <section class="container" id="bio">
+    <h3 class="section-title">Biografía</h3>
+    <div class="bio">
+      <img src="img/mabela2.png" alt="Foto de Mabela Rodríguez Neyra" class="bio-photo"/>
+      <div class="bio-copy">
+        <p style="margin-top:0">Soy psicóloga clínica y neuropsicóloga. Acompaño a niños, adolescentes, adultos y adultos mayores con una atención cercana y basada en evidencia. Mi objetivo es que te sientas comprendido/a y avances con herramientas prácticas.</p>
+        <ul class="bio-list">
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Evaluación y rehabilitación neuropsicológica</li>
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Psicoterapia cognitivo-conductual y sistémica</li>
+          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Atención presencial y online</li>
+        </ul>
+        <div class="cta" style="justify-content:flex-start">
+          <a class="btn btn-primary" href="reservarcita.html"><i class="fas fa-calendar-plus"></i> Ver disponibilidad</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <section>
-            <div class="about-container">
-                <div>
-                    <h3>Formación Académica</h3>
-                    <h3>Mabela es graduada en Psicología por la Universidad Nacional de Psicología, donde obtuvo su licenciatura con mención honorífica. Posteriormente, se especializó en Neuropsicología en la Universidad de Buenos Aires, adquiriendo una profunda comprensión sobre los procesos cognitivos y emocionales del ser humano.</h3>
-                    <h3>Experiencia Profesional</h3>
-                    <h3>Con más de 10 años de experiencia en el campo de la neuropsicología, Mabela ha trabajado en diversos centros de salud mental, tanto en el ámbito público como privado. Ha colaborado con equipos multidisciplinarios en la rehabilitación cognitiva de pacientes con daño cerebral, trastornos de aprendizaje y enfermedades neurodegenerativas. Además, ha participado en proyectos de investigación relacionados con el impacto de la neuropsicología en la terapia psicológica y el bienestar emocional.</h3>
-                    <h3>Enfoque Terapéutico</h3>
-                    <h3>Su enfoque terapéutico se basa en la combinación de técnicas de psicoterapia cognitivo-conductual y herramientas neuropsicológicas, lo que le permite brindar un tratamiento integral y personalizado a cada uno de sus pacientes. Mabela se dedica a proporcionar apoyo emocional, ayudar en la gestión del estrés y mejorar el bienestar psicológico de quienes acuden a su consulta.</h3>
-                </div>
-                <img src="img/mabela2.png" alt="Mabela Rodríguez">
-            </div>
-        </section>
+  <!-- SERVICIOS -->
+  <section class="container" id="servicios">
+    <h3 class="section-title">¿Cómo te ayudo?</h3>
+    <div class="grid">
+      <article class="card">
+        <span class="badge">Evaluación</span>
+        <i class="fas fa-microscope" aria-hidden="true"></i>
+        <h3>Evaluación Neuropsicológica</h3>
+        <p>Exploro funciones cognitivas clave (atención, memoria, lenguaje, funciones ejecutivas) para comprender tu perfil y diseñar un plan de intervención.</p>
+      </article>
+      <article class="card">
+        <span class="badge">Psicoterapia</span>
+        <i class="fas fa-hand-holding-heart"></i>
+        <h3>Psicoterapia Cognitivo-Conductual</h3>
+        <p>Intervenciones basadas en evidencia para ansiedad, estrés, depresión y dificultades emocionales en niños, adolescentes y adultos.</p>
+      </article>
+      <article class="card">
+        <span class="badge">Rehabilitación</span>
+        <i class="fas fa-brain"></i>
+        <h3>Rehabilitación Neuropsicológica</h3>
+        <p>Programas personalizados para daño cerebral adquirido, demencias y dificultades de aprendizaje, orientados a recuperar funcionalidad.</p>
+      </article>
+      <article class="card">
+        <span class="badge">Familia</span>
+        <i class="fas fa-users"></i>
+        <h3>Acompañamiento Familiar</h3>
+        <p>Orientación, psicoeducación y estrategias prácticas para el hogar y la escuela. Trabajo coordinado con redes de apoyo.</p>
+      </article>
     </div>
 
-    <footer>
-        <p>&copy; 2025 Neuropsicóloga Rodríguez</p>
-    </footer>
+    <div class="strip">
+      <span class="pill">Psicóloga Clínica</span>
+      <span class="pill">Neuropsicóloga</span>
+      <span class="pill">Formación Sistémica y Emocional</span>
+      <span class="pill">Atención presencial y online</span>
+    </div>
+  </section>
+
+  <!-- EXPERIENCIA -->
+  <section class="container">
+    <h3 class="section-title">Experiencia</h3>
+    <div class="scroller" aria-label="Experiencia profesional">
+      <div class="xp-card"><h4>ALLSALUD</h4><small>2014 – Actualidad</small><p>Psicóloga clínica y neuropsicóloga: evaluación, informes y rehabilitación.</p></div>
+      <div class="xp-card"><h4>Centro Renzulli</h4><small>2022 – Actualidad</small><p>Evaluación, psicoterapia y programas de intervención individuales y grupales.</p></div>
+      <div class="xp-card"><h4>Consultorio Déjalo Ser</h4><small>2017 – Actualidad</small><p>Psicoterapia, acompañamiento y psicoeducación para familias.</p></div>
+      <div class="xp-card"><h4>Policlínico Chincha (EsSalud)</h4><small>2021 – 2022</small><p>Neuropsicología: evaluación e informes especializados.</p></div>
+      <div class="xp-card"><h4>MINSA – Laderas de Chillón</h4><small>2014 – 2015</small><p>Atención clínica integral y promoción de salud mental comunitaria.</p></div>
+      <div class="xp-card"><h4>H. San Bartolomé</h4><small>2012 – 2013</small><p>Internado en psicología clínica y neuropsicología.</p></div>
+    </div>
+  </section>
+
+  <!-- BANDA -->
+  <section class="band">
+    <div class="container">
+      <div class="msg">
+        <h3 class="section-title" style="color:#fff;margin-top:0">Un espacio seguro para ti</h3>
+        <p>Tu proceso se trabaja con metas claras y acompañamiento cercano. Cada sesión está diseñada para que avances paso a paso, a tu ritmo, con herramientas prácticas y humanas.</p>
+        <div class="cta" style="justify-content:flex-start">
+          <a class="btn btn-primary" href="reservarcita.html"><i class="fas fa-calendar-check"></i> Agenda tu primera sesión</a>
+        </div>
+      </div>
+      <div class="poster" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="container">
+    <h3 class="section-title">Preguntas frecuentes</h3>
+
+    <details>
+      <summary>¿Atiendes de forma online?</summary>
+      <p>Sí. Trabajo sesiones por videollamada con pautas y materiales digitales para continuar la práctica en casa.</p>
+    </details>
+
+    <details>
+      <summary>¿Cuánto dura una evaluación neuropsicológica?</summary>
+      <p>Depende del objetivo clínico, pero suele realizarse en 2 a 3 sesiones más la devolución con informe.</p>
+    </details>
+
+    <details>
+      <summary>¿Puedo ir con un familiar a la primera cita?</summary>
+      <p>Claro. Si lo deseas, podemos incluir una breve entrevista de contexto para comprender mejor tu historia.</p>
+    </details>
+
+    <details>
+      <summary>¿Qué debo llevar a la primera sesión?</summary>
+      <p>DNI, informes o recetas previas (si las tienes), resultados de exámenes, lista de medicamentos y el motivo de tu consulta.</p>
+    </details>
+
+    <details>
+      <summary>¿Cuánto dura cada sesión y con qué frecuencia se recomiendan?</summary>
+      <p>La sesión clínica suele durar 50 minutos. En psicoterapia, normalmente una vez por semana; la frecuencia se ajusta a tu caso.</p>
+    </details>
+
+    <details>
+      <summary>¿Atiendes a niños, adolescentes y adultos mayores?</summary>
+      <p>Sí. Adapto la intervención a cada etapa de vida e incluyo psicoeducación para la familia cuando es necesario.</p>
+    </details>
+
+    <details>
+      <summary>¿Entregas informes o certificados?</summary>
+      <p>Sí, cuando corresponde. El informe de evaluación se entrega en un plazo breve acordado en consulta (usualmente entre 3 y 7 días hábiles).</p>
+    </details>
+
+    <details>
+      <summary>¿Qué métodos de pago aceptas?</summary>
+      <p>Transferencia bancaria y efectivo. Si necesitas otra opción, conversemos en la reserva.</p>
+    </details>
+
+    <details>
+      <summary>¿Cuál es la política de reprogramación o cancelación?</summary>
+      <p>Para respetar agendas, te pido avisar con 24 horas de anticipación si necesitas reprogramar o cancelar.</p>
+    </details>
+
+    <details>
+      <summary>¿La información es confidencial?</summary>
+      <p>Sí, toda la información es confidencial según el código de ética. Excepciones: riesgo vital u obligación legal.</p>
+    </details>
+
+    <details>
+      <summary>¿La atención online es igual de efectiva?</summary>
+      <p>Para muchos motivos de consulta, sí. Utilizo herramientas y materiales digitales para mantener la calidad del proceso.</p>
+    </details>
+  </section>
+
+  <!-- WHATSAPP FLOAT -->
+  <a class="whatsapp" href="https://wa.me/51954056912" target="_blank" rel="noopener" aria-label="Chatear por WhatsApp">
+    <i class="fab fa-whatsapp"></i> Consultar ahora
+  </a>
+
+  <footer>
+    <p>© 2025 Neuropsicóloga Rodríguez</p>
+  </footer>
 </body>
 </html>
