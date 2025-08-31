@@ -48,7 +48,8 @@
 
     nav{background:var(--blue-800)}
     .navlinks{
-      max-width:1200px;margin:auto;display:flex;justify-content:center;gap:28px;padding:10px 0
+      max-width:1200px;margin:auto;display:flex;justify-content:center;gap:28px;padding:10px 0;
+      flex-wrap:wrap; /* permite que baje una fila en móviles */
     }
     .navlinks a{
       color:#fff;text-decoration:none;position:relative;background:rgba(255,255,255,.12);
@@ -142,7 +143,7 @@
     .scroller::-webkit-scrollbar{height:10px}
     .scroller::-webkit-scrollbar-thumb{background:#cde3ff;border-radius:20px}
     .xp-card{flex:0 0 300px;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;scroll-snap-align:start}
-    .xp-card h4{margin:8px 0 6px;color:var(--blue-700)}
+    .xp-card h4{margin:8px 0 6px;color:#55779e}
     .xp-card small{color:#55779e}
 
     /* Credentials strip */
@@ -175,6 +176,31 @@
     @media (max-width:760px){
       .bio{grid-template-columns:1fr}
       .bio-photo{width:200px;height:200px;margin:auto}
+    }
+
+    /* ======= MEJORAS MÓVIL ADICIONALES ======= */
+    @media (max-width:900px){
+      .container{padding:28px 16px}
+      .section-title{font-size:24px}
+      .grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+      .navlinks{gap:16px;padding:8px 0}
+      .navlinks a{font-size:1rem;padding:10px 16px}
+      .brand h1{font-size:24px}
+      .quick span{font-size:14px;padding:8px 12px}
+      .hero-grid{grid-template-columns:1fr}
+      .hero h2{font-size:34px}
+      .hero p{font-size:16px}
+      .hero-photo{width:200px;height:200px;margin:auto}
+      .btn{padding:12px 18px}
+      .band .container{grid-template-columns:1fr;gap:16px}
+    }
+
+    @media (max-width:420px){
+      .brand h1{font-size:22px}
+      .section-title{font-size:22px}
+      .navlinks{gap:12px}
+      .navlinks a{padding:9px 14px}
+      .chip{font-size:12px}
     }
   </style>
 </head>
