@@ -197,8 +197,9 @@
 
         <!-- Bloque de autenticación -->
         <div class="auth-row">
+          <!-- ⬇️ Pega aquí tu Client ID real de Google -->
           <div id="g_id_onload"
-               data-client_id="YOUR_GOOGLE_CLIENT_ID"
+               data-client_id="PASTE_YOUR_CLIENT_ID.apps.googleusercontent.com"
                data-callback="handleCredentialResponse"
                data-context="signin"
                data-auto_prompt="false">
@@ -254,7 +255,8 @@
           </button>
 
           <!-- FormSubmit config -->
-          <input type="hidden" name="_next" value="http://127.0.0.1:5500/index.html">
+          <!-- Cambiado para producción en GitHub Pages -->
+          <input type="hidden" name="_next" value="https://xleao.github.io/NeuropsicologaRodriguez/index.html">
           <input type="hidden" name="_captcha" value="false">
         </form>
       </div>
