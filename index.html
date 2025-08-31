@@ -69,6 +69,7 @@
       max-width:1200px;margin:auto;
       display:flex;justify-content:center;gap:28px;
       padding:10px 0;
+      flex-wrap:wrap;
     }
     .navlinks a{
       color:#fff;text-decoration:none;position:relative;
@@ -94,6 +95,7 @@
       padding:48px 28px;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);
       color:#fff;
       font-family:'Roboto Slab',serif; /* texto del about en Roboto Slab */
+      gap:18px;
     }
     .about-container::before{
       content:"";position:absolute;inset:0;
@@ -105,7 +107,7 @@
       border:6px solid rgba(255,255,255,.55);
       box-shadow:0 20px 50px rgba(0,0,0,.35),0 0 0 8px rgba(255,255,255,.08) inset;
     }
-    .about-container h3{color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.35)}
+    .about-container h3{color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.35);margin:6px 0}
 
     /* Título de sección */
     h2{
@@ -144,12 +146,33 @@
     footer{background:var(--blue-800);color:#fff;text-align:center;padding:18px;margin-top:24px;box-shadow:0 -6px 18px rgba(0,0,0,.06);
       font-family:'Roboto Slab',serif;}
 
-    /* Responsive */
-    @media (max-width:640px){
+    /* ====== Responsive (MEJORAS MÓVIL) ====== */
+    @media (max-width:900px){
+      .content-container{padding:36px 0 28px}
+      .about-container{
+        flex-direction:column;
+        text-align:center;
+        padding:28px 18px;
+        border-radius:16px;
+      }
+      .about-container img{
+        width:160px;height:160px;margin:12px 0 0 0;
+      }
+      .about-container h3{font-size:1.05rem;line-height:1.4}
+      h2{font-size:1.6rem}
+      .services-container{gap:16px;padding:14px}
+      .service-item{width:100%;max-width:520px}
+      .service-item i{width:48px;height:48px;font-size:26px}
+      .navlinks{gap:16px;padding:8px 0}
+      .navlinks a{font-size:1rem;padding:10px 16px}
       .brand h1{font-size:24px}
       .quick span{font-size:14px;padding:8px 12px}
-      .navlinks{gap:16px}
-      .navlinks a{font-size:1rem;padding:10px 16px}
+    }
+
+    @media (max-width:420px){
+      .brand h1{font-size:22px}
+      .service-item{padding:16px}
+      .service-item p{font-size:.95rem}
     }
   </style>
 </head>
