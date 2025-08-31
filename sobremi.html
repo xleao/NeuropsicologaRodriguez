@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Neuropsicóloga Rodríguez</title>
   <link rel="icon" href="img/cerebro.png" type="image/png" />
-  <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Roboto+Slab:wght@400;500;700&display=swap" rel="stylesheet" />
-  <!-- Iconos (igual que el otro header/nav) -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+  <!-- Iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
 
   <style>
     :root{
-      --blue-900:#002b5c;/*azul profundo*/
+      --blue-900:#002b5c;
       --blue-800:#003366;
       --blue-700:#004a99;
       --blue-600:#005bbf;
@@ -22,10 +22,10 @@
       --radius:18px;
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:'Roboto Slab',serif;background:linear-gradient(135deg,var(--sky-100),#fff);color:var(--blue-800);overflow-x:hidden}
+    body{margin:0;font-family:'Raleway',sans-serif;background:linear-gradient(135deg,var(--sky-100),#fff);color:var(--blue-800);overflow-x:hidden}
     a{color:inherit}
 
-    /* ===== HEADER + NAV (idénticos al de “Reservar Cita”) ===== */
+    /* ===== HEADER + NAV ===== */
     header{
       position:sticky;top:0;z-index:1000;
       background:linear-gradient(90deg,var(--blue-900),var(--blue-700));
@@ -38,18 +38,25 @@
       display:flex;align-items:center;gap:14px;justify-content:space-between;
     }
     .brand{display:flex;align-items:center;gap:10px}
-    .brand h1{font-family:'Akaya Telivigala',cursive;font-size:28px;margin:0;letter-spacing:.6px}
+    .brand h1{font-family:'Raleway',sans-serif;font-size:28px;margin:0;letter-spacing:.6px}
+
+    /* Quick: iconos sociales */
     .quick{display:flex;gap:10px;opacity:.95}
-    .quick span{
-      display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);
-      padding:10px 16px;border:1.5px solid rgba(255,255,255,.28);border-radius:999px;
-      font-size:15px;box-shadow:0 8px 16px rgba(0,0,0,.12)
+    .quick a.social{
+      display:inline-grid;place-items:center;
+      width:40px;height:40px;border-radius:999px;
+      background:rgba(255,255,255,.14);
+      border:1.5px solid rgba(255,255,255,.28);
+      color:#fff;text-decoration:none;
+      box-shadow:0 8px 16px rgba(0,0,0,.12);
+      transition:.25s;font-size:18px
     }
+    .quick a.social:hover{background:#66b3ff;color:#002244}
 
     nav{background:var(--blue-800)}
     .navlinks{
       max-width:1200px;margin:auto;display:flex;justify-content:center;gap:28px;padding:10px 0;
-      flex-wrap:wrap; /* permite que baje una fila en móviles */
+      flex-wrap:wrap;
     }
     .navlinks a{
       color:#fff;text-decoration:none;position:relative;background:rgba(255,255,255,.12);
@@ -86,7 +93,7 @@
       border: 6px solid rgba(255,255,255,.55);
       box-shadow: 0 20px 50px rgba(0,0,0,.35), 0 0 0 8px rgba(255,255,255,.08) inset;
     }
-    .hero h2{font-family:'Akaya Telivigala',cursive; font-size:46px; margin:6px 0 8px;}
+    .hero h2{font-family:'Raleway',sans-serif; font-size:46px; margin:6px 0 8px;}
     .name-underline{background: linear-gradient(transparent 60%, rgba(255,255,255,.25) 60%);padding: 0 .2rem;border-radius: 6px;}
     .hero p{margin:4px 0 14px; font-size:18px; opacity:.95}
 
@@ -103,8 +110,13 @@
     .trust{display:flex; align-items:center; gap:12px; margin-top:14px;font-size:14px; opacity:.95}
     .trust i{opacity:.9}
     .trust .dot{width:6px; height:6px; border-radius:50%; background:#cfe2ff; opacity:.9}
+    .chip,.btn,.btn-primary,.btn-outline{
+      font-variant-numeric: lining-nums tabular-nums;
+      font-feature-settings:"lnum" 1, "tnum" 1;
+      letter-spacing:.2px;
+    }
 
-    /* Floating soft bubbles */
+    /* Bubbles */
     .bubble{position:absolute; border-radius:50%;filter: blur(18px); opacity:.22; z-index:0;animation: float 14s ease-in-out infinite;}
     .b1{width:180px; height:180px; left:6%; top:12%;background: radial-gradient(circle at 30% 30%, #7fb7ff, transparent 60%);}
     .b2{width:220px; height:220px; right:8%; bottom:8%;background: radial-gradient(circle at 70% 70%, #9ac6ff, transparent 60%); animation-delay:2s}
@@ -113,13 +125,6 @@
 
     .scroll-indicator{position:absolute; left:50%; bottom:14px; transform:translateX(-50%);color:#e7f1ff; text-decoration:none; opacity:.9; font-size:18px;animation:bounce 1.6s infinite;}
     @keyframes bounce{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-6px)}}
-
-    /* Responsive */
-    @media (max-width:760px){
-      .hero-grid{grid-template-columns:1fr}
-      .hero-photo{margin:auto}
-      .hero h2{font-size:36px}
-    }
 
     /* Wave divider */
     .wave{display:block;line-height:0}
@@ -138,7 +143,23 @@
     .card p{margin:0;color:#24415f;font-size:15px}
     .badge{position:absolute;top:14px;right:-18px;background:#e6f2ff;color:var(--blue-700);padding:6px 18px;border-radius:999px;transform:rotate(15deg);font-size:12px;border:1px solid #cfe2ff}
 
-    /* Horizontal Experience Carousel */
+    /* ====== Timeline (Formación) ====== */
+    .timeline{position:relative;max-width:950px;margin:0 auto}
+    .timeline::before{content:"";position:absolute;left:26px;top:0;bottom:0;width:4px;background:#cfe2ff;border-radius:2px}
+    .tl-item{position:relative;margin:16px 0;padding-left:72px}
+    .tl-item::before{
+      content:"";position:absolute;left:18px;top:14px;width:18px;height:18px;border-radius:50%;
+      background:#66aaff;border:3px solid #fff;box-shadow:0 0 0 5px rgba(102,170,255,.22)
+    }
+    .tl-card{background:#fff;border:1px solid #e6f2ff;border-radius:14px;box-shadow:var(--shadow);padding:16px}
+    .tl-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+    .tl-head h4{margin:0;color:var(--blue-800)}
+    .tl-head .when{color:#55779e;font-weight:700}
+    .tl-meta{color:#2f6cb8;font-weight:700;margin-top:2px}
+    .tl-note{margin-top:6px;color:#24415f}
+    .tl-badge{display:inline-block;margin-top:8px;background:#eef6ff;border:1px solid #cde3ff;color:#004a99;border-radius:999px;padding:4px 10px;font-size:12px}
+
+    /* Experience */
     .scroller{display:flex;gap:16px;overflow:auto;padding:10px;scroll-snap-type:x mandatory}
     .scroller::-webkit-scrollbar{height:10px}
     .scroller::-webkit-scrollbar-thumb{background:#cde3ff;border-radius:20px}
@@ -156,7 +177,7 @@
     .band .msg{font-size:18px;line-height:1.5}
     .band .poster{background:url('img/fondoazul.jpg') center/cover;border-radius:20px;min-height:220px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.3)}
 
-    /* FAQ (marketing sin JS) */
+    /* FAQ */
     details{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:16px;margin:12px 0}
     summary{cursor:pointer;font-weight:700;color:var(--blue-800)}
     details p{margin:10px 0 0;color:#24415f}
@@ -178,7 +199,6 @@
       .bio-photo{width:200px;height:200px;margin:auto}
     }
 
-    /* ======= MEJORAS MÓVIL ADICIONALES ======= */
     @media (max-width:900px){
       .container{padding:28px 16px}
       .section-title{font-size:24px}
@@ -186,7 +206,6 @@
       .navlinks{gap:16px;padding:8px 0}
       .navlinks a{font-size:1rem;padding:10px 16px}
       .brand h1{font-size:24px}
-      .quick span{font-size:14px;padding:8px 12px}
       .hero-grid{grid-template-columns:1fr}
       .hero h2{font-size:34px}
       .hero p{font-size:16px}
@@ -205,18 +224,25 @@
   </style>
 </head>
 <body>
-  <!-- HEADER (idéntico) -->
+  <!-- HEADER -->
   <header>
     <div class="topbar">
       <div class="brand">
         <h1>Neuropsicóloga Rodríguez</h1>
       </div>
       <div class="quick">
-        <span>Estar bien — empieza aquí</span>
+        <!-- Iconos sociales -->
+        <a class="social" href="https://www.facebook.com/share/1Av2BgPo17/" target="_blank" rel="noopener" aria-label="Facebook">
+          <i class="fab fa-facebook-f" aria-hidden="true"></i>
+        </a>
+        <a class="social" href="https://www.instagram.com/neuropsicologa_rodriguez_?igsh=NWZnNnphZTIzNWN6" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fab fa-instagram" aria-hidden="true"></i>
+        </a>
       </div>
     </div>
   </header>
-  <!-- NAV (idéntico) -->
+
+  <!-- NAV -->
   <nav>
     <div class="navlinks">
       <a href="index.html"><i class="fas fa-home" aria-hidden="true"></i> Inicio</a>
@@ -238,7 +264,8 @@
           <p>Psicóloga clínica y neuropsicóloga. Acompaño procesos de cambio con ciencia, empatía y calidez humana.</p>
 
           <div class="chips">
-            <span class="chip">Atención presencial y online</span>
+            <span class="chip">C.Ps.P. 21962</span>
+            <span class="chip">RNE 496</span>
             <span class="chip">Espacio confidencial</span>
             <span class="chip">+10 años de experiencia</span>
           </div>
@@ -318,6 +345,111 @@
       <span class="pill">Atención presencial y online</span>
     </div>
   </section>
+
+  <!-- ========== NUEVA SECCIÓN: FORMACIÓN ACADÉMICA (vertical, cronológica) ========== -->
+  <section class="container" id="formacion">
+    <h3 class="section-title">Formación académica</h3>
+
+    <div class="timeline">
+      <!-- Más reciente primero -->
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-head">
+            <h4>Magíster en Psicología Clínica (mención en Neuropsicología)</h4>
+            <span class="when">2023 – 2025</span>
+          </div>
+          <div class="tl-meta">Universidad Peruana Cayetano Heredia</div>
+          <p class="tl-note">Grado de Magíster obtenido en 2025.</p>
+          <span class="tl-badge">Posgrado</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-head">
+            <h4>Diplomado en Neuropsicología Involutiva y las Demencias</h4>
+            <span class="when">2023 – 2024</span>
+          </div>
+          <div class="tl-meta">Universidad Nacional Daniel Alcides Carrión</div>
+          <span class="tl-badge">Diplomado</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-head">
+            <h4>Diplomado en Neuropsicología Pediátrica</h4>
+            <span class="when">2021 – 2022</span>
+          </div>
+          <div class="tl-meta">Universidad Nacional Daniel Alcides Carrión</div>
+          <span class="tl-badge">Diplomado</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-head">
+            <h4>Segunda Especialidad en Neuropsicología</h4>
+            <span class="when">2019 – 2021</span>
+          </div>
+          <div class="tl-meta">Universidad Nacional Federico Villarreal</div>
+          <span class="tl-badge">Especialidad</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-head">
+            <h4>Psicología (Pregrado)</h4>
+            <span class="when">2007 – 2013</span>
+          </div>
+          <div class="tl-meta">Universidad Nacional Hermilio Valdizán</div>
+          <span class="tl-badge">Pregrado</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="section-title" style="margin-top:28px">Formación continua</h3>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-head">
+            <h4>Formación en Psicoterapia Sistémica (familia y pareja)</h4>
+            <span class="when">2016 – 2017</span>
+          </div>
+          <span class="tl-badge">Psicoterapia</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-head">
+            <h4>Formación en Psicoterapia Cognitivo-Conductual</h4>
+            <span class="when">2014 – 2015</span>
+          </div>
+          <span class="tl-badge">Psicoterapia</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-head">
+            <h4>Formación en Psicoterapia Emocional (niños y adolescentes)</h4>
+            <span class="when">2015</span>
+          </div>
+          <span class="tl-badge">Psicoterapia</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-head">
+            <h4>Formación en Análisis Transaccional</h4>
+            <span class="when">2012</span>
+          </div>
+          <span class="tl-badge">Psicoterapia</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ===================== FIN FORMACIÓN ===================== -->
 
   <!-- EXPERIENCIA -->
   <section class="container">

@@ -8,8 +8,8 @@
   <!-- Favicon -->
   <link rel="icon" href="img/cerebro.png" type="image/jpeg"/>
 
-  <!-- Fuentes (igual que el otro código): Roboto Slab para el cuerpo y Akaya Telivigala para la marca -->
-  <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Roboto+Slab:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Fuente única para todo el sitio: Raleway -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <style>
@@ -28,7 +28,7 @@
 
     /* ===== BASE ===== */
     body{
-      font-family:'Roboto Slab',serif; /* cambiado aquí */
+      font-family:'Raleway', sans-serif; /* fuente única */
       margin:0;
       background:linear-gradient(135deg,var(--sky-100),#fff);
       color:var(--blue-800);
@@ -49,20 +49,23 @@
     }
     .brand{display:flex;align-items:center;gap:10px}
     .brand h1{
-      font-family:'Akaya Telivigala',cursive; /* mantiene Akaya para la marca */
+      font-family:'Raleway', sans-serif; /* misma fuente */
       font-size:28px;
       margin:0;letter-spacing:.6px;
     }
     .quick{display:flex;gap:10px;opacity:.95}
-    .quick span{
-      display:flex;align-items:center;gap:8px;
+    /* Botones sociales en el header */
+    .quick a.social{
+      display:inline-grid;place-items:center;
+      width:40px;height:40px;border-radius:999px;
       background:rgba(255,255,255,.14);
-      padding:10px 16px;
       border:1.5px solid rgba(255,255,255,.28);
-      border-radius:999px;
-      font-size:15px;
+      color:#fff;text-decoration:none;
       box-shadow:0 8px 16px rgba(0,0,0,.12);
+      transition:.25s;
+      font-size:18px;
     }
+    .quick a.social:hover{background:#66b3ff;color:#002244}
 
     nav{background:var(--blue-800);}
     .navlinks{
@@ -83,7 +86,6 @@
     .navlinks a:hover{background:#66b3ff;color:#002244}
 
     /* ===== CONTENIDO ===== */
-    /* Sin animaciones: visible desde el inicio */
     .content-container{padding:50px 0 36px;opacity:1;animation:none}
 
     /* HERO / ABOUT (misma estructura, estilo vidrio) */
@@ -94,7 +96,7 @@
       background-image:url('img/fondo.png');background-size:cover;background-position:center;
       padding:48px 28px;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);
       color:#fff;
-      font-family:'Roboto Slab',serif; /* texto del about en Roboto Slab */
+      font-family:'Raleway', sans-serif;
       gap:18px;
     }
     .about-container::before{
@@ -114,7 +116,7 @@
       text-align:center;color:#fff;background:linear-gradient(90deg,#304d72,#003366);
       padding:14px 22px;border-radius:999px;width:fit-content;margin:28px auto 18px;
       box-shadow:var(--shadow);font-size:2.0em;letter-spacing:.5px;border:1px solid rgba(255,255,255,.45);
-      font-family:'Roboto Slab',serif; /* asegura Roboto Slab */
+      font-family:'Raleway', sans-serif;
     }
 
     /* Tarjetas de servicios */
@@ -122,13 +124,12 @@
       display:flex;flex-wrap:wrap;justify-content:center;align-items:stretch;
       gap:22px;padding:20px;max-width:1200px;margin:0 auto;
     }
-    /* Sin animaciones: visibles desde el inicio */
     .service-item{
       background:#fff;border:1px solid #e8effa;border-radius:var(--radius);
       padding:18px 18px 20px;width:300px;text-align:center;box-shadow:var(--shadow);
       transition:transform .3s,box-shadow .3s,border-color .3s;
       opacity:1;animation:none;
-      font-family:'Roboto Slab',serif; /* texto de la tarjeta */
+      font-family:'Raleway', sans-serif;
     }
     .service-item:hover{transform:translateY(-6px);box-shadow:0 16px 28px rgba(0,0,0,.18);border-color:#cfe2ff}
 
@@ -144,7 +145,7 @@
 
     /* Footer */
     footer{background:var(--blue-800);color:#fff;text-align:center;padding:18px;margin-top:24px;box-shadow:0 -6px 18px rgba(0,0,0,.06);
-      font-family:'Roboto Slab',serif;}
+      font-family:'Raleway', sans-serif;}
 
     /* ====== Responsive (MEJORAS MÓVIL) ====== */
     @media (max-width:900px){
@@ -166,7 +167,7 @@
       .navlinks{gap:16px;padding:8px 0}
       .navlinks a{font-size:1rem;padding:10px 16px}
       .brand h1{font-size:24px}
-      .quick span{font-size:14px;padding:8px 12px}
+      .quick a.social{width:36px;height:36px;font-size:16px}
     }
 
     @media (max-width:420px){
@@ -185,7 +186,13 @@
         <h1>Neuropsicóloga Rodríguez</h1>
       </div>
       <div class="quick">
-        <span>Estar bien — empieza aquí</span>
+        <!-- Íconos sociales -->
+        <a class="social" href="https://www.facebook.com/share/1Av2BgPo17/" target="_blank" rel="noopener" aria-label="Facebook">
+          <i class="fab fa-facebook-f" aria-hidden="true"></i>
+        </a>
+        <a class="social" href="https://www.instagram.com/neuropsicologa_rodriguez_?igsh=NWZnNnphZTIzNWN6" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fab fa-instagram" aria-hidden="true"></i>
+        </a>
       </div>
     </div>
   </header>
@@ -248,7 +255,7 @@
       <div class="service-item">
         <i class="fas fa-book"></i>
         <h3>Talleres y capacitaciones</h3>
-        <p>Formación grupal en temas psicológicos y desarrollo personal.</p>
+        <p>Formación grupal en temas psicológicos, neuropsicológicos y desarrollo personal.</p>
       </div>
     </div>
   </div>

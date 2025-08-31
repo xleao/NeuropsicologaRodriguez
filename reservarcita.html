@@ -8,8 +8,8 @@
   <!-- Favicon -->
   <link rel="icon" href="img/cerebro.png" type="image/jpeg"/>
 
-  <!-- Fuentes -->
-  <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Roboto+Slab:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Fuente única: Raleway -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700;800;900&display=swap" rel="stylesheet">
   <!-- Iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
 
@@ -33,7 +33,7 @@
     /* ===== BASE ===== */
     body{
       margin:0;
-      font-family:'Roboto Slab',serif;
+      font-family:'Raleway',sans-serif;
       background:linear-gradient(135deg,var(--sky-100),#fff);
       color:var(--blue-800);
       overflow-x:hidden;
@@ -54,7 +54,7 @@
     }
     .brand{display:flex;align-items:center;gap:10px}
     .brand h1{
-      font-family:'Akaya Telivigala',cursive;
+      font-family:'Raleway',sans-serif;
       font-size:28px;margin:0;letter-spacing:.6px;
     }
     .quick{display:flex;gap:10px;opacity:.95}
@@ -67,6 +67,17 @@
       font-size:15px;
       box-shadow:0 8px 16px rgba(0,0,0,.12);
     }
+    /* Iconos sociales en el header */
+    .quick a.social{
+      display:inline-grid;place-items:center;
+      width:40px;height:40px;border-radius:999px;
+      background:rgba(255,255,255,.14);
+      border:1.5px solid rgba(255,255,255,.28);
+      color:#fff;text-decoration:none;
+      box-shadow:0 8px 16px rgba(0,0,0,.12);
+      transition:.25s;font-size:18px
+    }
+    .quick a.social:hover{background:#66b3ff;color:#002244}
 
     nav{background:var(--blue-800);}
     .navlinks{
@@ -133,7 +144,7 @@
       background:#f9fcff;
       outline:none;
       transition:border-color .2s, box-shadow .2s, background-color .2s;
-      font-family:'Roboto Slab',serif;
+      font-family:'Raleway',sans-serif;
       box-shadow: inset 0 1px 2px rgba(0,0,0,.03);
     }
     input::placeholder, textarea::placeholder{color:#7a93b2;opacity:.9}
@@ -174,7 +185,13 @@
         <h1>Neuropsicóloga Rodríguez</h1>
       </div>
       <div class="quick">
-        <span>Estar bien — empieza aquí</span>
+        <!-- Iconos sociales -->
+        <a class="social" href="https://www.facebook.com/share/1Av2BgPo17/" target="_blank" rel="noopener" aria-label="Facebook">
+          <i class="fab fa-facebook-f" aria-hidden="true"></i>
+        </a>
+        <a class="social" href="https://www.instagram.com/neuropsicologa_rodriguez_?igsh=NWZnNnphZTIzNWN6" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fab fa-instagram" aria-hidden="true"></i>
+        </a>
       </div>
     </div>
   </header>
