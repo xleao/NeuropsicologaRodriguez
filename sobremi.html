@@ -53,7 +53,7 @@
     }
     .quick a.social:hover{background:#66b3ff;color:#002244}
 
-    nav{background:var(--blue-800)}
+    nav{background:var(--blue-800); position:relative;}
     .navlinks{
       max-width:1200px;margin:auto;display:flex;justify-content:center;gap:28px;padding:10px 0;
       flex-wrap:wrap;
@@ -66,6 +66,20 @@
     }
     @media (min-width:768px){.navlinks a{font-size:1.15rem;padding:14px 24px}}
     .navlinks a:hover{background:#66b3ff;color:#002244}
+
+    /* ===== BOTÓN AUDIO EN NAV (nuevo) ===== */
+    .nav-audio-btn{
+      position:absolute;left:10px;top:50%;transform:translateY(-50%);
+      display:inline-flex;align-items:center;gap:8px;
+      color:#fff;cursor:pointer;
+      background:rgba(255,255,255,.12);
+      border:1.5px solid rgba(255,255,255,.28);
+      border-radius:999px;padding:10px 14px;font-weight:700;
+      box-shadow:0 8px 16px rgba(0,0,0,.12);
+    }
+    .nav-audio-btn:hover{background:#66b3ff;color:#002244}
+    .nav-audio-text{font-size:12px;font-weight:700}
+    @media (max-width:900px){ .nav-audio-text{display:none} }
 
     /* ===== Hero ===== */
     .hero{
@@ -169,7 +183,7 @@
 
     /* Credentials strip */
     .strip{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:10px}
-    .pill{background:#eef6ff;border:1px solid #cde3ff;color:var(--blue-700);padding:8px 12px;border-radius:999px;font-size:13px}
+    .pill{background:#eef6ff;border:1px solid #cde3ff;color:#2f6cb8;padding:8px 12px;border-radius:999px;font-size:13px}
 
     /* Highlight band */
     .band{background:linear-gradient(90deg,#004a99,#003366);color:#fff}
@@ -192,7 +206,7 @@
     .bio-photo{width:260px;height:260px;border-radius:50%;object-fit:cover;border:6px solid #cde3ff;box-shadow:var(--shadow)}
     .bio-list{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:8px}
     .bio-list li{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #e6f2ff;border-radius:12px;padding:10px 12px;box-shadow:0 8px 18px rgba(0,0,0,.05)}
-    .bio-list i{color:var(--blue-600)}
+    .bio-list i{color:#blue-600}
 
     @media (max-width:760px){
       .bio{grid-template-columns:1fr}
@@ -224,6 +238,20 @@
   </style>
 </head>
 <body>
+  <!-- ====== AUDIO DE FONDO (Aftonland.mp3) ====== -->
+  <audio id="site-bgm" preload="auto" loop playsinline style="display:none" aria-hidden="true">
+    <source src="Aftonland.mp3" type="audio/mpeg">
+  </audio>
+  <script>
+    // No autoplay: el usuario debe presionar el botón. Volumen inicial 75%.
+    document.addEventListener('DOMContentLoaded', () => {
+      const bgm = document.getElementById('site-bgm');
+      if (!bgm) return;
+      bgm.volume = 0.5;
+    });
+  </script>
+  <!-- ====== FIN AUDIO ====== -->
+
   <!-- HEADER -->
   <header>
     <div class="topbar">
@@ -244,6 +272,13 @@
 
   <!-- NAV -->
   <nav>
+    <!-- Botón de audio pegado al borde izquierdo -->
+    <button id="audioToggle" class="nav-audio-btn" aria-pressed="false"
+            aria-label="Reproducir música relajante" title="Reproducir música relajante">
+      <i class="fas fa-play" aria-hidden="true"></i>
+      <span class="nav-audio-text">Reproducir música relajante</span>
+    </button>
+
     <div class="navlinks">
       <a href="index.html"><i class="fas fa-home" aria-hidden="true"></i> Inicio</a>
       <a href="sobremi.html"><i class="fas fa-user" aria-hidden="true"></i> Sobre Mí</a>
@@ -546,5 +581,44 @@
   <footer>
     <p>© 2025 Neuropsicóloga Rodríguez</p>
   </footer>
+
+  <!-- ===== Script del botón de audio (play/pause con icono y texto) ===== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const bgm = document.getElementById('site-bgm');
+      const btn = document.getElementById('audioToggle');
+      if (!bgm || !btn) return;
+
+      const icon = btn.querySelector('i');
+      const labelSpan = btn.querySelector('.nav-audio-text');
+
+      const setState = (playing) => {
+        btn.setAttribute('aria-pressed', playing ? 'true' : 'false');
+        const label = playing ? 'Pausar música relajante' : 'Reproducir música relajante';
+        btn.setAttribute('aria-label', label);
+        btn.title = label;
+        if (labelSpan) labelSpan.textContent = label;
+        icon.className = playing ? 'fas fa-pause' : 'fas fa-play';
+      };
+
+      // Estado inicial: música detenida hasta que el usuario presione el botón
+      setState(false);
+
+      // Sincroniza si cambia fuera del botón
+      bgm.addEventListener('play',  () => setState(true));
+      bgm.addEventListener('pause', () => setState(false));
+
+      // Toggle
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (bgm.paused) {
+          bgm.play().then(() => setState(true)).catch(() => {});
+        } else {
+          bgm.pause();
+          setState(false);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
