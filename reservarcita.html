@@ -37,6 +37,8 @@
       background:linear-gradient(135deg,var(--sky-100),#fff);
       color:var(--blue-800);
       overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
     }
     a{color:inherit}
 
@@ -147,7 +149,7 @@
     }
     label{font-size:1.05em;color:var(--blue-800)}
     input, textarea, select{
-      padding:12px 12px; font-size:1rem;
+      padding:12px 12px; font-size:1rem; /* 16px para evitar zoom iOS */
       border:2px solid #cfe2ff;
       border-radius:14px; width:100%;
       background:#f9fcff;
@@ -176,14 +178,72 @@
       padding:18px;margin-top:24px;box-shadow:0 -6px 18px rgba(0,0,0,.06)
     }
 
-    /* Responsive (mismo ajuste del modelo en nav) */
+    /* ===== Responsive ===== */
     @media (max-width:900px){
       .brand h1{font-size:24px}
       .navlinks{gap:16px;padding:10px 0}
       .navlinks a{font-size:1.04rem;padding:12px 18px}
+      h2{font-size:1.7rem}
+      .content-container{padding:40px 0}
     }
-    @media (max-width:640px){
+
+    /* Mejora tablets / phablets */
+    @media (max-width:860px){
+      header{padding:12px 14px}
+      .topbar{gap:10px}
+      .brand h1{font-size:22px}
+
+      /* Nav con desplazamiento horizontal si no entra */
+      .navlinks{
+        gap:12px;
+        padding:10px 8px;
+        overflow-x:auto;
+        -webkit-overflow-scrolling:touch;
+        justify-content:flex-start;
+        scrollbar-width:thin;
+      }
+      .navlinks a{flex:0 0 auto; padding:10px 14px; font-size:1rem}
       .form-container{padding:28px}
+      form{max-width:100%}
+    }
+
+    /* Móvil */
+    @media (max-width:560px){
+      .content-container{padding:32px 0}
+      h2{
+        font-size:1.45rem;
+        padding:12px 18px;
+        margin:22px auto 14px;
+      }
+      .form-container{
+        margin:14px;
+        padding:22px 16px;
+        border-radius:16px;
+        gap:14px;
+      }
+      .auth-row{
+        padding:10px 10px;
+        border-radius:12px;
+        gap:10px;
+      }
+      .auth-status{font-size:.88rem}
+      label{font-size:1rem}
+      input, textarea, select{padding:12px 12px; font-size:1rem}
+      .btn-submit{
+        width:100%;
+        padding:14px;
+        font-size:1.05rem;
+      }
+      .quick a.social{width:34px;height:34px;font-size:15px}
+    }
+
+    /* Móvil pequeño */
+    @media (max-width:420px){
+      .brand h1{font-size:20px}
+      .navlinks a{padding:10px 12px; font-size:.98rem}
+      .form-container{margin:12px}
+      .auth-status{width:100%}
+      .chip{font-size:.85rem}
     }
   </style>
 </head>
