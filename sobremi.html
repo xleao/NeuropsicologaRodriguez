@@ -37,7 +37,7 @@
     body{margin:0;font-family:'Raleway',sans-serif;background:linear-gradient(135deg,var(--sky-100),#fff);color:var(--blue-800);overflow-x:hidden}
     a{color:inherit}
 
-    /* ===== HEADER (definitivo) ===== */
+    /* ===== HEADER (idéntico) ===== */
     header{
       position:sticky;top:0;z-index:1000;
       background:linear-gradient(90deg,var(--blue-900),var(--blue-700));
@@ -64,7 +64,7 @@
     }
     .quick a.social:hover{background:#66b3ff;color:#002244}
 
-    /* ===== NAV (definitivo) ===== */
+    /* ===== NAV (idéntico) ===== */
     nav{background:var(--blue-800)}
     .navlinks{
       max-width:1200px;margin:auto;
@@ -209,7 +209,7 @@
 
     footer{background:var(--blue-800);color:#fff;text-align:center;padding:24px;margin-top:24px}
 
-    /* ====== Responsive (idéntico para nav/header + ajustes de contenido) ====== */
+    /* ====== Responsive (idéntico header/nav + ajustes) ====== */
     @media (max-width:900px){
       .container{padding:28px 16px}
       .section-title{font-size:24px}
@@ -225,21 +225,18 @@
       .btn{padding:12px 18px}
       .band .container{grid-template-columns:1fr;gap:16px}
 
-      /* ===== Ajuste solicitado: en móvil, la biografía debajo de la foto circular ===== */
+      /* Biografía: texto debajo de la foto en móvil */
       .bio{
         grid-template-columns:1fr;
         gap:16px;
-        justify-items:center; /* centra la imagen circular */
-        text-align:left;      /* mantiene el texto alineado a la izquierda */
+        justify-items:center;
       }
       .bio-photo{
         width:200px;
         height:200px;
-        margin:0 auto;        /* asegura que la foto quede centrada */
+        margin:0 auto;
       }
-      .bio-copy{
-        width:100%;
-      }
+      .bio-copy{width:100%}
     }
     @media (max-width:420px){
       .brand h1{font-size:22px}
@@ -265,7 +262,7 @@
   </script>
   <!-- ====== FIN AUDIO ====== -->
 
-  <!-- ===== HEADER (definitivo) ===== -->
+  <!-- ===== HEADER (idéntico) ===== -->
   <header>
     <div class="topbar">
       <div class="brand">
@@ -282,7 +279,7 @@
     </div>
   </header>
 
-  <!-- ===== NAV (definitivo, con puntito en Cortexa) ===== -->
+  <!-- ===== NAV (idéntico, con puntito en Cortexa) ===== -->
   <nav>
     <div class="navlinks">
       <a href="index.html"><i class="fas fa-home" aria-hidden="true"></i> Inicio</a>
