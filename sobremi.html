@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Neuropsicóloga Rodríguez</title>
 
   <!-- Google tag (gtag.js) -->
@@ -11,11 +11,12 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-WY5H8SE6RL');
   </script>
 
+  <!-- Favicon -->
   <link rel="icon" href="img/cerebro.png" type="image/png" />
+  <!-- Fuente -->
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
   <!-- Iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
@@ -36,63 +37,75 @@
     body{margin:0;font-family:'Raleway',sans-serif;background:linear-gradient(135deg,var(--sky-100),#fff);color:var(--blue-800);overflow-x:hidden}
     a{color:inherit}
 
-    /* ===== HEADER + NAV ===== */
+    /* ===== HEADER (definitivo) ===== */
     header{
       position:sticky;top:0;z-index:1000;
       background:linear-gradient(90deg,var(--blue-900),var(--blue-700));
       color:#fff;
-      padding:16px 22px;
-      box-shadow:var(--shadow);
+      padding:14px 20px;
+      box-shadow:0 12px 28px rgba(0,0,0,.10);
     }
     .topbar{
       max-width:1200px;margin:auto;
       display:flex;align-items:center;gap:14px;justify-content:space-between;
     }
     .brand{display:flex;align-items:center;gap:10px}
-    .brand h1{font-family:'Raleway',sans-serif;font-size:28px;margin:0;letter-spacing:.6px}
+    .brand h1{font-size:26px;margin:0;letter-spacing:.6px}
+    .brand .logo{height:1em;width:auto;object-fit:contain;display:block}
 
-    /* Quick: iconos sociales */
     .quick{display:flex;gap:10px;opacity:.95}
     .quick a.social{
       display:inline-grid;place-items:center;
-      width:40px;height:40px;border-radius:999px;
+      width:36px;height:36px;border-radius:999px;
       background:rgba(255,255,255,.14);
       border:1.5px solid rgba(255,255,255,.28);
       color:#fff;text-decoration:none;
-      box-shadow:0 8px 16px rgba(0,0,0,.12);
-      transition:.25s;font-size:18px
+      transition:.25s;font-size:16px
     }
     .quick a.social:hover{background:#66b3ff;color:#002244}
 
-    nav{background:var(--blue-800); position:relative;}
+    /* ===== NAV (definitivo) ===== */
+    nav{background:var(--blue-800)}
     .navlinks{
-      max-width:1200px;margin:auto;display:flex;justify-content:center;gap:28px;padding:10px 0;
-      flex-wrap:wrap;
+      max-width:1200px;margin:auto;
+      display:flex;justify-content:center;gap:18px;
+      padding:12px 0;
+      flex-wrap:wrap
     }
     .navlinks a{
-      color:#fff;text-decoration:none;position:relative;background:rgba(255,255,255,.12);
-      border:1.5px solid rgba(255,255,255,.28);border-radius:999px;padding:12px 20px;
-      font-weight:700;font-size:1.05rem;transition:.3s;
-      display:inline-flex;align-items:center;gap:8px;
+      color:#fff;text-decoration:none;background:rgba(255,255,255,.12);
+      border:1.5px solid rgba(255,255,255,.28);border-radius:999px;
+      padding:12px 20px;
+      font-weight:800;font-size:1.04rem;
+      transition:.3s;display:inline-flex;align-items:center;gap:8px
     }
-    @media (min-width:768px){.navlinks a{font-size:1.15rem;padding:14px 24px}}
     .navlinks a:hover{background:#66b3ff;color:#002244}
 
-    /* ===== BOTÓN AUDIO EN NAV (nuevo) ===== */
-    .nav-audio-btn{
-      position:absolute;left:10px;top:50%;transform:translateY(-50%);
-      display:inline-flex;align-items:center;gap:8px;
-      color:#fff;cursor:pointer;
-      background:rgba(255,255,255,.12);
-      border:1.5px solid rgba(255,255,255,.28);
-      border-radius:999px;padding:10px 14px;font-weight:700;
-      box-shadow:0 8px 16px rgba(0,0,0,.12);
+    /* Punto verde “Cortexa” (latido suave) */
+    .navlinks a.cx-live{display:inline-flex;align-items:center;gap:8px}
+    .navlinks a.cx-live .cx-dot{
+      width:10px;height:10px;border-radius:50%;
+      background:#00ff40e7;
+      box-shadow:0 0 10px rgba(0,255,106,.75);
+      margin-right:0;
+      position:relative;
+      animation:pulseDot 2.5s ease-in-out infinite;
+      transform-origin:center center;
     }
-    .nav-audio-btn:hover{background:#66b3ff;color:#002244}
-    .nav-audio-text{font-size:12px;font-weight:700}
-    @media (max-width:900px){ .nav-audio-text{display:none} }
+    .navlinks a.cx-live .cx-dot::after{
+      content:"";position:absolute;inset:-6px;border-radius:inherit;
+      background:rgba(0,255,106,.28);
+      filter:blur(2px);
+    }
+    @keyframes pulseDot{
+      0%   { transform:scale(1.00); box-shadow:0 0 10px rgba(0,255,106,.75); }
+      45%  { transform:scale(0.82); box-shadow:0 0 6px  rgba(0,255,106,.50); }
+      100% { transform:scale(1.00); box-shadow:0 0 10px rgba(0,255,106,.75); }
+    }
 
-    /* ===== Hero ===== */
+    /* ===== CONTENIDO (diseño bonito/minimalista) ===== */
+
+    /* Hero */
     .hero{
       position:relative;min-height:72vh;display:grid;place-items:center;text-align:left;color:#fff;
     }
@@ -119,11 +132,8 @@
       box-shadow: 0 20px 50px rgba(0,0,0,.35), 0 0 0 8px rgba(255,255,255,.08) inset;
     }
     .hero h2{font-family:'Raleway',sans-serif; font-size:46px; margin:6px 0 8px;}
-    .name-underline{background: linear-gradient(transparent 60%, rgba(255,255,255,.25) 60%);padding: 0 .2rem;border-radius: 6px;}
     .hero p{margin:4px 0 14px; font-size:18px; opacity:.95}
 
-    .badges{display:flex; flex-wrap:wrap; gap:10px; margin:8px 0 12px}
-    .badges .badge{background: rgba(255,255,255,.18);border: 1px solid rgba(255,255,255,.3);padding: 6px 12px;border-radius: 999px;font-size: 13px;white-space: nowrap;}
     .chips{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:12px}
     .chip{background: rgba(255,255,255,.14);border: 1px solid rgba(255,255,255,.28);padding: 6px 12px;border-radius: 999px;font-size: 13px;}
     .cta{display:flex; gap:14px; flex-wrap:wrap; align-items:center; margin-top:8px}
@@ -131,25 +141,6 @@
     .btn-primary{background:#66aaff; color:#002244}
     .btn-outline{background:transparent; color:#fff; border:1.6px solid #cde3ff}
     .btn:hover{transform:translateY(-2px)}
-
-    .trust{display:flex; align-items:center; gap:12px; margin-top:14px;font-size:14px; opacity:.95}
-    .trust i{opacity:.9}
-    .trust .dot{width:6px; height:6px; border-radius:50%; background:#cfe2ff; opacity:.9}
-    .chip,.btn,.btn-primary,.btn-outline{
-      font-variant-numeric: lining-nums tabular-nums;
-      font-feature-settings:"lnum" 1, "tnum" 1;
-      letter-spacing:.2px;
-    }
-
-    /* Bubbles */
-    .bubble{position:absolute; border-radius:50%;filter: blur(18px); opacity:.22; z-index:0;animation: float 14s ease-in-out infinite;}
-    .b1{width:180px; height:180px; left:6%; top:12%;background: radial-gradient(circle at 30% 30%, #7fb7ff, transparent 60%);}
-    .b2{width:220px; height:220px; right:8%; bottom:8%;background: radial-gradient(circle at 70% 70%, #9ac6ff, transparent 60%); animation-delay:2s}
-    .b3{width:140px; height:140px; right:35%; top:16%;background: radial-gradient(circle at 50% 50%, #b9d8ff, transparent 60%); animation-delay:1s}
-    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
-
-    .scroll-indicator{position:absolute; left:50%; bottom:14px; transform:translateX(-50%);color:#e7f1ff; text-decoration:none; opacity:.9; font-size:18px;animation:bounce 1.6s infinite;}
-    @keyframes bounce{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-6px)}}
 
     /* Wave divider */
     .wave{display:block;line-height:0}
@@ -159,7 +150,13 @@
     .container{max-width:1200px;margin:auto;padding:38px 20px}
     .section-title{font-size:28px;text-align:center;margin:10px 0 26px;color:var(--blue-900)}
 
-    /* Feature cards */
+    /* Bio */
+    .bio{display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:center}
+    .bio-photo{width:260px;height:260px;border-radius:50%;object-fit:cover;border:6px solid #cde3ff;box-shadow:var(--shadow)}
+    .bio-list{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:8px}
+    .bio-list li{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #e6f2ff;border-radius:12px;padding:10px 12px;box-shadow:0 8px 18px rgba(0,0,0,.05)}
+
+    /* Feature cards (servicios) */
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
     .card{background:#fff;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);transition:.35s;position:relative;overflow:hidden}
     .card:hover{transform:translateY(-6px)}
@@ -168,7 +165,7 @@
     .card p{margin:0;color:#24415f;font-size:15px}
     .badge{position:absolute;top:14px;right:-18px;background:#e6f2ff;color:var(--blue-700);padding:6px 18px;border-radius:999px;transform:rotate(15deg);font-size:12px;border:1px solid #cfe2ff}
 
-    /* ====== Timeline (Formación) ====== */
+    /* Timeline */
     .timeline{position:relative;max-width:950px;margin:0 auto}
     .timeline::before{content:"";position:absolute;left:26px;top:0;bottom:0;width:4px;background:#cfe2ff;border-radius:2px}
     .tl-item{position:relative;margin:16px 0;padding-left:72px}
@@ -184,7 +181,7 @@
     .tl-note{margin-top:6px;color:#24415f}
     .tl-badge{display:inline-block;margin-top:8px;background:#eef6ff;border:1px solid #cde3ff;color:#004a99;border-radius:999px;padding:4px 10px;font-size:12px}
 
-    /* Experience */
+    /* Experiencia (scroller) */
     .scroller{display:flex;gap:16px;overflow:auto;padding:10px;scroll-snap-type:x mandatory}
     .scroller::-webkit-scrollbar{height:10px}
     .scroller::-webkit-scrollbar-thumb{background:#cde3ff;border-radius:20px}
@@ -192,11 +189,11 @@
     .xp-card h4{margin:8px 0 6px;color:#55779e}
     .xp-card small{color:#55779e}
 
-    /* Credentials strip */
+    /* Tiras de credenciales */
     .strip{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:10px}
     .pill{background:#eef6ff;border:1px solid #cde3ff;color:#2f6cb8;padding:8px 12px;border-radius:999px;font-size:13px}
 
-    /* Highlight band */
+    /* Band */
     .band{background:linear-gradient(90deg,#004a99,#003366);color:#fff}
     .band .container{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center}
     .band .msg{font-size:18px;line-height:1.5}
@@ -212,25 +209,15 @@
 
     footer{background:var(--blue-800);color:#fff;text-align:center;padding:24px;margin-top:24px}
 
-    /* Bio */
-    .bio{display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:center}
-    .bio-photo{width:260px;height:260px;border-radius:50%;object-fit:cover;border:6px solid #cde3ff;box-shadow:var(--shadow)}
-    .bio-list{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:8px}
-    .bio-list li{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #e6f2ff;border-radius:12px;padding:10px 12px;box-shadow:0 8px 18px rgba(0,0,0,.05)}
-    .bio-list i{color:#blue-600}
-
-    @media (max-width:760px){
-      .bio{grid-template-columns:1fr}
-      .bio-photo{width:200px;height:200px;margin:auto}
-    }
-
+    /* ====== Responsive (idéntico para nav/header + ajustes de contenido) ====== */
     @media (max-width:900px){
       .container{padding:28px 16px}
       .section-title{font-size:24px}
       .grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-      .navlinks{gap:16px;padding:8px 0}
-      .navlinks a{font-size:1rem;padding:10px 16px}
+      .navlinks{gap:16px;padding:10px 0}
+      .navlinks a{font-size:1.04rem;padding:12px 18px}
       .brand h1{font-size:24px}
+      .quick a.social{width:36px;height:36px;font-size:16px}
       .hero-grid{grid-template-columns:1fr}
       .hero h2{font-size:34px}
       .hero p{font-size:16px}
@@ -238,7 +225,6 @@
       .btn{padding:12px 18px}
       .band .container{grid-template-columns:1fr;gap:16px}
     }
-
     @media (max-width:420px){
       .brand h1{font-size:22px}
       .section-title{font-size:22px}
@@ -248,13 +234,13 @@
     }
   </style>
 </head>
+
 <body>
-  <!-- ====== AUDIO DE FONDO (Aftonland.mp3) ====== -->
+  <!-- ====== AUDIO (sin autoplay) ====== -->
   <audio id="site-bgm" preload="auto" loop playsinline style="display:none" aria-hidden="true">
     <source src="Aftonland.mp3" type="audio/mpeg">
   </audio>
   <script>
-    // No autoplay: el usuario debe presionar el botón. Volumen inicial 75%.
     document.addEventListener('DOMContentLoaded', () => {
       const bgm = document.getElementById('site-bgm');
       if (!bgm) return;
@@ -263,14 +249,13 @@
   </script>
   <!-- ====== FIN AUDIO ====== -->
 
-  <!-- HEADER -->
+  <!-- ===== HEADER (definitivo) ===== -->
   <header>
     <div class="topbar">
       <div class="brand">
         <h1>Neuropsicóloga Rodríguez</h1>
       </div>
       <div class="quick">
-        <!-- Iconos sociales -->
         <a class="social" href="https://www.facebook.com/share/1Av2BgPo17/" target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fab fa-facebook-f" aria-hidden="true"></i>
         </a>
@@ -281,41 +266,33 @@
     </div>
   </header>
 
-  <!-- NAV -->
+  <!-- ===== NAV (definitivo, con puntito en Cortexa) ===== -->
   <nav>
-    <!-- Botón de audio pegado al borde izquierdo -->
-    <button id="audioToggle" class="nav-audio-btn" aria-pressed="false"
-            aria-label="Reproducir música relajante" title="Reproducir música relajante">
-      <i class="fas fa-play" aria-hidden="true"></i>
-      <span class="nav-audio-text">Reproducir música relajante</span>
-    </button>
-
     <div class="navlinks">
       <a href="index.html"><i class="fas fa-home" aria-hidden="true"></i> Inicio</a>
       <a href="sobremi.html"><i class="fas fa-user" aria-hidden="true"></i> Sobre Mí</a>
+      <a href="cortexa.html" class="cx-live">
+        <span class="cx-dot" aria-hidden="true"></span> Cortexa
+      </a>
+      <a href="especialidades.html"><i class="fas fa-brain" aria-hidden="true"></i> Especialidades</a>
       <a href="reservarcita.html"><i class="fas fa-calendar-check" aria-hidden="true"></i> Reservar Cita</a>
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="hero-inner">
       <div class="glass hero-grid">
-        <!-- Foto -->
         <img src="img/cerebro.png" alt="Mabela Rodríguez" class="hero-photo">
-
-        <!-- Texto y acciones -->
         <div class="hero-copy">
           <h2>Mabela Rodríguez Neyra</h2>
           <p>Psicóloga clínica y neuropsicóloga. Acompaño procesos de cambio con ciencia, empatía y calidez humana.</p>
-
           <div class="chips">
             <span class="chip">C.Ps.P. 21962</span>
             <span class="chip">RNE 496</span>
             <span class="chip">Espacio confidencial</span>
             <span class="chip">+10 años de experiencia</span>
           </div>
-
           <div class="cta">
             <a class="btn btn-primary" href="reservarcita.html">
               <i class="fas fa-calendar-check"></i> Reservar Cita
@@ -335,7 +312,7 @@
     </svg>
   </div>
 
-  <!-- BIO -->
+  <!-- ===== BIO ===== -->
   <section class="container" id="bio">
     <h3 class="section-title">Biografía</h3>
     <div class="bio">
@@ -354,7 +331,7 @@
     </div>
   </section>
 
-  <!-- SERVICIOS -->
+  <!-- ===== SERVICIOS ===== -->
   <section class="container" id="servicios">
     <h3 class="section-title">¿Cómo te ayudo?</h3>
     <div class="grid">
@@ -392,12 +369,11 @@
     </div>
   </section>
 
-  <!-- ========== NUEVA SECCIÓN: FORMACIÓN ACADÉMICA (vertical, cronológica) ========== -->
+  <!-- ===== FORMACIÓN ===== -->
   <section class="container" id="formacion">
     <h3 class="section-title">Formación académica</h3>
 
     <div class="timeline">
-      <!-- Más reciente primero -->
       <div class="tl-item">
         <div class="tl-card">
           <div class="tl-head">
@@ -495,9 +471,8 @@
       </div>
     </div>
   </section>
-  <!-- ===================== FIN FORMACIÓN ===================== -->
 
-  <!-- EXPERIENCIA -->
+  <!-- ===== EXPERIENCIA ===== -->
   <section class="container">
     <h3 class="section-title">Experiencia</h3>
     <div class="scroller" aria-label="Experiencia profesional">
@@ -510,7 +485,7 @@
     </div>
   </section>
 
-  <!-- BANDA -->
+  <!-- ===== BAND ===== -->
   <section class="band">
     <div class="container">
       <div class="msg">
@@ -524,64 +499,20 @@
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- ===== FAQ ===== -->
   <section class="container">
     <h3 class="section-title">Preguntas frecuentes</h3>
-
-    <details>
-      <summary>¿Atiendes de forma online?</summary>
-      <p>Sí. Trabajo sesiones por videollamada con pautas y materiales digitales para continuar la práctica en casa.</p>
-    </details>
-
-    <details>
-      <summary>¿Cuánto dura una evaluación neuropsicológica?</summary>
-      <p>Depende del objetivo clínico, pero suele realizarse en 2 a 3 sesiones más la devolución con informe.</p>
-    </details>
-
-    <details>
-      <summary>¿Puedo ir con un familiar a la primera cita?</summary>
-      <p>Claro. Si lo deseas, podemos incluir una breve entrevista de contexto para comprender mejor tu historia.</p>
-    </details>
-
-    <details>
-      <summary>¿Qué debo llevar a la primera sesión?</summary>
-      <p>DNI, informes o recetas previas (si las tienes), resultados de exámenes, lista de medicamentos y el motivo de tu consulta.</p>
-    </details>
-
-    <details>
-      <summary>¿Cuánto dura cada sesión y con qué frecuencia se recomiendan?</summary>
-      <p>La sesión clínica suele durar 50 minutos. En psicoterapia, normalmente una vez por semana; la frecuencia se ajusta a tu caso.</p>
-    </details>
-
-    <details>
-      <summary>¿Atiendes a niños, adolescentes y adultos mayores?</summary>
-      <p>Sí. Adapto la intervención a cada etapa de vida e incluyo psicoeducación para la familia cuando es necesario.</p>
-    </details>
-
-    <details>
-      <summary>¿Entregas informes o certificados?</summary>
-      <p>Sí, cuando corresponde. El informe de evaluación se entrega en un plazo breve acordado en consulta (usualmente entre 3 y 7 días hábiles).</p>
-    </details>
-
-    <details>
-      <summary>¿Qué métodos de pago aceptas?</summary>
-      <p>Transferencia bancaria y efectivo. Si necesitas otra opción, conversemos en la reserva.</p>
-    </details>
-
-    <details>
-      <summary>¿Cuál es la política de reprogramación o cancelación?</summary>
-      <p>Para respetar agendas, te pido avisar con 24 horas de anticipación si necesitas reprogramar o cancelar.</p>
-    </details>
-
-    <details>
-      <summary>¿La información es confidencial?</summary>
-      <p>Sí, toda la información es confidencial según el código de ética. Excepciones: riesgo vital u obligación legal.</p>
-    </details>
-
-    <details>
-      <summary>¿La atención online es igual de efectiva?</summary>
-      <p>Para muchos motivos de consulta, sí. Utilizo herramientas y materiales digitales para mantener la calidad del proceso.</p>
-    </details>
+    <details><summary>¿Atiendes de forma online?</summary><p>Sí. Trabajo sesiones por videollamada con pautas y materiales digitales para continuar la práctica en casa.</p></details>
+    <details><summary>¿Cuánto dura una evaluación neuropsicológica?</summary><p>Depende del objetivo clínico, pero suele realizarse en 2 a 3 sesiones más la devolución con informe.</p></details>
+    <details><summary>¿Puedo ir con un familiar a la primera cita?</summary><p>Claro. Si lo deseas, podemos incluir una breve entrevista de contexto para comprender mejor tu historia.</p></details>
+    <details><summary>¿Qué debo llevar a la primera sesión?</summary><p>DNI, informes o recetas previas (si las tienes), resultados de exámenes, lista de medicamentos y el motivo de tu consulta.</p></details>
+    <details><summary>¿Cuánto dura cada sesión y con qué frecuencia se recomiendan?</summary><p>La sesión clínica suele durar 50 minutos. En psicoterapia, normalmente una vez por semana; la frecuencia se ajusta a tu caso.</p></details>
+    <details><summary>¿Atiendes a niños, adolescentes y adultos mayores?</summary><p>Sí. Adapto la intervención a cada etapa de vida e incluyo psicoeducación para la familia cuando es necesario.</p></details>
+    <details><summary>¿Entregas informes o certificados?</summary><p>Sí, cuando corresponde. El informe de evaluación se entrega en un plazo breve acordado en consulta (usualmente entre 3 y 7 días hábiles).</p></details>
+    <details><summary>¿Qué métodos de pago aceptas?</summary><p>Transferencia bancaria y efectivo. Si necesitas otra opción, conversemos en la reserva.</p></details>
+    <details><summary>¿Cuál es la política de reprogramación o cancelación?</summary><p>Para respetar agendas, te pido avisar con 24 horas de anticipación si necesitas reprogramar o cancelar.</p></details>
+    <details><summary>¿La información es confidencial?</summary><p>Sí, toda la información es confidencial según el código de ética. Excepciones: riesgo vital u obligación legal.</p></details>
+    <details><summary>¿La atención online es igual de efectiva?</summary><p>Para muchos motivos de consulta, sí. Utilizo herramientas y materiales digitales para mantener la calidad del proceso.</p></details>
   </section>
 
   <!-- WHATSAPP FLOAT -->
@@ -593,16 +524,14 @@
     <p>© 2025 Neuropsicóloga Rodríguez</p>
   </footer>
 
-  <!-- ===== Script del botón de audio (play/pause con icono y texto) ===== -->
+  <!-- Script de audio (seguro si no hay botón) -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const bgm = document.getElementById('site-bgm');
-      const btn = document.getElementById('audioToggle');
+      const btn = document.getElementById('audioToggle'); // no existe en este nav; se ignora
       if (!bgm || !btn) return;
-
       const icon = btn.querySelector('i');
       const labelSpan = btn.querySelector('.nav-audio-text');
-
       const setState = (playing) => {
         btn.setAttribute('aria-pressed', playing ? 'true' : 'false');
         const label = playing ? 'Pausar música relajante' : 'Reproducir música relajante';
@@ -611,15 +540,9 @@
         if (labelSpan) labelSpan.textContent = label;
         icon.className = playing ? 'fas fa-pause' : 'fas fa-play';
       };
-
-      // Estado inicial: música detenida hasta que el usuario presione el botón
       setState(false);
-
-      // Sincroniza si cambia fuera del botón
       bgm.addEventListener('play',  () => setState(true));
       bgm.addEventListener('pause', () => setState(false));
-
-      // Toggle
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         if (bgm.paused) {

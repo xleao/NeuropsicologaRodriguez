@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Especialidades | Neuropsicóloga Rodríguez</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="img/cerebro.png" type="image/png"/>
+
+  <!-- Fuentes & Iconos -->
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root{
+      --blue-900:#002b5c; --blue-800:#003366; --blue-700:#004a99; --blue-600:#005bbf;
+      --sky-50:#f3f8ff; --sky-100:#e6f2ff; --white:#ffffff;
+      --shadow:0 14px 30px rgba(0,0,0,.12);
+      --radius:18px;
+      --spotify:#1ed760;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:'Raleway',sans-serif;
+      background:linear-gradient(135deg,var(--sky-100),#fff); color:#123; overflow-x:hidden;
+    }
+    a{color:inherit; text-decoration:none}
+
+    /* ===== HEADER ===== */
+    header{
+      position:sticky; top:0; z-index:1000;
+      background:linear-gradient(90deg,var(--blue-900),var(--blue-700)); color:#fff;
+      padding:14px 20px; box-shadow:var(--shadow);
+    }
+    .topbar{max-width:1200px;margin:auto;display:flex;align-items:center;gap:14px;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand h1{font-size:26px;margin:0;letter-spacing:.6px}
+    .quick{display:flex;gap:10px;opacity:.95}
+    .quick a.social{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:999px;background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.28);color:#fff;transition:.25s;font-size:16px}
+    .quick a.social:hover{background:#66b3ff;color:#002244}
+
+    /* ===== NAV ===== */
+    nav{background:var(--blue-800)}
+    .navlinks{
+      max-width:1200px;margin:auto;display:flex;justify-content:center;gap:18px;
+      padding:12px 0; flex-wrap:wrap
+    }
+    .navlinks a{
+      color:#fff;background:rgba(255,255,255,.12);
+      border:1.5px solid rgba(255,255,255,.28); border-radius:999px;
+      padding:12px 20px; font-weight:800; font-size:1.04rem;
+      transition:.3s; display:inline-flex; align-items:center; gap:8px
+    }
+    .navlinks a:hover{background:#66b3ff;color:#002244}
+
+    /* Punto verde Cortexa */
+    .navlinks a.cx-live{display:inline-flex;align-items:center;gap:8px}
+    .navlinks a.cx-live .cx-dot{
+      width:10px;height:10px;border-radius:50%;
+      background:var(--spotify);
+      position:relative;
+      animation:pulseDot 2.8s ease-in-out infinite;
+      transform-origin:center center;
+      box-shadow:0 0 8px rgba(30,215,96,.6);
+    }
+    .navlinks a.cx-live .cx-dot::after{
+      content:"";position:absolute;inset:-6px;border-radius:inherit;
+      background:rgba(30,215,96,.22);filter:blur(2px);
+    }
+    @keyframes pulseDot{
+      0%{transform:scale(1); box-shadow:0 0 8px rgba(30,215,96,.6)}
+      50%{transform:scale(.76); box-shadow:0 0 4px rgba(30,215,96,.35)}
+      100%{transform:scale(1); box-shadow:0 0 8px rgba(30,215,96,.6)}
+    }
+
+    /* ===== PAGE HEADER ===== */
+    .page-head{max-width:1200px;margin:22px auto 10px;padding:0 16px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .page-head h2{margin:0;color:#0b2a4a}
+    .search{
+      flex:1 1 360px;display:flex;align-items:center;gap:10px;background:#fff;
+      border:1.5px solid #cfe2ff;border-radius:999px;padding:10px 14px;box-shadow:0 10px 22px rgba(0,0,0,.06)
+    }
+    .search input{border:none;outline:none;font:inherit;flex:1;background:transparent}
+
+    /* ===== GRID ===== */
+    .grid{max-width:1200px;margin:10px auto 34px;padding:0 16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:18px}
+    .card{
+      background:#fff; border:1px solid #e6f2ff; border-radius:20px; box-shadow:var(--shadow);
+      overflow:hidden; display:flex; flex-direction:column; cursor:pointer; transition:.25s;
+    }
+    .card:hover{transform:translateY(-4px)}
+    .card-img{height:150px;background:#f2f7ff center/cover no-repeat}
+    .card-body{padding:14px}
+    .card h3{
+      margin:10px 0 6px; font-size:1.28rem; font-weight:900; color:#0e3a6e; line-height:1.25;
+    }
+    .subtitle{
+      margin:0 0 6px; font-size:.98rem; color:#415b7d; font-weight:800;
+    }
+    .card p{margin:0; color:#334; line-height:1.55}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 10px}
+    .chip{background:#eef6ff;border:1.5px solid #cde3ff;color:#004a99;border-radius:999px;padding:6px 10px;font-weight:800;font-size:.86rem}
+    .btn-more{
+      align-self:flex-start; margin:4px 14px 16px; border:none;
+      background:#eaf3ff; border:1.5px solid #cfe2ff; color:#0b2a4a; font-weight:900;
+      border-radius:999px; padding:10px 14px; display:inline-flex; gap:8px; align-items:center;
+    }
+
+    /* ===== MODAL ===== */
+    .overlay{
+      position:fixed; inset:0; z-index:3000;
+      background:rgba(8,19,40,.45); backdrop-filter:blur(6px);
+      display:none; align-items:flex-start; justify-content:center;
+      padding:28px 16px; overflow:auto; /* scroll en overlay, NO dentro del modal */
+    }
+    .overlay.is-open{display:flex}
+    .modal{
+      width:min(960px,96vw);
+      background:linear-gradient(180deg,#ffffff,#f7fbff);
+      border:1px solid #e6f2ff; border-radius:20px;
+      box-shadow:0 24px 60px rgba(0,0,0,.25); animation:pop .18s ease;
+      overflow:visible; /* sin scroll interno */
+    }
+    @keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    .modal-head{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      padding:14px 16px; position:sticky; top:0; background:linear-gradient(180deg,#ffffffee,#f7fbffee);
+      border-bottom:1px solid #e6f2ff; z-index:2;
+    }
+    .modal-title{margin:0;font-size:1.35rem;color:#0b2a4a}
+    .btn-close{
+      border:none;border-radius:999px;padding:10px 14px;font-weight:900;cursor:pointer;
+      background:#eaf3ff;border:1.5px solid #cfe2ff;color:#0b2a4a;display:inline-flex;gap:8px;align-items:center;
+    }
+    .modal-hero{height:260px;background:#f2f7ff center/cover no-repeat;border-bottom:1px solid #e6f2ff}
+    .modal-body{padding:14px 16px 22px}
+    .modal h4{margin:12px 0 6px;color:#0e3a6e}
+    .modal p{margin:0 0 10px;color:#223;line-height:1.6}
+    .modal ul{margin:6px 0 0 18px;color:#223;line-height:1.6}
+    .modal .chips{margin-top:10px}
+
+    .info-grid{display:grid;grid-template-columns:1fr;gap:10px}
+    .info-box{background:#fff;border:1px solid #e6f2ff;border-radius:12px;padding:12px}
+    .info-box .label{font-weight:900;color:#0b2a4a;margin-bottom:6px}
+
+    /* ===== Responsive ===== */
+    @media (max-width:900px){
+      .navlinks{gap:16px;padding:10px 0}
+      .navlinks a{font-size:1.04rem;padding:12px 18px}
+      .brand h1{font-size:24px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="topbar">
+      <div class="brand"><h1>Neuropsicóloga Rodríguez</h1></div>
+      <div class="quick">
+        <a class="social" href="https://www.facebook.com/share/1Av2BgPo17/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a class="social" href="https://www.instagram.com/neuropsicologa_rodriguez_?igsh=NWZnNnphZTIzNWN6" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== NAV ===== -->
+  <nav>
+    <div class="navlinks">
+      <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+      <a href="sobremi.html"><i class="fas fa-user"></i> Sobre Mí</a>
+      <a href="cortexa.html" class="cx-live"><span class="cx-dot" aria-hidden="true"></span> Cortexa</a>
+      <a href="especialidades.html"><i class="fas fa-brain"></i> Especialidades</a>
+      <a href="reservarcita.html"><i class="fas fa-calendar-check"></i> Reservar Cita</a>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE TOP ===== -->
+  <div class="page-head">
+    <h2>Especialidades</h2>
+    <label class="search" aria-label="Buscar especialidad">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input id="finder" type="search" placeholder="Buscar (ej.: TDAH, memoria, demencia, sueño…)"/>
+    </label>
+  </div>
+
+  <!-- ===== GRID ===== -->
+  <section id="grid" class="grid" aria-live="polite"></section>
+
+  <!-- ===== MODAL ===== -->
+  <div id="overlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <article class="modal">
+      <div id="modalHero" class="modal-hero" aria-hidden="true"></div>
+      <div class="modal-head">
+        <h3 id="modalTitle" class="modal-title">Título</h3>
+        <button id="btnClose" class="btn-close"><i class="fa-solid fa-chevron-down"></i> Ver menos</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </article>
+  </div>
+
+  <script>
+    /* ========= DATA ========= */
+    // En la tarjeta SOLO va: imagen + TÍTULO + subtítulo + resumen + chips
+    // En el modal: todo lo ampliado. Rutas apuntan a img/especialidades/*.png
+    const SPECIALTIES = [
+      // ===== Neurodesarrollo =====
+      {
+        id:"tdah", img:"img/especialidades/tdah.png",
+        title:"TDAH (inatento / hiperactivo / combinado)",
+        subtitle:"Déficit de atención con o sin hiperactividad",
+        summary:"Dificultad para sostener la atención, organizarse y controlar impulsos.",
+        bullets:{
+          que:"Trastorno del neurodesarrollo que afecta atención, actividad e impulsividad.",
+          senales:[
+            "Olvidos, pierde materiales, demora en iniciar tareas.",
+            "Se distrae con facilidad o se mueve mucho.",
+            "Le cuesta esperar turnos o termina rápido sin revisar."
+          ],
+          ayuda:[
+            "Rutinas visibles (tabla de mañana/tarde).",
+            "Tareas en bloques cortos con descansos.",
+            "Refuerzos inmediatos y claros por conducta objetivo."
+          ]
+        },
+        tips:["Organizadores","Pausas activas","Reforzamiento"],
+        details:{
+          que:"El TDAH aparece en la infancia y puede continuar en la adultez. No es falta de voluntad; es una diferencia en cómo funciona el cerebro para dirigir la atención y frenar impulsos.",
+          como:"Combinamos psicoeducación, hábitos (sueño, movimiento, alimentación), herramientas de organización y, si lo indica el médico, tratamiento farmacológico. En casa y en el colegio se trabaja con instrucciones claras y tareas divididas en pasos.",
+          apoyo:[
+            "Agenda visual, checklist y recordatorios (alarma/timers).",
+            "Metodología 20-5: 20 min de foco + 5 de pausa.",
+            "Pedir que explique con sus palabras lo que debe hacer.",
+            "Evitar etiquetas; reforzar intento y avance."
+          ]
+        }
+      },
+      {
+        id:"tea", img:"img/especialidades/tea.png",
+        title:"Trastorno del Espectro Autista (TEA)",
+        subtitle:"Comunicación social y flexibilidad (niveles 1–3)",
+        summary:"Diferencias en la forma de comunicarse, comprender lo social y procesar estímulos.",
+        bullets:{
+          que:"Condición del neurodesarrollo, no es una enfermedad a ‘curar’.",
+          senales:[
+            "Preferencia por rutinas; malestar ante cambios inesperados.",
+            "Necesidades sensoriales (ruidos, texturas, luces).",
+            "Intereses profundos o forma literal de entender el lenguaje."
+          ],
+          ayuda:[
+            "Anticipar cambios con pictogramas o un ‘plan del día’.",
+            "Ofrecer opciones cerradas (A/B) y lenguaje concreto.",
+            "Respetar tiempos sensoriales y crear un rincón tranquilo."
+          ]
+        },
+        tips:["Apoyos visuales","Estructura","Intereses especiales"],
+        details:{
+          que:"El TEA describe un rango de necesidades en comunicación social y flexibilidad. Cada perfil es único.",
+          como:"Se trabaja con apoyos visuales, entrenamiento en habilidades sociales funcionales, ajuste sensorial y participación activa de la familia y el colegio.",
+          apoyo:[
+            "Historias sociales para preparar cambios o viajes.",
+            "Diario de regulación sensorial (qué ayuda/qué satura).",
+            "Construir aprendizajes usando sus intereses."
+          ]
+        }
+      },
+      {
+        id:"dea", img:"img/especialidades/dea.png",
+        title:"Trastornos específicos del aprendizaje",
+        subtitle:"Dislexia, discalculia, disgrafía",
+        summary:"Dificultades persistentes en lectura, cálculo o escritura que no se explican por falta de esfuerzo.",
+        bullets:{
+          que:"Diferencias neurobiológicas que afectan habilidades escolares concretas.",
+          senales:[
+            "Lee lento o confunde letras; operaciones básicas cuestan.",
+            "Escritura con inversión de letras o muy fatigosa.",
+            "Evita tareas escolares por frustración."
+          ],
+          ayuda:[
+            "Intervención específica y multisensorial (paso a paso).",
+            "Tiempo extra y evaluaciones adaptadas cuando corresponde.",
+            "Tecnología de apoyo: lectores de texto, calculadora razonable."
+          ]
+        },
+        tips:["Intervención específica","Tiempo extra","Tecnología de apoyo"],
+        details:{
+          que:"La detección temprana reduce la frustración y mejora la autoestima académica.",
+          como:"Plan terapéutico individual, coordinación escuela–familia y objetivos realistas.",
+          apoyo:[
+            "Separar ‘contenido’ de ‘forma’ al evaluar cuando sea pertinente.",
+            "Rúbricas claras y anticipación del temario.",
+            "Celebrar progreso, no solo resultados."
+          ]
+        }
+      },
+      {
+        id:"tdl", img:"img/especialidades/tdl.png",
+        title:"Trastorno del desarrollo del lenguaje",
+        subtitle:"Antes TEL; dificultades en comprensión o expresión",
+        summary:"El lenguaje se desarrolla más lento o con errores que afectan la comunicación.",
+        bullets:{
+          que:"Dificultad primaria del lenguaje sin causa sensorial o intelectual.",
+          senales:[
+            "Habla poco, usa frases cortas o le cuesta entender instrucciones.",
+            "Sustituye palabras o confunde tiempos verbales.",
+            "Se frustra al no poder expresarse."
+          ],
+          ayuda:[
+            "Modelar frases (sin corregir en exceso).",
+            "Apoyos visuales y gestos; dar tiempo de respuesta.",
+            "Juegos de turnos y vocabulario en rutinas diarias."
+          ]
+        },
+        tips:["Modelado","Apoyos visuales","Turnos"],
+        details:{
+          que:"El objetivo es que la comunicación sea funcional en casa, escuela y comunidad.",
+          como:"Trabajo con terapia de lenguaje y entrenamiento familiar.",
+          apoyo:[
+            "Pedir que repita con sus palabras lo entendido.",
+            "Historias sociales para contextos nuevos.",
+            "Reducir ruido de fondo durante conversaciones."
+          ]
+        }
+      },
+      {
+        id:"dcd", img:"img/especialidades/dcd.png",
+        title:"Trastorno del desarrollo de la coordinación (Dispraxia/DCD)",
+        subtitle:"Planificación y coordinación motora",
+        summary:"Mayor torpeza o cansancio en tareas motrices finas y gruesas.",
+        bullets:{
+          que:"Dificultad significativa para aprender y automatizar movimientos.",
+          senales:[
+            "Le cuesta abotonar, recortar o deportes.",
+            "Evita copiar de la pizarra o se fatiga rápido.",
+            "Organiza mal los pasos de una tarea motora."
+          ],
+          ayuda:[
+            "Desglosar pasos y practicar con apoyos.",
+            "Útiles ergonómicos y superficies antideslizantes.",
+            "Valorar esfuerzo, no comparar."
+          ]
+        },
+        tips:["Desglosar pasos","Adaptaciones","Psicomotricidad"],
+        details:{
+          que:"La coordinación mejora con práctica guiada y adaptaciones sensatas.",
+          como:"Intervención en terapia ocupacional/psicomotricidad y trabajo en rutinas reales.",
+          apoyo:[
+            "Pausas para prevenir fatiga.",
+            "Ejemplos en cámara lenta o con marcas visuales.",
+            "Ropa fáciles de manejar para ganar autonomía."
+          ]
+        }
+      },
+      {
+        id:"di", img:"img/especialidades/di.png",
+        title:"Discapacidad intelectual",
+        subtitle:"Perfil cognitivo y adaptativo (leve–profunda)",
+        summary:"Ritmo de aprendizaje diferente; necesita apoyos para la vida diaria.",
+        bullets:{
+          que:"Limitaciones en razonamiento y habilidades adaptativas.",
+          senales:[
+            "Aprende mejor con ejemplos concretos y repetición.",
+            "Necesita más tiempo para nuevas rutinas.",
+            "Dificultad para resolver problemas novedosos."
+          ],
+          ayuda:[
+            "Metas funcionales y práctica en contextos reales.",
+            "Apoyos visuales y pasos cortos.",
+            "Participación activa de la familia."
+          ]
+        },
+        tips:["Metas funcionales","Apoyos naturales","Generalización"],
+        details:{
+          que:"El foco está en la autonomía y la calidad de vida.",
+          como:"Plan de apoyos personalizados y coordinación con la escuela/comunidad.",
+          apoyo:[
+            "Ensayos en comunidad (compras, transporte).",
+            "Refuerzos positivos y rutina clara.",
+            "Tecnología de apoyo sencilla (recordatorios, pictos)."
+          ]
+        }
+      },
+      {
+        id:"tics", img:"img/especialidades/tics.png",
+        title:"Tics / Tourette",
+        subtitle:"Motores o vocales; pueden aumentar con estrés",
+        summary:"Movimientos o sonidos involuntarios que aparecen y desaparecen.",
+        bullets:{
+          que:"Tics crónicos, a veces Tourette, no son ‘mañas’.",
+          senales:["Parpadeos, carraspeo, movimientos bruscos.","Aumentan con cansancio o nervios.","Pueden molestar en clase o socialmente."],
+          ayuda:["Psicoeducación y respeto; evitar burlas.","Técnicas CBIT con profesional.","Dormir bien y manejar el estrés."]
+        },
+        tips:["Psicoeducación","Manejo del estrés","CBIT"],
+        details:{
+          que:"Entender el tic reduce la angustia y la presión por suprimir.",
+          como:"Entrenamiento conductual (CBIT) y adaptaciones discretas.",
+          apoyo:[
+            "Acuerdos con el colegio para permitir pausas.",
+            "Evitar castigos por tics.",
+            "Registrar factores que los aumentan."
+          ]
+        }
+      },
+      {
+        id:"altadot", img:"img/especialidades/altadot.png",
+        title:"Alta dotación / superdotación",
+        subtitle:"Capacidades altas con posibles desbalances",
+        summary:"Mucho potencial en áreas específicas y, a la vez, sensibilidad o frustración.",
+        bullets:{
+          que:"Desarrollo cognitivo avanzado, a veces asincrónico con lo emocional.",
+          senales:["Aburrimiento con tareas repetitivas.","Intereses intensos, perfeccionismo.","Sensible a la crítica o a la injusticia."],
+          ayuda:["Enriquecimiento y retos reales.","Trabajo socioemocional y tolerancia a la frustración.","Mentoría o proyectos personales."]
+        },
+        tips:["Enriquecimiento","Mentoría","Socioemocional"],
+        details:{
+          que:"No basta ‘más tarea’; se necesita reto significativo y cuidado emocional.",
+          como:"Diseñar proyectos de interés con metas y acompañamiento.",
+          apoyo:[
+            "Espacios con pares afines.",
+            "Feedback centrado en proceso, no solo logros.",
+            "Higiene de sueño y equilibrio ocio–estudio."
+          ]
+        }
+      },
+      {
+        id:"sindromes", img:"img/especialidades/sindromes.png",
+        title:"Síndromes genéticos",
+        subtitle:"Down, X-Frágil y otros",
+        summary:"Cada síndrome tiene un perfil cognitivo y conductual característico.",
+        bullets:{
+          que:"Condiciones genéticas con impacto en aprendizaje y adaptación.",
+          senales:["Retrasos en hitos, tono muscular bajo o rasgos conductuales.","Necesidad de apoyos en autonomía y lenguaje."],
+          ayuda:["Estimulación temprana y seguimiento médico.","Apoyos visuales y rutinas previsibles.","Trabajo coordinado con la familia."]
+        },
+        tips:["Psicoeducación","Apoyos visuales","Salud integral"],
+        details:{
+          que:"El plan se adapta al perfil específico del síndrome.",
+          como:"Metas funcionales y red interdisciplinaria.",
+          apoyo:[
+            "Comunicación aumentativa si se requiere.",
+            "Actividades en comunidad con inclusión real.",
+            "Cuidar la salud del cuidador principal."
+          ]
+        }
+      },
+      {
+        id:"perinatal", img:"img/especialidades/perinatal.png",
+        title:"Secuelas perinatales",
+        subtitle:"Prematuridad, anoxia, parálisis cerebral",
+        summary:"Perfiles mixtos motor–cognitivo que requieren apoyos sostenidos.",
+        bullets:{
+          que:"Consecuencias de eventos alrededor del nacimiento.",
+          senales:["Retrasos motores y atencionales.","Fatiga y necesidad de más tiempo."],
+          ayuda:["Atención temprana y fisioterapia/TO.","Adaptaciones escolares realistas.","Apoyos para comunicación y movilidad."]
+        },
+        tips:["Atención temprana","Fisioterapia/TO","Apoyos escolares"],
+        details:{
+          que:"Cada caso tiene un recorrido distinto; se mide progreso funcional.",
+          como:"Equipos integrados y metas por etapas.",
+          apoyo:[
+            "Tecnologías de apoyo (comunicación, movilidad).",
+            "Entrenar a la familia en cuidados y juego terapéutico.",
+            "Plan de transición a la escuela."
+          ]
+        }
+      },
+
+      // ===== Neurológicas adquiridas =====
+      {
+        id:"tce", img:"img/especialidades/tce.png",
+        title:"Traumatismo craneoencefálico (TCE)",
+        subtitle:"Conmoción y TCE leve–grave",
+        summary:"Puede dejar lentitud mental, dolores de cabeza y fatiga.",
+        bullets:{
+          que:"Golpe o sacudida que afecta el cerebro.",
+          senales:["Dificultad para concentrarse y recordar.","Se cansa con estímulos (pantallas/ruido)."],
+          ayuda:["‘Pacing’: dosificar esfuerzos.","Sueño regular y rehabilitación por etapas.","Apoyos de memoria (listas, apps)."]
+        },
+        tips:["Pacing","Rutinas","Apoyos de memoria"],
+        details:{
+          que:"Los síntomas postconmoción suelen mejorar; la rehabilitación acelera la recuperación.",
+          como:"Plan por fases, retorno gradual al trabajo/estudio.",
+          apoyo:[
+            "Evitar multitarea; hacer una cosa por vez.",
+            "Control de luz/pantallas.",
+            "Chequeo de ánimo y ansiedad post-trauma."
+          ]
+        }
+      },
+      {
+        id:"acv", img:"img/especialidades/acv.png",
+        title:"Accidente cerebrovascular (ACV)",
+        subtitle:"Afasia, apraxia, negligencia, agnosia",
+        summary:"Cambia el habla, el movimiento o la atención; necesita rehabilitación.",
+        bullets:{
+          que:"Interrupción del flujo sanguíneo en el cerebro.",
+          senales:["Dificultad para hablar o comprender.","Debilidad de un lado, olvidos espaciales."],
+          ayuda:["Lenguaje claro y gestos.","Entorno seguro y señalizado.","Terapias coordinadas."]
+        },
+        tips:["Lenguaje claro","Entorno seguro","Rehab interdisciplinaria"],
+        details:{
+          que:"El pronóstico mejora con intervención temprana y metas funcionales.",
+          como:"Trabajo conjunto con fono, fisio y neuropsicología.",
+          apoyo:[
+            "Repetir y escribir palabras clave.",
+            "Entrenar actividades de la vida diaria.",
+            "Apoyos para orientación (relojes, calendarios visibles)."
+          ]
+        }
+      },
+      {
+        id:"epilepsia", img:"img/especialidades/epilepsia.png",
+        title:"Epilepsia",
+        subtitle:"Incluye evaluación pre/postquirúrgica",
+        summary:"Puede afectar memoria y atención; algunos fármacos dan somnolencia.",
+        bullets:{
+          que:"Crisis por actividad eléctrica cerebral anómala.",
+          senales:["Lagunas de memoria, confusión postcrisis.","Ansiedad por tener crisis."],
+          ayuda:["Adherencia al tratamiento y buen sueño.","Plan de seguridad familiar y escolar.","Compensaciones de memoria."]
+        },
+        tips:["Sueño","Adherencia","Registro de crisis"],
+        details:{
+          que:"Una buena educación sobre la epilepsia reduce el miedo y mejora el control.",
+          como:"Registro de crisis y estrategias cognitivas sencillas.",
+          apoyo:[
+            "Evitar disparadores (deprivación de sueño, alcohol).",
+            "Pulsera o documento de información médica.",
+            "Separar estudio en sesiones cortas."
+          ]
+        }
+      },
+      {
+        id:"em", img:"img/especialidades/em.png",
+        title:"Esclerosis múltiple y desmielinizantes",
+        subtitle:"Variabilidad cognitiva y fatiga",
+        summary:"Atención y memoria pueden fluctuar a lo largo del día.",
+        bullets:{
+          que:"Enfermedades que dañan la mielina de las neuronas.",
+          senales:["Fatiga mental, ‘neblina’ y lentitud.","Días buenos y malos."],
+          ayuda:["Planificar picos de energía.","Listas/recordatorios externos.","Actividad física suave."]
+        },
+        tips:["Gestión de energía","Apoyos externos","Ejercicio suave"],
+        details:{
+          que:"La rehabilitación cognitiva y el manejo de la fatiga mejoran el funcionamiento diario.",
+          como:"Entrenamiento en planificación y hábitos protectores.",
+          apoyo:[
+            "Rutina predecible con descansos.",
+            "Comunicar límites sin culpa.",
+            "Cuidar estado de ánimo."
+          ]
+        }
+      },
+      {
+        id:"movimiento", img:"img/especialidades/movimiento.png",
+        title:"Trastornos del movimiento",
+        subtitle:"Parkinson, Huntington, ataxias",
+        summary:"Pueden aparecer lentitud y dificultades para planificar.",
+        bullets:{
+          que:"Alteraciones de ganglios basales o cerebelo.",
+          senales:["Rigidez, temblor o torpeza.","Bloqueos en secuencias motoras."],
+          ayuda:["Señales externas (marcas, metrónomo).","Fisioterapia y rutinas claras.","Tareas de a un paso."]
+        },
+        tips:["Pacing","Señales externas","Fisioterapia"],
+        details:{
+          que:"La combinación de rehabilitación motora y estrategias cognitivas mejora la autonomía.",
+          como:"Simplificar entornos y reforzar secuencias clave.",
+          apoyo:[
+            "Apoyos para seguridad en el hogar.",
+            "Entrenar uso de ayudas técnicas.",
+            "Planificación de medicación con alarmas."
+          ]
+        }
+      },
+      {
+        id:"tumores", img:"img/especialidades/tumores.png",
+        title:"Tumores, encefalitis, hipoxia/anoxia",
+        subtitle:"Perfiles cognitivos variables",
+        summary:"El impacto depende de la zona afectada y los tratamientos.",
+        bullets:{
+          que:"Lesiones focales o difusas del cerebro.",
+          senales:["Atención y memoria bajas, cambios de conducta.","Fatiga marcada."],
+          ayuda:["Metas pequeñas y medibles.","Apoyos ambientales visibles.","Trabajo con la red de apoyo."]
+        },
+        tips:["Psicoeducación","Rutinas","Rehab"],
+        details:{
+          que:"El plan se adapta a cada fase (aguda, subaguda, crónica).",
+          como:"Rehabilitación centrada en actividades con sentido.",
+          apoyo:[
+            "Entrenar comunicación con la familia.",
+            "Plan de energía diario.",
+            "Apoyo emocional al cuidador."
+          ]
+        }
+      },
+      {
+        id:"dcl", img:"img/especialidades/demencia.png",
+        title:"Deterioro cognitivo leve y demencias",
+        subtitle:"Alzheimer, frontotemporal, vascular, Lewy, mixtas",
+        summary:"Cambios en memoria, lenguaje o conducta que requieren seguimiento.",
+        bullets:{
+          que:"Alteraciones superiores a lo esperable por edad.",
+          senales:["Olvidos de lo reciente, desorientación.","Cambios de personalidad o juicio."],
+          ayuda:["Entorno seguro y rutinas estables.","Estimulación cognitiva y actividad física.","Apoyo al cuidador."]
+        },
+        tips:["Estimulación","Entorno seguro","Cuidadores"],
+        details:{
+          que:"El diagnóstico temprano permite planificar apoyos y proteger la autonomía.",
+          como:"Cuidados centrados en la persona y prevención de riesgos.",
+          apoyo:[
+            "Señalización de espacios, calendario visible.",
+            "Ejercicio, socialización y dieta saludable.",
+            "Cuidar al cuidador: respiros, redes y educación."
+          ]
+        }
+      },
+      {
+        id:"posuci", img:"img/especialidades/posuci.png",
+        title:"Pos-UCI y encefalopatías",
+        subtitle:"Metabólica, hepática, tóxica",
+        summary:"Después de una enfermedad grave puede quedar ‘neblina mental’.",
+        bullets:{
+          que:"Disfunción cognitiva asociada a enfermedad crítica.",
+          senales:["Fatiga, atención baja, ansiedad.","Dificultad para retomar rutinas."],
+          ayuda:["Rehabilitación progresiva.","Higiene del sueño y nutrición.","Apoyos externos simples."]
+        },
+        tips:["Rehab gradual","Sueño","Apoyos externos"],
+        details:{
+          que:"La recuperación lleva semanas/meses; medir avances ayuda a motivar.",
+          como:"Metas semanales y control de energía.",
+          apoyo:[
+            "Diario de recuperación.",
+            "Pausas planificadas.",
+            "Acompañamiento emocional."
+          ]
+        }
+      },
+
+      // ===== Salud mental con afectación cognitiva =====
+      {
+        id:"psicosis", img:"img/especialidades/psicosis.png",
+        title:"Esquizofrenia y trastornos psicóticos",
+        subtitle:"Déficits en atención, memoria y funciones ejecutivas",
+        summary:"La cognición es clave para el pronóstico funcional.",
+        bullets:{
+          que:"Trastornos con alteraciones del pensamiento y la percepción.",
+          senales:["Dificultad para organizar el día.","Olvidos y distracción."],
+          ayuda:["Estructura diaria sencilla.","Metas pequeñas y reforzables.","Adherencia al tratamiento."]
+        },
+        tips:["Estructura diaria","Metas pequeñas","Adherencia"],
+        details:{
+          que:"Además de los síntomas, trabajamos habilidades prácticas para la vida diaria.",
+          como:"Rehabilitación psicosocial y entrenamiento cognitivo funcional.",
+          apoyo:[
+            "Listas de pasos y horarios visibles.",
+            "Apoyos sociales y redes.",
+            "Chequeo de sueño y estrés."
+          ]
+        }
+      },
+      {
+        id:"afectivo", img:"img/especialidades/afectivo.png",
+        title:"Bipolar, depresión mayor y ansiedad",
+        subtitle:"Procesamiento lento y ejecutivas",
+        summary:"El estado emocional influye en la atención y la memoria.",
+        bullets:{
+          que:"Trastornos del ánimo/ansiedad con impacto en la cognición.",
+          senales:["‘Nieblas’ de concentración, fatiga, rumiación.","Evita tareas por ansiedad o desgano."],
+          ayuda:["Rutinas amables y sueño sólido.","Planificación según energía (A/B).","Técnicas de respiración y mindfulness."]
+        },
+        tips:["Sueño","Planificación ligera","Mindfulness"],
+        details:{
+          que:"La autocompasión y los hábitos regulares son parte del tratamiento.",
+          como:"Psicoeducación, activación conductual y herramientas de foco.",
+          apoyo:[
+            "Plan diario mínimo (3 tareas pequeñas).",
+            "Exposición gradual para ansiedad.",
+            "Registro de logros, aunque sean pequeños."
+          ]
+        }
+      },
+      {
+        id:"tept", img:"img/especialidades/tept.png",
+        title:"TEPT",
+        subtitle:"Memoria, atención y control inhibitorio",
+        summary:"La hiperactivación dificulta concentrarse y dormir.",
+        bullets:{
+          que:"Respuesta prolongada tras un evento traumático.",
+          senales:["Pesadillas, recuerdos intrusivos.","Estado de alerta, sobresaltos."],
+          ayuda:["Anclajes sensoriales y respiración.","Rutinas seguras y predecibles.","Pacing para no sobrecargarse."]
+        },
+        tips:["Anclajes","Rutinas seguras","Pacing"],
+        details:{
+          que:"Las técnicas de regulación son el primer piso para avanzar en terapia.",
+          como:"Plan de seguridad y estabilización; luego trabajo del trauma.",
+          apoyo:[
+            "Técnica 5-4-3-2-1, respiración 4-7-8.",
+            "Reducir cafeína/alcohol.",
+            "Apoyos sociales de confianza."
+          ]
+        }
+      },
+      {
+        id:"toc", img:"img/especialidades/toc.png",
+        title:"TOC",
+        subtitle:"Flexibilidad cognitiva y planificación",
+        summary:"Las obsesiones y rituales consumen tiempo y energía.",
+        bullets:{
+          que:"Pensamientos intrusivos y compulsiones para reducir malestar.",
+          senales:["Lavados, revisiones o conteos repetitivos.","Evita situaciones por miedo a ‘y si…’"],
+          ayuda:["Terapia ERP con profesional.","Rutinas funcionales y límites amables.","Higiene del sueño y manejo del estrés."]
+        },
+        tips:["ERP (clínico)","Rutinas funcionales","Límites amables"],
+        details:{
+          que:"El objetivo no es ‘cero pensamientos’, sino vivir con mayor libertad.",
+          como:"Exposición con prevención de respuesta + herramientas de vida diaria.",
+          apoyo:[
+            "Evitar acomodaciones que alimentan el ciclo.",
+            "Progresiones graduales y medibles.",
+            "Cuidar la fatiga con descanso planificado."
+          ]
+        }
+      },
+      {
+        id:"sustancias", img:"img/especialidades/sustancias.png",
+        title:"Trastornos por uso de sustancias",
+        subtitle:"Trastorno neurocognitivo inducido",
+        summary:"Afecta atención, memoria y autocontrol; la recuperación es posible.",
+        bullets:{
+          que:"Consumo problemático con efectos en el cerebro.",
+          senales:["Olvidos, impulsividad, bajones de ánimo.","Conflictos en casa/estudio/trabajo."],
+          ayuda:["Plan de reducción/abstinencia y redes de apoyo.","Hábitos básicos (sueño/comida/actividad).","Evitar disparadores."]
+        },
+        tips:["Red de apoyo","Rutinas saludables","Evitar disparadores"],
+        details:{
+          que:"La constancia supera a los ‘grandes esfuerzos’ aislados.",
+          como:"Acompañamiento interdisciplinario y objetivos semanales.",
+          apoyo:[
+            "Sustituir hábitos por alternativas sanas.",
+            "Plan para momentos de riesgo.",
+            "Atender comorbilidades (ansiedad/depresión)."
+          ]
+        }
+      },
+      {
+        id:"somato", img:"img/especialidades/somato.png",
+        title:"Trastornos somatomorfos y funcionales",
+        subtitle:"Quejas cognitivas sin lesión estructural",
+        summary:"Los síntomas son reales; ayuda un enfoque mente-cuerpo.",
+        bullets:{
+          que:"Síntomas físicos/neurológicos sin causa orgánica suficiente.",
+          senales:["Dolores, hormigueos, cansancio con pruebas normales.","Preocupación por la salud que interfiere."],
+          ayuda:["Validación y psicoeducación.","Plan de actividad gradual.","Manejo del estrés y del sueño."]
+        },
+        tips:["Validación","Pacing","Psicoeducación"],
+        details:{
+          que:"Explicar el modelo biopsicosocial reduce la angustia.",
+          como:"Aumentar gradualmente la actividad y mejorar el descanso.",
+          apoyo:[
+            "Registrar ‘gatillos’ y alivios.",
+            "Respiración, relajación muscular.",
+            "Limitar búsquedas médicas repetitivas sin guía."
+          ]
+        }
+      },
+
+      // ===== Otros cuadros =====
+      {
+        id:"dolor", img:"img/especialidades/dolor.png",
+        title:"Dolor crónico / fibromialgia / fatiga crónica",
+        subtitle:"‘Niebla mental’ y baja energía",
+        summary:"El dolor y la fatiga consumen recursos cognitivos.",
+        bullets:{
+          que:"Síndromes de sensibilización que afectan atención y memoria.",
+          senales:["Olvidos, dificultad para planificar.","Empeoran con sobreesfuerzo."],
+          ayuda:["Pacing y economía de energía.","Sueño y movimiento suave.","Apoyos externos para memoria."]
+        },
+        tips:["Pacing","Sueño","Movimiento suave"],
+        details:{
+          que:"La constancia en micro-hábitos rinde más que los esfuerzos puntuales.",
+          como:"Plan 3×3 (tres tareas pequeñas al día) y descansos programados.",
+          apoyo:[
+            "Hidratación y luz natural.",
+            "Respiración diafragmática varias veces al día.",
+            "Validar emociones y pedir ayuda cuando se necesite."
+          ]
+        }
+      },
+      {
+        id:"sueno", img:"img/especialidades/sueno.png",
+        title:"Trastornos del sueño",
+        subtitle:"Apnea e insomnio con impacto cognitivo",
+        summary:"Dormir mejor mejora atención, memoria y ánimo.",
+        bullets:{
+          que:"Problemas para conciliar/ mantener el sueño o respirar adecuadamente.",
+          senales:["Somnolencia diurna, dolor de cabeza, irritabilidad.","Ronquidos fuertes o pausas respiratorias."],
+          ayuda:["Rutina fija y luz de mañana.","Pantallas fuera del dormitorio.","Consultar por apnea si hay ronquidos."]
+        },
+        tips:["Rutina fija","Luz mañana","Pantallas fuera"],
+        details:{
+          que:"El sueño es un tratamiento en sí mismo.",
+          como:"Higiene del sueño + TCC-I.",
+          apoyo:[
+            "Cama solo para dormir.",
+            "Cortar cafeína por la tarde.",
+            "Si no duermes en 20′, levántate y vuelve cuando tengas sueño."
+          ]
+        }
+      },
+      {
+        id:"postinf", img:"img/especialidades/postinf.png",
+        title:"Secuelas cognitivas post-infecciosas",
+        subtitle:"‘Niebla mental’",
+        summary:"Tras una infección, la concentración puede bajar por semanas.",
+        bullets:{
+          que:"Síntomas cognitivos y de fatiga post-infección.",
+          senales:["Lentitud, olvidos, intolerancia al esfuerzo.","Ánimo variable."],
+          ayuda:["Pacing y listas cortas.","Hidratación y movimiento leve.","Expectativas realistas (mejora gradual)."]
+        },
+        tips:["Pacing","Listas cortas","Movimiento suave"],
+        details:{
+          que:"La mejoría suele ser progresiva: medir avances ayuda.",
+          como:"Entrenamiento suave de atención y memoria funcional.",
+          apoyo:[
+            "Lista 3×3 (máx. 3 pendientes clave).",
+            "Descansos activos al aire libre.",
+            "Cuidar el sueño y la nutrición."
+          ]
+        }
+      },
+      {
+        id:"sistemicas", img:"img/especialidades/sistemicas.png",
+        title:"Enfermedades sistémicas con compromiso neurocognitivo",
+        subtitle:"Lupus, VIH, celiaquía, etc.",
+        summary:"Inflamación y tratamientos pueden afectar la mente.",
+        bullets:{
+          que:"Enfermedades del cuerpo con impacto cerebral.",
+          senales:["Atención baja, lentitud, cambios de humor.","Días variables."],
+          ayuda:["Control médico y adherencia.","Rutinas predecibles.","Apoyos externos simples."]
+        },
+        tips:["Control médico","Rutinas","Apoyos externos"],
+        details:{
+          que:"La coordinación con el especialista es central.",
+          como:"Plan de autocuidado y rehabilitación cognitiva funcional.",
+          apoyo:[
+            "Señales visuales para medicación.",
+            "Actividad física acorde al estado.",
+            "Apoyo emocional y social."
+          ]
+        }
+      },
+      {
+        id:"envejecimiento", img:"img/especialidades/envejecimiento.png",
+        title:"Envejecimiento normal vs. patológico",
+        subtitle:"Línea base y seguimiento",
+        summary:"Algunos olvidos son normales; otros requieren evaluación.",
+        bullets:{
+          que:"Diferenciar cambios esperables de señales de alerta.",
+          senales:["Tarda más en recordar pero luego recuerda (normal).","Olvida lo recién conversado y no aparece luego (alerta)."],
+          ayuda:["Chequeo anual de memoria.","Hábitos protectores (ejercicio, socialización).","Control vascular (presión, glucosa)."]
+        },
+        tips:["Chequeo anual","Estimulación","Salud vascular"],
+        details:{
+          que:"Tener una línea base de memoria vale oro para comparar.",
+          como:"Plan de estimulación y control de factores de riesgo.",
+          apoyo:[
+            "Oír bien (audífonos si hace falta) y dormir mejor.",
+            "Aprender cosas nuevas cada año.",
+            "Rutinas y calendarios visibles."
+          ]
+        }
+      },
+      {
+        id:"peritaje", img:"img/especialidades/peritaje.png",
+        title:"Peritaje y aptitudes",
+        subtitle:"Capacidad civil, retorno a estudios/trabajo, conducción, riesgos",
+        summary:"Evaluación objetiva para decisiones legales, laborales o educativas.",
+        bullets:{
+          que:"Pruebas estandarizadas y análisis funcional.",
+          senales:["Dudas sobre capacidades o seguridad.","Necesidad de recomendaciones claras."],
+          ayuda:["Informes comprensibles.","Sugerencias prácticas y medibles.","Plan de seguimiento cuando aplica."]
+        },
+        tips:["Informes claros","Recomendaciones prácticas","Seguimiento"],
+        details:{
+          que:"Se responde una pregunta concreta con metodología objetiva.",
+          como:"Entrevista, pruebas y análisis de tareas reales.",
+          apoyo:[
+            "Propuestas de adaptación razonable.",
+            "Plan de retorno gradual.",
+            "Perfil de riesgo y medidas de protección."
+          ]
+        }
+      }
+    ];
+
+    /* ========= RENDER ========= */
+    const $grid = document.getElementById('grid');
+    const $finder = document.getElementById('finder');
+    const $overlay = document.getElementById('overlay');
+    const $btnClose = document.getElementById('btnClose');
+    const $modalTitle = document.getElementById('modalTitle');
+    const $modalBody = document.getElementById('modalBody');
+    const $modalHero = document.getElementById('modalHero');
+
+    function cardTpl(sp){
+      const img = sp.img ? `style="background-image:url('${sp.img}')" ` : "";
+      return `
+        <article class="card" data-id="${sp.id}" tabindex="0" role="button" aria-label="Abrir ${sp.title}">
+          <div class="card-img" ${img}></div>
+          <div class="card-body">
+            <h3>${sp.title}</h3>
+            <div class="subtitle">${sp.subtitle}</div>
+            <p>${sp.summary}</p>
+            <div class="chips">${(sp.tips||[]).map(t=>`<span class="chip">${t}</span>`).join('')}</div>
+          </div>
+          <button class="btn-more" data-id="${sp.id}"><i class="fa-solid fa-up-right-from-square"></i> Ver más</button>
+        </article>
+      `;
+    }
+
+    function render(list){
+      $grid.innerHTML = list.map(cardTpl).join('');
+      document.querySelectorAll('.btn-more').forEach(btn=>{
+        btn.addEventListener('click', (e)=>{ e.stopPropagation(); openModalById(btn.dataset.id); });
+      });
+      document.querySelectorAll('.card').forEach(card=>{
+        card.addEventListener('click', ()=> openModalById(card.dataset.id));
+        card.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' ') { e.preventDefault(); openModalById(card.dataset.id); } });
+      });
+    }
+
+    render(SPECIALTIES);
+
+    /* ========= SEARCH ========= */
+    function norm(s){ return (s||"").toString().toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu,''); }
+    $finder.addEventListener('input', ()=>{
+      const q = norm($finder.value);
+      if(!q){ render(SPECIALTIES); return; }
+      const res = SPECIALTIES.filter(s=>{
+        const inTips = (s.tips||[]).some(t=>norm(t).includes(q));
+        return norm(s.title).includes(q) || norm(s.subtitle).includes(q) || norm(s.summary).includes(q) || inTips;
+      });
+      render(res);
+    });
+
+    /* ========= MODAL ========= */
+    function sectionBullets(b){
+      if(!b) return "";
+      const sen = (b.senales||[]).map(x=>`<li>${x}</li>`).join('');
+      const ayu = (b.ayuda||[]).map(x=>`<li>${x}</li>`).join('');
+      return `
+        <div class="info-grid">
+          <div class="info-box">
+            <div class="label">Qué es</div>
+            <p>${b.que||""}</p>
+          </div>
+          <div class="info-box">
+            <div class="label">Señales</div>
+            <ul>${sen}</ul>
+          </div>
+          <div class="info-box">
+            <div class="label">Qué ayuda</div>
+            <ul>${ayu}</ul>
+          </div>
+        </div>
+      `;
+    }
+
+    function openModalById(id){
+      const sp = SPECIALTIES.find(x=>x.id===id);
+      if(!sp) return;
+      $modalTitle.textContent = sp.title;
+      $modalHero.style.backgroundImage = sp.img ? `url('${sp.img}')` : 'none';
+      $modalBody.innerHTML = `
+        <p style="margin-top:0;color:#415b7d;font-weight:800">${sp.subtitle}</p>
+        <p><strong>Resumen:</strong> ${sp.summary}</p>
+
+        ${sectionBullets(sp.bullets)}
+
+        <h4>¿Cómo lo abordamos?</h4>
+        <p>${sp.details.como}</p>
+
+        <h4>Apoyos prácticos</h4>
+        <ul>${(sp.details.apoyo||[]).map(x=>`<li>${x}</li>`).join('')}</ul>
+
+        <div class="chips">${(sp.tips||[]).map(t=>`<span class="chip">${t}</span>`).join('')}</div>
+
+        <h4>Más sobre el cuadro</h4>
+        <p>${sp.details.que}</p>
+      `;
+      $overlay.classList.add('is-open');
+      document.body.style.overflow='hidden';   // bloquea scroll del fondo
+      $btnClose.focus();
+    }
+    function closeModal(){
+      $overlay.classList.remove('is-open');
+      document.body.style.overflow='';
+    }
+    document.getElementById('btnClose').addEventListener('click', closeModal);
+    $overlay.addEventListener('click', (e)=>{ if(e.target===$overlay) closeModal(); });
+    window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
+  </script>
+</body>
+</html>

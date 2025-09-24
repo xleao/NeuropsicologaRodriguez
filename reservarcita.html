@@ -40,12 +40,12 @@
     }
     a{color:inherit}
 
-    /* ===== HEADER + NAV ===== */
+    /* ===== HEADER (idéntico al modelo) ===== */
     header{
       position:sticky;top:0;z-index:1000;
       background:linear-gradient(90deg,var(--blue-900),var(--blue-700));
       color:#fff;
-      padding:16px 22px;
+      padding:14px 20px; /* <- como el modelo */
       box-shadow:var(--shadow);
     }
     .topbar{
@@ -53,63 +53,57 @@
       display:flex;align-items:center;gap:14px;justify-content:space-between;
     }
     .brand{display:flex;align-items:center;gap:10px}
-    .brand h1{
-      font-family:'Raleway',sans-serif;
-      font-size:28px;margin:0;letter-spacing:.6px;
-    }
+    .brand h1{font-size:26px;margin:0;letter-spacing:.6px} /* <- como el modelo */
+    /* Iconos sociales en el header (idénticos al modelo) */
     .quick{display:flex;gap:10px;opacity:.95}
-    .quick span{
-      display:flex;align-items:center;gap:8px;
-      background:rgba(255,255,255,.14);
-      padding:10px 16px;
-      border:1.5px solid rgba(255,255,255,.28);
-      border-radius:999px;
-      font-size:15px;
-      box-shadow:0 8px 16px rgba(0,0,0,.12);
-    }
-    /* Iconos sociales en el header */
     .quick a.social{
       display:inline-grid;place-items:center;
-      width:40px;height:40px;border-radius:999px;
+      width:36px;height:36px;border-radius:999px;
       background:rgba(255,255,255,.14);
       border:1.5px solid rgba(255,255,255,.28);
       color:#fff;text-decoration:none;
-      box-shadow:0 8px 16px rgba(0,0,0,.12);
-      transition:.25s;font-size:18px
+      transition:.25s;font-size:16px
     }
     .quick a.social:hover{background:#66b3ff;color:#002244}
 
-    nav{background:var(--blue-800);}
+    /* ===== NAV (idéntico al modelo) ===== */
+    nav{background:var(--blue-800)}
     .navlinks{
       max-width:1200px;margin:auto;
-      display:flex;justify-content:center;gap:28px;
-      padding:10px 0;
+      display:flex;justify-content:center;gap:18px;
+      padding:12px 0; /* <- como el modelo */
+      flex-wrap:wrap
     }
     .navlinks a{
-      color:#fff;text-decoration:none;position:relative;
-      background:rgba(255,255,255,.12);
-      border:1.5px solid rgba(255,255,255,.28);
-      border-radius:999px;padding:12px 20px;
-      font-weight:700;font-size:1.05rem;transition:.3s;
-      display:inline-flex;align-items:center;gap:8px;
+      color:#fff;text-decoration:none;background:rgba(255,255,255,.12);
+      border:1.5px solid rgba(255,255,255,.28);border-radius:999px;
+      padding:12px 20px; /* <- como el modelo */
+      font-weight:800;font-size:1.04rem; /* <- como el modelo */
+      transition:.3s;display:inline-flex;align-items:center;gap:8px
     }
-    @media (min-width:768px){.navlinks a{font-size:1.15rem;padding:14px 24px}}
     .navlinks a:hover{background:#66b3ff;color:#002244}
 
-    /* ====== Botón de audio en NAV (añadido) ====== */
-    nav{position:relative;} /* anclaje del botón */
-    .nav-audio-btn{
-      position:absolute;left:10px;top:50%;transform:translateY(-50%);
-      display:inline-flex;align-items:center;gap:8px;
-      color:#fff;cursor:pointer;
-      background:rgba(255,255,255,.12);
-      border:1.5px solid rgba(255,255,255,.28);
-      border-radius:999px;padding:10px 14px;font-weight:700;
-      box-shadow:0 8px 16px rgba(0,0,0,.12);
+    /* ===== Punto verde “Cortexa” (más chillón y notorio) ===== */
+    .navlinks a.cx-live{display:inline-flex;align-items:center;gap:8px}
+    .navlinks a.cx-live .cx-dot{
+      width:10px;height:10px;border-radius:50%;
+      background:#00ff40e7;                    /* verde CHILLÓN */
+      box-shadow:0 0 10px rgba(0,255,106,.75);/* brillo más fuerte */
+      margin-right:0;                         /* pegado al texto */
+      position:relative;
+      animation:pulseDot 2.5s ease-in-out infinite; /* latido lento */
+      transform-origin:center center;
     }
-    .nav-audio-btn:hover{background:#66b3ff;color:#002244}
-    .nav-audio-text{font-size:12px;font-weight:700}
-    @media (max-width:900px){.nav-audio-text{display:none}}
+    .navlinks a.cx-live .cx-dot::after{
+      content:"";position:absolute;inset:-6px;border-radius:inherit;
+      background:rgba(0,255,106,.28);         /* halo exterior */
+      filter:blur(2px);
+    }
+    @keyframes pulseDot{
+      0%   { transform:scale(1.00); box-shadow:0 0 10px rgba(0,255,106,.75); }
+      45%  { transform:scale(0.82); box-shadow:0 0 6px  rgba(0,255,106,.50); }
+      100% { transform:scale(1.00); box-shadow:0 0 10px rgba(0,255,106,.75); }
+    }
 
     /* ===== CONTENIDO ===== */
     .content-container{padding:50px 0}
@@ -182,12 +176,13 @@
       padding:18px;margin-top:24px;box-shadow:0 -6px 18px rgba(0,0,0,.06)
     }
 
-    /* Responsive */
-    @media (max-width:640px){
+    /* Responsive (mismo ajuste del modelo en nav) */
+    @media (max-width:900px){
       .brand h1{font-size:24px}
-      .quick span{font-size:14px;padding:8px 12px}
-      .navlinks{gap:16px}
-      .navlinks a{font-size:1rem;padding:10px 16px}
+      .navlinks{gap:16px;padding:10px 0}
+      .navlinks a{font-size:1.04rem;padding:12px 18px}
+    }
+    @media (max-width:640px){
       .form-container{padding:28px}
     }
   </style>
@@ -207,7 +202,7 @@
   </script>
   <!-- ====== FIN AUDIO ====== -->
 
-  <!-- ===== HEADER ===== -->
+  <!-- ===== HEADER (copiado tal cual del modelo) ===== -->
   <header>
     <div class="topbar">
       <div class="brand">
@@ -225,18 +220,18 @@
     </div>
   </header>
 
-  <!-- ===== NAV ===== -->
+  <!-- ===== NAV (copiado tal cual del modelo, con punto en Cortexa) ===== -->
   <nav>
-    <!-- Botón de audio pegado al borde izquierdo -->
-    <button id="audioToggle" class="nav-audio-btn" aria-pressed="false"
-            aria-label="Reproducir música relajante" title="Reproducir música relajante">
-      <i class="fas fa-play" aria-hidden="true"></i>
-      <span class="nav-audio-text">Reproducir música relajante</span>
-    </button>
-
     <div class="navlinks">
       <a href="index.html"><i class="fas fa-home" aria-hidden="true"></i> Inicio</a>
       <a href="sobremi.html"><i class="fas fa-user" aria-hidden="true"></i> Sobre Mí</a>
+
+      <!-- Cortexa con punto verde animado a la izquierda -->
+      <a href="cortexa.html" class="cx-live">
+        <span class="cx-dot" aria-hidden="true"></span> Cortexa
+      </a>
+
+      <a href="especialidades.html"><i class="fas fa-brain" aria-hidden="true"></i> Especialidades</a>
       <a href="reservarcita.html"><i class="fas fa-calendar-check" aria-hidden="true"></i> Reservar Cita</a>
     </div>
   </nav>
@@ -322,7 +317,7 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const bgm = document.getElementById('site-bgm');
-      const btn = document.getElementById('audioToggle');
+      const btn = document.getElementById('audioToggle'); // puede no existir
       if (!bgm || !btn) return;
 
       const icon = btn.querySelector('i');
