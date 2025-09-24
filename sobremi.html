@@ -224,6 +224,22 @@
       .hero-photo{width:200px;height:200px;margin:auto}
       .btn{padding:12px 18px}
       .band .container{grid-template-columns:1fr;gap:16px}
+
+      /* ===== Ajuste solicitado: en móvil, la biografía debajo de la foto circular ===== */
+      .bio{
+        grid-template-columns:1fr;
+        gap:16px;
+        justify-items:center; /* centra la imagen circular */
+        text-align:left;      /* mantiene el texto alineado a la izquierda */
+      }
+      .bio-photo{
+        width:200px;
+        height:200px;
+        margin:0 auto;        /* asegura que la foto quede centrada */
+      }
+      .bio-copy{
+        width:100%;
+      }
     }
     @media (max-width:420px){
       .brand h1{font-size:22px}
