@@ -70,7 +70,7 @@
       max-width:1200px;margin:auto;
       display:flex;justify-content:center;gap:18px;
       padding:12px 0;
-      flex-wrap:wrap
+      flex-wrap:wrap;
     }
     .navlinks a{
       color:#fff;text-decoration:none;background:rgba(255,255,255,.12);
@@ -134,8 +134,25 @@
     .hero h2{font-family:'Raleway',sans-serif; font-size:46px; margin:6px 0 8px;}
     .hero p{margin:4px 0 14px; font-size:18px; opacity:.95}
 
-    .chips{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:12px}
-    .chip{background: rgba(255,255,255,.14);border: 1px solid rgba(255,255,255,.28);padding: 6px 12px;border-radius: 999px;font-size: 13px;}
+    .chips{
+      display:flex; flex-wrap:wrap; gap:10px; margin-bottom:12px;
+      align-items:center;
+    }
+    /* === FIX: números alineados y centrados en chips === */
+    .chip{
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.28);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      display:inline-flex;           /* centra vertical */
+      align-items:center;            /* centra vertical */
+      line-height:1;                 /* evita “botes” por altura de línea */
+      font-variant-numeric: lining-nums tabular-nums;      /* usa dígitos de caja alta y monoespaciados */
+      font-feature-settings: "lnum" 1, "tnum" 1;           /* refuerzo para navegadores */
+      white-space:nowrap;
+    }
+
     .cta{display:flex; gap:14px; flex-wrap:wrap; align-items:center; margin-top:8px}
     .btn{border:none; border-radius:999px; padding:14px 22px; font-weight:800; cursor:pointer; box-shadow:0 10px 24px rgba(0,0,0,.18)}
     .btn-primary{background:#66aaff; color:#002244}
@@ -191,7 +208,13 @@
 
     /* Tiras de credenciales */
     .strip{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:10px}
-    .pill{background:#eef6ff;border:1px solid #cde3ff;color:#2f6cb8;padding:8px 12px;border-radius:999px;font-size:13px}
+    .pill{
+      background:#eef6ff;border:1px solid #cde3ff;color:#2f6cb8;padding:8px 12px;border-radius:999px;font-size:13px;
+      display:inline-flex;align-items:center;line-height:1;
+      font-variant-numeric: lining-nums tabular-nums;
+      font-feature-settings:"lnum" 1, "tnum" 1;
+      white-space:nowrap;
+    }
 
     /* Band */
     .band{background:linear-gradient(90deg,#004a99,#003366);color:#fff}
@@ -209,7 +232,7 @@
 
     footer{background:var(--blue-800);color:#fff;text-align:center;padding:24px;margin-top:24px}
 
-    /* ====== Responsive (idéntico para nav/header + ajustes de contenido) ====== */
+    /* ====== Responsive (idéntico + mejoras mobile) ====== */
     @media (max-width:900px){
       .container{padding:28px 16px}
       .section-title{font-size:24px}
@@ -225,11 +248,37 @@
       .btn{padding:12px 18px}
       .band .container{grid-template-columns:1fr;gap:16px}
     }
-    @media (max-width:420px){
+
+    /* Extra mobile polish */
+    @media (max-width:600px){
+      header{padding:12px 14px}
       .brand h1{font-size:22px}
+      .navlinks{
+        gap:10px;
+        padding:10px 8px;
+        overflow-x:auto;             /* nav scrollea si no entra */
+        -webkit-overflow-scrolling:touch;
+        justify-content:flex-start;  /* alineado natural en móviles */
+      }
+      .navlinks a{padding:10px 14px;font-size:1rem;flex:0 0 auto}
+      .hero-inner{padding:16px}
+      .glass{padding:18px;border-radius:22px}
+      .hero h2{font-size:28px}
+      .hero p{font-size:15px}
+      .chips{gap:8px}
+      .chip{font-size:12px;padding:6px 10px}
+      .pill{font-size:12px;padding:7px 10px}
+      .bio{grid-template-columns:1fr;gap:16px}
+      .bio-photo{width:200px;height:200px;margin:auto}
       .section-title{font-size:22px}
-      .navlinks{gap:12px}
-      .navlinks a{padding:9px 14px}
+      .whatsapp{right:12px;bottom:12px;padding:10px 14px}
+    }
+
+    @media (max-width:420px){
+      .brand h1{font-size:20px}
+      .section-title{font-size:20px}
+      .navlinks{gap:8px}
+      .navlinks a{padding:9px 12px}
       .chip{font-size:12px}
     }
   </style>
