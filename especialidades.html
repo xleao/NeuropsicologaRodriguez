@@ -150,69 +150,6 @@
       .navlinks a{font-size:1.04rem;padding:12px 18px}
       .brand h1{font-size:24px}
     }
-
-    /* ======= Mejora móvil / tablets ======= */
-    @media (max-width:860px){
-      /* Header */
-      header{padding:12px 14px}
-      .brand h1{font-size:22px}
-
-      /* NAV con desplazamiento si no entra */
-      .navlinks{
-        gap:12px;
-        padding:10px 8px;
-        overflow-x:auto;
-        -webkit-overflow-scrolling:touch;
-        justify-content:flex-start;
-        scrollbar-width:thin;
-      }
-      .navlinks a{flex:0 0 auto; padding:10px 14px; font-size:1rem}
-
-      /* Encabezado de página */
-      .page-head{gap:10px}
-      .page-head h2{font-size:1.35rem}
-      .search{flex:1 1 100%; padding:10px 12px}
-
-      /* Tarjetas */
-      .grid{
-        grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-        gap:16px;
-        padding:0 12px;
-      }
-      .card-img{height:140px}
-      .btn-more{margin:8px 12px 14px}
-
-      /* Modal ocupa más alto útil */
-      .overlay{
-        padding:0; align-items:stretch; justify-content:stretch;
-      }
-      .modal{
-        width:100vw; min-height:100dvh; border-radius:0; box-shadow:none; border:none;
-      }
-      .modal-hero{height:200px}
-      .modal-body{padding:12px 14px 20px}
-      .modal-title{font-size:1.2rem}
-      .btn-close{padding:9px 12px}
-    }
-
-    /* ======= Móvil pequeño ======= */
-    @media (max-width:480px){
-      .page-head{margin:18px auto 8px}
-      .page-head h2{font-size:1.2rem}
-      .search{padding:9px 12px}
-      .grid{
-        grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-        gap:14px;
-      }
-      .card h3{font-size:1.08rem}
-      .subtitle{font-size:.92rem}
-      .chip{font-size:.82rem}
-      .btn-more{width:calc(100% - 24px); justify-content:center}
-
-      .modal-hero{height:170px}
-      .modal h4{font-size:1.02rem}
-      .modal p, .modal ul{font-size:.98rem}
-    }
   </style>
 </head>
 <body>
