@@ -1,412 +1,590 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Neuropsicóloga Rodríguez — Reservar Cita</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reservar Cita - Neuropsicóloga Mabela Rodríguez</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Raleway:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-  <!-- Favicon -->
-  <link rel="icon" href="img/cerebro.png" type="image/jpeg"/>
-
-  <!-- Fuente única: Raleway -->
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-  <!-- Iconos -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
-
-  <!-- Google Identity Services -->
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
-
-  <style>
-    :root{
-      --blue-900:#002b5c;
-      --blue-800:#003366;
-      --blue-700:#004a99;
-      --blue-600:#005bbf;
-      --sky-100:#e6f2ff;
-      --sky-50:#f3f8ff;
-      --white:#ffffff;
-      --shadow:0 14px 30px rgba(0,0,0,.12);
-      --radius:18px;
-    }
-    *{box-sizing:border-box}
-
-    /* ===== BASE ===== */
-    body{
-      margin:0;
-      font-family:'Raleway',sans-serif;
-      background:linear-gradient(135deg,var(--sky-100),#fff);
-      color:var(--blue-800);
-      overflow-x:hidden;
-    }
-    a{color:inherit}
-
-    /* ===== HEADER (idéntico al modelo) ===== */
-    header{
-      position:sticky;top:0;z-index:1000;
-      background:linear-gradient(90deg,var(--blue-900),var(--blue-700));
-      color:#fff;
-      padding:14px 20px; /* <- como el modelo */
-      box-shadow:var(--shadow);
-    }
-    .topbar{
-      max-width:1200px;margin:auto;
-      display:flex;align-items:center;gap:14px;justify-content:space-between;
-    }
-    .brand{display:flex;align-items:center;gap:10px}
-    .brand h1{font-size:26px;margin:0;letter-spacing:.6px} /* <- como el modelo */
-    /* Iconos sociales en el header (idénticos al modelo) */
-    .quick{display:flex;gap:10px;opacity:.95}
-    .quick a.social{
-      display:inline-grid;place-items:center;
-      width:36px;height:36px;border-radius:999px;
-      background:rgba(255,255,255,.14);
-      border:1.5px solid rgba(255,255,255,.28);
-      color:#fff;text-decoration:none;
-      transition:.25s;font-size:16px
-    }
-    .quick a.social:hover{background:#66b3ff;color:#002244}
-
-    /* ===== NAV (idéntico al modelo) ===== */
-    nav{background:var(--blue-800)}
-    .navlinks{
-      max-width:1200px;margin:auto;
-      display:flex;justify-content:center;gap:18px;
-      padding:12px 0; /* <- como el modelo */
-      flex-wrap:wrap
-    }
-    .navlinks a{
-      color:#fff;text-decoration:none;background:rgba(255,255,255,.12);
-      border:1.5px solid rgba(255,255,255,.28);border-radius:999px;
-      padding:12px 20px; /* <- como el modelo */
-      font-weight:800;font-size:1.04rem; /* <- como el modelo */
-      transition:.3s;display:inline-flex;align-items:center;gap:8px
-    }
-    .navlinks a:hover{background:#66b3ff;color:#002244}
-
-    /* ===== Punto verde “Cortexa” (más chillón y notorio) ===== */
-    .navlinks a.cx-live{display:inline-flex;align-items:center;gap:8px}
-    .navlinks a.cx-live .cx-dot{
-      width:10px;height:10px;border-radius:50%;
-      background:#00ff40e7;                    /* verde CHILLÓN */
-      box-shadow:0 0 10px rgba(0,255,106,.75);/* brillo más fuerte */
-      margin-right:0;                         /* pegado al texto */
-      position:relative;
-      animation:pulseDot 2.5s ease-in-out infinite; /* latido lento */
-      transform-origin:center center;
-    }
-    .navlinks a.cx-live .cx-dot::after{
-      content:"";position:absolute;inset:-6px;border-radius:inherit;
-      background:rgba(0,255,106,.28);         /* halo exterior */
-      filter:blur(2px);
-    }
-    @keyframes pulseDot{
-      0%   { transform:scale(1.00); box-shadow:0 0 10px rgba(0,255,106,.75); }
-      45%  { transform:scale(0.82); box-shadow:0 0 6px  rgba(0,255,106,.50); }
-      100% { transform:scale(1.00); box-shadow:0 0 10px rgba(0,255,106,.75); }
-    }
-
-    /* ===== CONTENIDO ===== */
-    .content-container{padding:50px 0}
-
-    h2{
-      text-align:center;color:#fff;background:linear-gradient(90deg,#304d72,#003366);
-      padding:14px 22px;border-radius:999px;width:fit-content;margin:28px auto 18px;
-      box-shadow:var(--shadow);font-size:2.0em;letter-spacing:.5px;border:1px solid rgba(255,255,255,.45);
-    }
-
-    /* ===== LOGIN BOX + FORM ===== */
-    .form-container{
-      display:flex;justify-content:center;align-items:flex-start;
-      margin:20px; padding:40px;
-      background:linear-gradient(180deg,var(--sky-50) 0%, var(--sky-100) 100%);
-      border:1.8px solid #cfe2ff;
-      border-radius:22px;
-      box-shadow: 0 10px 30px rgba(0,40,100,.08), inset 0 1px 0 rgba(255,255,255,.6);
-      flex-direction:column; gap:18px;
-      max-width:900px; margin-inline:auto;
-    }
-
-    .auth-row{
-      display:flex;align-items:center;gap:14px;flex-wrap:wrap;
-      background:#fff; border:1.5px solid #cfe2ff; border-radius:14px; padding:12px 14px;
-      box-shadow:0 6px 14px rgba(0,0,0,.06);
-    }
-    .auth-status{font-size:.95rem;color:#24415f}
-    .chip{
-      background:#eef6ff;border:1px solid #cde3ff;color:#003a7a;
-      padding:6px 10px;border-radius:999px;font-size:.9rem
-    }
-    .signout-btn{
-      border:none;border-radius:999px;padding:10px 14px;font-weight:700;cursor:pointer;
-      background:#f0f5ff;border:1px solid #cfe2ff;color:#003a7a;
-    }
-
-    form{
-      display:flex;flex-direction:column;gap:16px;
-      width:100%;max-width:700px;
-    }
-    label{font-size:1.05em;color:var(--blue-800)}
-    input, textarea, select{
-      padding:12px 12px; font-size:1rem;
-      border:2px solid #cfe2ff;
-      border-radius:14px; width:100%;
-      background:#f9fcff;
-      outline:none;
-      transition:border-color .2s, box-shadow .2s, background-color .2s;
-      font-family:'Raleway',sans-serif;
-      box-shadow: inset 0 1px 2px rgba(0,0,0,.03);
-    }
-    input::placeholder, textarea::placeholder{color:#7a93b2;opacity:.9}
-    input:focus, textarea:focus, select:focus{
-      border-color:#66aaff;background:#ffffff;box-shadow:0 0 0 4px rgba(102,170,255,.18);
-    }
-    textarea{min-height:140px; resize:vertical}
-
-    .btn-submit{
-      border:none;border-radius:999px;padding:14px 22px;
-      font-weight:800;cursor:pointer;box-shadow:0 10px 24px rgba(0,0,0,.18);
-      background:#66aaff;color:#002244;font-size:1.1rem;
-      display:inline-flex;align-items:center;gap:10px;justify-content:center;
-    }
-    .btn-submit[disabled]{opacity:.55;cursor:not-allowed;box-shadow:none}
-    .btn-submit:hover:not([disabled]){transform:translateY(-2px)}
-
-    footer{
-      background:var(--blue-800);color:#fff;text-align:center;
-      padding:18px;margin-top:24px;box-shadow:0 -6px 18px rgba(0,0,0,.06)
-    }
-
-    /* Responsive (mismo ajuste del modelo en nav) */
-    @media (max-width:900px){
-      .brand h1{font-size:24px}
-      .navlinks{gap:16px;padding:10px 0}
-      .navlinks a{font-size:1.04rem;padding:12px 18px}
-    }
-    @media (max-width:640px){
-      .form-container{padding:28px}
-    }
-  </style>
-</head>
-<body>
-  <!-- ====== AUDIO DE FONDO (Aftonland.mp3) ====== -->
-  <audio id="site-bgm" preload="auto" loop playsinline style="display:none" aria-hidden="true">
-    <source src="Aftonland.mp3" type="audio/mpeg">
-  </audio>
-  <script>
-    // No autoplay: el usuario debe presionar el botón. Volumen inicial 75%.
-    document.addEventListener('DOMContentLoaded', () => {
-      const bgm = document.getElementById('site-bgm');
-      if (!bgm) return;
-      bgm.volume = 0.3;
-    });
-  </script>
-  <!-- ====== FIN AUDIO ====== -->
-
-  <!-- ===== HEADER (copiado tal cual del modelo) ===== -->
-  <header>
-    <div class="topbar">
-      <div class="brand">
-        <h1>Neuropsicóloga Rodríguez</h1>
-      </div>
-      <div class="quick">
-        <!-- Iconos sociales -->
-        <a class="social" href="https://www.facebook.com/share/1Av2BgPo17/" target="_blank" rel="noopener" aria-label="Facebook">
-          <i class="fab fa-facebook-f" aria-hidden="true"></i>
-        </a>
-        <a class="social" href="https://www.instagram.com/neuropsicologa_rodriguez_?igsh=NWZnNnphZTIzNWN6" target="_blank" rel="noopener" aria-label="Instagram">
-          <i class="fab fa-instagram" aria-hidden="true"></i>
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <!-- ===== NAV (copiado tal cual del modelo, con punto en Cortexa) ===== -->
-  <nav>
-    <div class="navlinks">
-      <a href="index.html"><i class="fas fa-home" aria-hidden="true"></i> Inicio</a>
-      <a href="sobremi.html"><i class="fas fa-user" aria-hidden="true"></i> Sobre Mí</a>
-
-      <!-- Cortexa con punto verde animado a la izquierda -->
-      <a href="cortexa.html" class="cx-live">
-        <span class="cx-dot" aria-hidden="true"></span> Cortexa
-      </a>
-
-      <a href="especialidades.html"><i class="fas fa-brain" aria-hidden="true"></i> Especialidades</a>
-      <a href="reservarcita.html"><i class="fas fa-calendar-check" aria-hidden="true"></i> Reservar Cita</a>
-    </div>
-  </nav>
-
-  <!-- ===== CONTENIDO ===== -->
-  <div class="content-container">
-    <section>
-      <h2>Reserve su cita</h2>
-
-      <div class="form-container">
-
-        <!-- Bloque de autenticación -->
-        <div class="auth-row">
-          <div id="g_id_onload"
-               data-client_id="958625942227-fi3vs6se8li3q94m1mn6fju4c3pkcpmj.apps.googleusercontent.com"
-               data-callback="handleCredentialResponse"
-               data-context="signin"
-               data-auto_prompt="false">
-          </div>
-          <div class="g_id_signin"
-               data-type="standard"
-               data-size="large"
-               data-theme="outline"
-               data-text="sign_in_with"
-               data-shape="pill"
-               data-logo_alignment="left">
-          </div>
-
-          <span class="auth-status" id="authStatus">Debes iniciar sesión con Google para enviar la reserva.</span>
-          <span class="chip" id="userChip" style="display:none;"></span>
-          <button class="signout-btn" id="signOutBtn" type="button" style="display:none;">Salir</button>
-        </div>
-
-        <!-- Formulario -->
-        <form id="reservaForm" action="https://formsubmit.co/neuropsicologarodriguez@gmail.com" method="POST">
-          <label for="nombre">Nombre Completo:</label>
-          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre y apellidos" required>
-
-          <label for="telefono">Número de Teléfono:</label>
-          <input type="tel" id="telefono" name="telefono" placeholder="Ej.: 999 999 999" required>
-
-          <label for="email">Correo Electrónico:</label>
-          <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required>
-
-          <label for="servicio">Seleccionar Servicio:</label>
-          <select id="servicio" name="servicio" required>
-            <option value="Evaluación Neuropsicológica">Evaluación Neuropsicológica</option>
-            <option value="Evaluación Psicológica">Evaluación Psicológica</option>
-            <option value="Orientación Vocacional">Orientación Vocacional</option>
-            <option value="Psicoterapia Cognitiva-Conductual">Psicoterapia cognitiva-conductual</option>
-            <option value="Psicoterapia Familiar y de Pareja">Psicoterapia familiar y de pareja</option>
-            <option value="Escuela de Padres">Escuela de padres</option>
-            <option value="Talleres y Capacitaciones">Talleres y capacitaciones</option>
-          </select>
-
-          <label for="mensaje">Mensaje Adicional:</label>
-          <textarea id="mensaje" name="mensaje" placeholder="Cuéntame brevemente el motivo de tu consulta..." required></textarea>
-
-          <!-- Campos ocultos con datos del login -->
-          <input type="hidden" name="login_email" id="login_email">
-          <input type="hidden" name="google_id_token" id="google_id_token">
-
-          <!-- Honeypot anti-bots (no llenar) -->
-          <input type="text" name="_honey" style="display:none">
-
-          <button id="submitBtn" type="submit" class="btn-submit" disabled>
-            <i class="fas fa-paper-plane" aria-hidden="true"></i> Reservar Cita
-          </button>
-
-          <!-- FormSubmit config -->
-          <input type="hidden" name="_next" value="http://127.0.0.1:5500/index.html">
-          <input type="hidden" name="_captcha" value="false">
-        </form>
-      </div>
-    </section>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 Neuropsicóloga Rodríguez</p>
-  </footer>
-
-  <!-- ===== Script del botón de audio (play/pause con icono y texto) ===== -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const bgm = document.getElementById('site-bgm');
-      const btn = document.getElementById('audioToggle'); // puede no existir
-      if (!bgm || !btn) return;
-
-      const icon = btn.querySelector('i');
-      const labelSpan = btn.querySelector('.nav-audio-text');
-
-      const setState = (playing) => {
-        btn.setAttribute('aria-pressed', playing ? 'true' : 'false');
-        const label = playing ? 'Pausar música relajante' : 'Reproducir música relajante';
-        btn.setAttribute('aria-label', label);
-        btn.title = label;
-        if (labelSpan) labelSpan.textContent = label;
-        icon.className = playing ? 'fas fa-pause' : 'fas fa-play';
-      };
-
-      // Estado inicial: música detenida hasta que el usuario presione el botón
-      setState(false);
-
-      // Sincroniza si cambia fuera del botón
-      bgm.addEventListener('play',  () => setState(true));
-      bgm.addEventListener('pause', () => setState(false));
-
-      // Toggle
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (bgm.paused) {
-          bgm.play().then(() => setState(true)).catch(() => {});
-        } else {
-          bgm.pause();
-          setState(false);
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1A3350",
+                        "accent": "#6F8FB0",
+                        "accent-light": "#dbeafe",
+                        "background-light": "#f0f9ff",
+                        "background-alt": "#e0f2fe",
+                        "background-dark": "#14181e",
+                        "highlight": "#22c55e",
+                    },
+                    fontFamily: {
+                        "display": ["Raleway", "sans-serif"],
+                        "sans": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "2xl": "2rem",
+                        "3xl": "2.5rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(26, 51, 80, 0.1)',
+                        'glow': '0 0 15px rgba(34, 197, 94, 0.6)',
+                        'card': '0 4px 6px -1px rgba(26, 51, 80, 0.05), 0 2px 4px -1px rgba(26, 51, 80, 0.03)',
+                    }
+                },
+            },
         }
-      });
-    });
-  </script>
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f0f9ff 0%, #FFFFFF 50%, #e0f2fe 100%);
+            min-height: 100vh;
+            transition: background 0.3s ease-in-out;
+        }
 
-  <script>
-    // Decodifica el JWT para obtener el email/nombre
-    function decodeJwtResponse(token) {
-      const base64Url = token.split('.')[1];
-      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-      const jsonPayload = decodeURIComponent(atob(base64).split('').map(c =>
-        '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
-      ).join(''));
-      return JSON.parse(jsonPayload);
-    }
+        html.dark body {
+            background: linear-gradient(135deg, #020617 0%, #0f172a 50%, #020617 100%);
+        }
 
-    // Callback de Google Identity
-    function handleCredentialResponse(resp) {
-      try{
-        const payload = decodeJwtResponse(resp.credential);
-        const email = payload.email || '';
-        const name  = payload.name  || '';
-        // Rellena campos ocultos
-        document.getElementById('login_email').value = email;
-        document.getElementById('google_id_token').value = resp.credential;
-        // Marca visual y habilita envío
-        const chip = document.getElementById('userChip');
-        chip.textContent = name ? (name + ' • ' + email) : email;
-        chip.style.display = 'inline-block';
-        document.getElementById('authStatus').textContent = 'Sesión iniciada con Google.';
-        document.getElementById('signOutBtn').style.display = 'inline-block';
-        document.getElementById('submitBtn').disabled = false;
+        .dot-pulse {
+            position: relative;
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #00ff6a;
+            margin-left: 6px;
+            box-shadow: 0 0 10px #00ff6a;
+            animation: pulse-green 2s infinite;
+        }
 
-        // También pre-llena el campo email del formulario si está vacío
-        const emailInput = document.getElementById('email');
-        if(email && !emailInput.value) emailInput.value = email;
-      }catch(e){
-        console.error(e);
-        alert('Hubo un problema con el inicio de sesión. Inténtalo otra vez.');
-      }
-    }
+        @keyframes pulse-green {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(0, 255, 106, 0.7);
+            }
 
-    // "Cerrar sesión" (solo limpia el estado del front)
-    document.getElementById('signOutBtn').addEventListener('click', () => {
-      document.getElementById('login_email').value = '';
-      document.getElementById('google_id_token').value = '';
-      document.getElementById('userChip').style.display = 'none';
-      document.getElementById('authStatus').textContent = 'Debes iniciar sesión con Google para enviar la reserva.';
-      document.getElementById('signOutBtn').style.display = 'none';
-      document.getElementById('submitBtn').disabled = true;
-    });
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 6px rgba(0, 255, 106, 0);
+            }
 
-    // Evita envío si no hay login (doble seguridad en front)
-    document.getElementById('reservaForm').addEventListener('submit', (e) => {
-      const tok = document.getElementById('google_id_token').value;
-      if(!tok){
-        e.preventDefault();
-        alert('Por favor, inicia sesión con Google antes de enviar.');
-      }
-    });
-  </script>
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(0, 255, 106, 0);
+            }
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 25px 50px -12px rgba(26, 51, 80, 0.15);
+        }
+
+        html.dark .glass-panel {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .input-premium {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1.5px solid rgba(111, 143, 176, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html.dark .input-premium {
+            background: rgba(30, 41, 59, 0.5);
+            border-color: rgba(255, 255, 255, 0.1);
+            color: #f8fafc;
+        }
+
+        .input-premium:focus {
+            background: white;
+            border-color: #6F8FB0;
+            box-shadow: 0 0 0 5px rgba(111, 143, 176, 0.1);
+            transform: translateY(-1px);
+        }
+
+        html.dark .input-premium:focus {
+            background: rgba(30, 41, 59, 0.8);
+            border-color: #6F8FB0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        .brain-shine {
+            animation: shine-glow 3s infinite ease-in-out;
+        }
+
+        @keyframes animate-float {
+
+            0%,
+            100% {
+                transform: translateY(0) scale(1);
+            }
+
+            50% {
+                transform: translateY(-20px) scale(1.05);
+            }
+        }
+
+        .animate-float {
+            animation: animate-float 6s ease-in-out infinite;
+        }
+
+        @keyframes shine-glow {
+
+            0%,
+            100% {
+                filter: drop-shadow(0 0 2px rgba(111, 143, 176, 0.2)) brightness(1);
+                transform: scale(1);
+            }
+
+            50% {
+                filter: drop-shadow(0 0 10px rgba(111, 143, 176, 0.5)) brightness(1.1);
+                transform: scale(1.05);
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(26, 51, 80, 0.1);
+            border-radius: 10px;
+        }
+
+        html.dark ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body class="font-sans text-primary dark:text-slate-100 overflow-x-hidden">
+    <canvas id="neural-bg"
+        style="position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none"></canvas>
+
+    <div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <!-- Floating Backdrops -->
+        <div
+            class="absolute top-0 right-0 w-[500px] h-[500px] bg-accent-light/30 dark:bg-accent/10 rounded-full blur-[120px] -z-10 animate-float">
+        </div>
+        <div class="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-highlight/10 dark:bg-highlight/5 rounded-full blur-[100px] -z-10 animate-float"
+            style="animation-delay: 1.5s;"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-background-alt/40 dark:bg-slate-800/20 rounded-full blur-[150px] -z-10 animate-float"
+            style="animation-delay: 3s;"></div>
+
+        <div class="layout-container flex h-full grow flex-col">
+            <!-- Header -->
+            <header
+                class="sticky top-0 z-50 bg-primary/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-white/10 dark:border-slate-800 px-6 lg:px-20 py-3 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.2),0_10px_20px_-2px_rgba(0,0,0,0.1)] transition-all duration-300">
+                <div class="max-w-7xl mx-auto flex items-center justify-between">
+                    <div class="flex items-center gap-3 group cursor-pointer"
+                        onclick="window.location.href='index.html'">
+                        <img src="../img/cerebro.png" alt="Neuropsicóloga Rodríguez"
+                            class="h-11 w-auto object-contain brain-shine filter drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                        <h1
+                            class="text-white dark:text-white text-[1.1rem] font-extrabold font-display tracking-tight whitespace-nowrap transition-colors duration-300 group-hover:text-accent-light">
+                            Neuropsicóloga Rodríguez</h1>
+                    </div>
+                    <div class="hidden md:flex items-center gap-8 relative w-full">
+                        <nav
+                            class="absolute left-[40%] -translate-x-1/2 flex items-center gap-1.5 p-1.5 bg-white/10 dark:bg-slate-800/60 backdrop-blur-md rounded-full border border-white/20 dark:border-slate-700 shadow-lg whitespace-nowrap ring-1 ring-white/10 hover:ring-white/20 transition-all duration-300">
+                            <a class="px-5 py-2 rounded-full text-white/90 hover:text-white hover:bg-white/10 text-[0.925rem] font-semibold transition-all duration-300 whitespace-nowrap hover:scale-110"
+                                href="index.html">Inicio</a>
+                            <a class="px-5 py-2 rounded-full text-white/90 hover:text-white hover:bg-white/10 text-[0.925rem] font-semibold transition-all duration-300 whitespace-nowrap hover:scale-110"
+                                href="sobremi.html">Sobre Mí</a>
+                            <a class="px-5 py-2 rounded-full text-white/90 hover:text-white hover:bg-white/10 text-[0.925rem] font-semibold transition-all duration-300 whitespace-nowrap hover:scale-110"
+                                href="cortexa.html">Cortexa <span class="dot-pulse ml-2 scale-75"></span></a>
+                            <a class="px-5 py-2 rounded-full text-white/90 hover:text-white hover:bg-white/10 text-[0.925rem] font-semibold transition-all duration-300 whitespace-nowrap hover:scale-110"
+                                href="especialidades.html">Especialidades</a>
+                            <a class="px-5 py-2 rounded-full bg-white text-primary dark:text-slate-900 text-[0.925rem] font-bold flex items-center shadow-lg shadow-black/20 transition-all duration-300 hover:scale-110 hover:bg-accent-light whitespace-nowrap ring-2 ring-primary/20"
+                                href="reservarcita.html">Reservar Cita</a>
+                        </nav>
+                        <div class="flex gap-3 ml-auto">
+                            <button id="theme-toggle"
+                                class="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 dark:bg-slate-800 border border-white/20 dark:border-slate-700 text-white dark:text-yellow-400 hover:bg-white/20 dark:hover:bg-slate-700 hover:text-white dark:hover:text-yellow-300 transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                                aria-label="Cambiar tema">
+                                <span class="material-symbols-outlined text-lg">dark_mode</span>
+                            </button>
+                            <a class="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 dark:bg-slate-800 border border-white/20 dark:border-slate-700 text-white dark:text-slate-400 hover:bg-blue-600 dark:hover:bg-blue-900/30 hover:text-white dark:hover:text-blue-400 hover:border-blue-500 dark:hover:border-blue-800 transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                                href="https://www.facebook.com/share/1Av2BgPo17/" target="_blank" rel="noopener"
+                                aria-label="Facebook">
+                                <i class="fab fa-facebook-f text-lg"></i>
+                            </a>
+                            <a class="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 dark:bg-slate-800 border border-white/20 dark:border-slate-700 text-white dark:text-slate-400 hover:bg-pink-600 dark:hover:bg-pink-900/30 hover:text-white dark:hover:text-pink-400 hover:border-pink-500 dark:hover:border-pink-800 transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                                href="https://www.instagram.com/neuropsicologa_rodriguez_?igsh=NWZnNnphZTIzNWN6"
+                                target="_blank" rel="noopener" aria-label="Instagram">
+                                <i class="fab fa-instagram text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <button
+                        class="md:hidden text-white p-2 bg-white/10 rounded-lg shadow-sm hover:bg-white/20 transition-colors">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                </div>
+            </header>
+
+            <main class="flex-1 relative z-10 pt-16 pb-24">
+                <div class="max-w-4xl mx-auto px-6">
+                    <!-- Title Section -->
+                    <div class="text-center mb-12 reveal">
+                        <div
+                            class="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/5 dark:bg-white/5 rounded-full mb-6 border border-primary/10 dark:border-white/10">
+                            <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+                            <span class="text-[10px] font-black uppercase tracking-[0.2em] text-accent">Contacto
+                                Directo</span>
+                        </div>
+                        <h2
+                            class="text-4xl lg:text-5xl font-extrabold font-display text-primary dark:text-white mb-6 tracking-tight">
+                            Agendar una Sesión</h2>
+                        <p class="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                            Complete el siguiente formulario para solicitar una evaluación. Nos pondremos en contacto
+                            con usted a la brevedad.
+                        </p>
+                    </div>
+
+
+                    <!-- Form Container -->
+                    <div class="glass-panel rounded-[2.5rem] p-10 lg:p-14 reveal" style="animation-delay: 200ms">
+                        <form id="reservaForm" action="https://formsubmit.co/neuropsicologarodriguez@gmail.com"
+                            method="POST" class="space-y-8">
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div class="space-y-3">
+                                    <label for="nombres"
+                                        class="block text-sm font-black text-primary dark:text-slate-300 uppercase tracking-widest pl-1">Nombres</label>
+                                    <input type="text" id="nombres" name="nombres" placeholder="Tus nombres" required
+                                        class="input-premium w-full px-6 py-4 rounded-2xl outline-none text-slate-700 dark:text-slate-200 font-medium placeholder:text-slate-400">
+                                </div>
+                                <div class="space-y-3">
+                                    <label for="apellidos"
+                                        class="block text-sm font-black text-primary dark:text-slate-300 uppercase tracking-widest pl-1">Apellidos</label>
+                                    <input type="text" id="apellidos" name="apellidos" placeholder="Tus apellidos"
+                                        required
+                                        class="input-premium w-full px-6 py-4 rounded-2xl outline-none text-slate-700 dark:text-slate-200 font-medium placeholder:text-slate-400">
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div class="space-y-3">
+                                    <label for="edad"
+                                        class="block text-sm font-black text-primary dark:text-slate-300 uppercase tracking-widest pl-1">Edad
+                                        del Paciente</label>
+                                    <input type="number" id="edad" name="edad" placeholder="Ej.: 25" required
+                                        class="input-premium w-full px-6 py-4 rounded-2xl outline-none text-slate-700 dark:text-slate-200 font-medium placeholder:text-slate-400">
+                                </div>
+                                <div class="space-y-3">
+                                    <label for="telefono"
+                                        class="block text-sm font-black text-primary dark:text-slate-300 uppercase tracking-widest pl-1">Número
+                                        de Teléfono</label>
+                                    <input type="tel" id="telefono" name="telefono" placeholder="Ej.: 954 056..."
+                                        required
+                                        class="input-premium w-full px-6 py-4 rounded-2xl outline-none text-slate-700 dark:text-slate-200 font-medium placeholder:text-slate-400">
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-8">
+                                <div class="space-y-3">
+                                    <label for="servicio"
+                                        class="block text-sm font-black text-primary dark:text-slate-300 uppercase tracking-widest pl-1">Servicio
+                                        Requerido</label>
+                                    <div class="relative">
+                                        <select id="servicio" name="servicio" required
+                                            class="input-premium w-full appearance-none px-6 py-4 rounded-2xl outline-none text-slate-700 dark:text-slate-200 font-medium bg-white/50 dark:bg-slate-900/50">
+                                            <option value="" disabled selected>Selecciona...</option>
+                                            <option value="Evaluación Neuropsicológica">Evaluación Neuropsicológica
+                                            </option>
+                                            <option value="Evaluación Psicológica">Evaluación Psicológica</option>
+                                            <option value="Orientación Vocacional">Orientación Vocacional</option>
+                                            <option value="Psicoterapia Cognitiva-Conductual">Psicoterapia
+                                                cognitiva-conductual</option>
+                                            <option value="Psicoterapia Familiar y de Pareja">Psicoterapia familiar y de
+                                                pareja</option>
+                                            <option value="Escuela de Padres">Escuela de padres</option>
+                                            <option value="Talleres y Capacitaciones">Talleres y capacitaciones</option>
+                                        </select>
+                                        <span
+                                            class="absolute right-6 top-1/2 -translate-y-1/2 material-symbols-outlined pointer-events-none text-slate-400">expand_more</span>
+                                    </div>
+                                </div>
+                                <div class="space-y-3">
+                                    <label for="horario"
+                                        class="block text-sm font-black text-primary dark:text-slate-300 uppercase tracking-widest pl-1">Preferencia
+                                        de Horario</label>
+                                    <div class="relative">
+                                        <select id="horario" name="horario" required
+                                            class="input-premium w-full appearance-none px-6 py-4 rounded-2xl outline-none text-slate-700 dark:text-slate-200 font-medium bg-white/50 dark:bg-slate-900/50">
+                                            <option value="" disabled selected>Selecciona...</option>
+                                            <option value="Mañana (9:00 AM - 12:00 PM)">Mañana</option>
+                                            <option value="Tarde (1:00 PM - 5:00 PM)">Tarde</option>
+                                            <option value="Noche (6:00 PM - 9:00 PM)">Noche</option>
+                                        </select>
+                                        <span
+                                            class="absolute right-6 top-1/2 -translate-y-1/2 material-symbols-outlined pointer-events-none text-slate-400">expand_more</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="space-y-3">
+                                <label for="mensaje"
+                                    class="block text-sm font-black text-primary dark:text-slate-300 uppercase tracking-widest pl-1">Detalles
+                                    o Motivo de Consulta</label>
+                                <textarea id="mensaje" name="mensaje" rows="4"
+                                    placeholder="Cuéntanos brevemente cómo podemos apoyarte..." required
+                                    class="input-premium w-full px-6 py-4 rounded-2xl outline-none text-slate-700 dark:text-slate-200 font-medium placeholder:text-slate-400 resize-none"></textarea>
+                            </div>
+
+                            <!-- Campos ocultos -->
+                            <input type="hidden" name="_honey" style="display:none">
+                            <input type="hidden" name="_captcha" value="false">
+
+                            <div class="pt-6">
+                                <button id="submitBtn" type="submit"
+                                    class="w-full py-5 bg-primary dark:bg-accent text-white rounded-3xl font-black uppercase tracking-[0.2em] shadow-xl shadow-primary/20 dark:shadow-accent/20 hover:scale-[1.02] active:scale-95 transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-3 group">
+                                    Confirmar y Enviar al WhatsApp
+                                    <span
+                                        class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">send</span>
+                                </button>
+                                <p
+                                    class="text-center mt-6 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                                    Será redirigido al WhatsApp oficial de la Dra. Rodríguez
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Footer -->
+            <footer class="bg-primary text-white py-16 relative overflow-hidden">
+                <div class="max-w-7xl mx-auto px-6 lg:px-20 relative z-10">
+                    <div class="grid md:grid-cols-4 gap-12 border-b border-white/10 pb-12">
+                        <div class="col-span-2 space-y-6">
+                            <div class="flex items-center gap-3">
+                                <img src="../img/cerebro.png" alt="Logo"
+                                    class="h-10 w-auto object-contain brain-shine" />
+                                <h2 class="text-white text-xl font-extrabold font-display">Neuropsicóloga Rodríguez</h2>
+                            </div>
+                            <p class="text-slate-300 max-w-sm leading-relaxed">
+                                Transformando vidas a través de la neurociencia y la empatía clínica profesional.
+                            </p>
+                        </div>
+                        <div>
+                            <h5 class="font-bold mb-6 text-accent text-lg">Navegación</h5>
+                            <ul class="space-y-4 text-slate-300">
+                                <li><a class="hover:text-white transition-colors flex items-center gap-2"
+                                        href="index.html"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                                        Inicio</a></li>
+                                <li><a class="hover:text-white transition-colors flex items-center gap-2"
+                                        href="sobremi.html"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                                        Sobre Mí</a></li>
+                                <li><a class="hover:text-white transition-colors flex items-center gap-2"
+                                        href="cortexa.html"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                                        Cortexa</a></li>
+                                <li><a class="hover:text-white transition-colors flex items-center gap-2"
+                                        href="especialidades.html"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-accent"></span> Especialidades</a></li>
+                                <li><a class="hover:text-white transition-colors flex items-center gap-2"
+                                        href="reservarcita.html"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-accent"></span> Reservar Cita</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-bold mb-6 text-accent text-lg">Contacto</h5>
+                            <ul class="space-y-4 text-slate-300 text-sm font-medium">
+                                <li class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-accent text-lg">mail</span>
+                                    neuropsicologarodriguez@gmail.com
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-accent text-lg">location_on</span>
+                                    Lima, Lima, Perú
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div
+                        class="pt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-slate-400 text-xs font-bold uppercase tracking-widest">
+                        <p>© 2024 Neuropsicóloga Rodríguez. Todos los derechos reservados.</p>
+                        <div class="flex flex-wrap gap-4 mt-4 md:mt-0">
+                            <a class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/15 text-slate-300 hover:text-white text-xs font-semibold tracking-wide border border-white/10 hover:border-white/20 transition-all duration-300 flex items-center gap-2 group backdrop-blur-sm shadow-sm"
+                                href="privacidad.html">
+                                <span
+                                    class="material-symbols-outlined text-sm group-hover:scale-110 transition-transform text-accent-light">shield_lock</span>
+                                Política de Privacidad
+                            </a>
+                            <a class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/15 text-slate-300 hover:text-white text-xs font-semibold tracking-wide border border-white/10 hover:border-white/20 transition-all duration-300 flex items-center gap-2 group backdrop-blur-sm shadow-sm"
+                                href="terminos.html">
+                                <span
+                                    class="material-symbols-outlined text-sm group-hover:scale-110 transition-transform text-accent-light">gavel</span>
+                                Términos de Servicio
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Theme Toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        const themeIcon = themeToggleBtn.querySelector('span');
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+            themeIcon.textContent = 'light_mode';
+        } else {
+            themeIcon.textContent = 'dark_mode';
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.theme = 'light';
+                themeIcon.textContent = 'dark_mode';
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.theme = 'dark';
+                themeIcon.textContent = 'light_mode';
+            }
+        });
+
+        // Form Submission to WhatsApp
+        document.getElementById('reservaForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const nombres = document.getElementById('nombres').value;
+            const apellidos = document.getElementById('apellidos').value;
+            const edad = document.getElementById('edad').value;
+            const telefono = document.getElementById('telefono').value;
+            const servicio = document.getElementById('servicio').value;
+            const horario = document.getElementById('horario').value;
+            const mensaje = document.getElementById('mensaje').value;
+
+            const text = `Hola, Neuropsicóloga Mabela Rodríguez. ✨\n\n` +
+                `He visitado su sitio web y me gustaría solicitar información para agendar una cita. Aquí le detallo mis datos:\n\n` +
+                `👤 *Paciente:* ${nombres} ${apellidos}\n` +
+                `🎂 *Edad:* ${edad} años\n` +
+                `📞 *Contacto:* ${telefono}\n` +
+                `🩺 *Servicio:* ${servicio}\n` +
+                `🗓️ *Preferencia de Horario:* ${horario}\n` +
+                `📝 *Motivo de consulta:* ${mensaje}\n\n` +
+                `Quedo a la espera de su respuesta profesional para coordinar el horario. Muchas gracias. 🤝`;
+
+            const encodedText = encodeURIComponent(text);
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=51954056912&text=${encodedText}`;
+
+            window.open(whatsappUrl, '_blank');
+        });
+
+        // Neural Background
+        const canvas = document.getElementById('neural-bg');
+        const ctx = canvas.getContext('2d');
+        let neurons = [];
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        class Neuron {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.r = 1 + Math.random() * 2;
+            }
+            update() {
+                this.x += this.vx; this.y += this.vy;
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+        }
+
+        function init() {
+            neurons = Array.from({ length: 80 }, () => new Neuron());
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const isDark = document.documentElement.classList.contains('dark');
+            ctx.strokeStyle = isDark ? 'rgba(255,255,255,0.05)' : 'rgba(26, 51, 80, 0.05)';
+            ctx.fillStyle = isDark ? 'rgba(255,255,255,0.2)' : 'rgba(26, 51, 80, 0.2)';
+
+            neurons.forEach((n, i) => {
+                n.update();
+                ctx.beginPath();
+                ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+                ctx.fill();
+                for (let j = i + 1; j < neurons.length; j++) {
+                    const m = neurons[j];
+                    const dist = Math.hypot(n.x - m.x, n.y - m.y);
+                    if (dist < 150) {
+                        ctx.beginPath();
+                        ctx.moveTo(n.x, n.y);
+                        ctx.lineTo(m.x, m.y);
+                        ctx.stroke();
+                    }
+                }
+            });
+            requestAnimationFrame(draw);
+        }
+
+        window.addEventListener('resize', resize);
+        resize(); init(); draw();
+
+    </script>
+    <!-- Botón Flotante WhatsApp -->
+    <a href="https://api.whatsapp.com/send?phone=51954056912&text=Hola%2C%20Neuropsic%C3%B3loga%20Mabela%20Rodr%C3%ADguez.%20%E2%9C%A8%20He%20consultado%20su%20sitio%20web%20y%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20profesional%20para%20agendar%20una%20cita.%20%C2%BFPodr%C3%ADa%20indicarme%20disponibilidad%20de%20horarios%3F%20%C2%A1Muchas%20gracias!%20%F0%9F%A4%9D"
+        target="_blank" rel="noopener"
+        class="fixed bottom-8 right-8 z-[100] w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 hover:-translate-y-2 transition-all duration-300 group ring-4 ring-white/10"
+        aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp text-3xl"></i>
+        <span
+            class="absolute right-full mr-4 px-4 py-2 bg-white dark:bg-slate-800 text-primary dark:text-white text-sm font-bold rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-xl whitespace-nowrap border border-slate-100 dark:border-slate-700">
+            ¿Dificultades al reservar?
+        </span>
+    </a>
 </body>
+
 </html>

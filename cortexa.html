@@ -1,590 +1,1119 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cortexa – Asistente | Neuropsicóloga Rodríguez</title>
-  <link rel="icon" href="img/cerebro.png" type="image/png"/>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700;800;900&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Cortexa Asistente - Neuropsicóloga Mabela Rodríguez</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Raleway:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1A3350",
+                        "accent": "#6F8FB0",
+                        "accent-light": "#dbeafe",
+                        "background-light": "#f0f9ff",
+                        "background-alt": "#e0f2fe",
+                        "background-dark": "#14181e",
+                        "highlight": "#22c55e",
+                    },
+                    fontFamily: {
+                        "display": ["Raleway", "sans-serif"],
+                        "sans": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "2xl": "2rem",
+                        "3xl": "2.5rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(26, 51, 80, 0.1)',
+                        'glow': '0 0 15px rgba(34, 197, 94, 0.6)',
+                        'card': '0 4px 6px -1px rgba(26, 51, 80, 0.05), 0 2px 4px -1px rgba(26, 51, 80, 0.03)',
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f0f9ff 0%, #FFFFFF 50%, #e0f2fe 100%);
+            min-height: 100vh;
+            transition: background 0.3s ease-in-out;
+        }
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WY5H8SE6RL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);} 
-    gtag('js', new Date());
-    gtag('config', 'G-WY5H8SE6RL');
-  </script>
+        html.dark body {
+            background: linear-gradient(135deg, #020617 0%, #0f172a 50%, #020617 100%);
+        }
 
-  <style>
-    :root{
-      --blue-900:#002b5c; --blue-800:#003366; --blue-700:#004a99; --blue-600:#005bbf; --blue-500:#2f6cb8;
-      --sky-050:#f5f9ff; --sky-100:#eaf3ff; --white:#ffffff;
-      --accent:#66aaff; --ink:#223a59; --muted:#5f7aa1;
-      --ok:#10b981; --danger:#ef4444;
-      --shadow-lg:0 18px 50px rgba(0,0,0,.14); --shadow-md:0 12px 28px rgba(0,0,0,.10);
-      --ring:0 0 0 3px #66aaff44;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;font-family:'Raleway',sans-serif;background:linear-gradient(135deg,var(--sky-050),#fff);color:var(--ink);
-      font-variant-numeric: tabular-nums lining-nums;
-      font-feature-settings: "tnum" 1, "lnum" 1, "liga" 0;
-      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
-    }
-    a{color:inherit}
+        .dot-pulse {
+            position: relative;
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #00ff6a;
+            margin-left: 6px;
+            box-shadow: 0 0 10px #00ff6a;
+            animation: pulse-green 2s infinite;
+        }
 
-    /* ===== HEADER (definitivo) ===== */
-    header{
-      position:sticky;top:0;z-index:1000;
-      background:linear-gradient(90deg,var(--blue-900),var(--blue-700));
-      color:#fff;
-      padding:14px 20px;
-      box-shadow:var(--shadow-md)
-    }
-    .topbar{max-width:1200px;margin:auto;display:flex;align-items:center;gap:14px;justify-content:space-between}
-    .brand h1{font-size:26px;margin:0;letter-spacing:.6px}
-    .quick{display:flex;gap:10px;opacity:.95}
-    .quick a.social{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:999px;background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.28);color:#fff;text-decoration:none;transition:.25s;font-size:16px}
-    .quick a.social:hover{background:#66b3ff;color:#002244}
+        @keyframes pulse-green {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(0, 255, 106, 0.7);
+            }
 
-    /* ===== NAV (definitivo) ===== */
-    nav{background:var(--blue-800)}
-    .navlinks{
-      max-width:1200px;margin:auto;display:flex;justify-content:center;gap:18px;
-      padding:12px 0;
-      flex-wrap:wrap
-    }
-    .navlinks a{
-      color:#fff;text-decoration:none;background:rgba(255,255,255,.12);
-      border:1.5px solid rgba(255,255,255,.28);border-radius:999px;
-      padding:12px 20px;
-      font-weight:800;font-size:1.04rem;
-      transition:.3s;display:inline-flex;align-items:center;gap:8px
-    }
-    .navlinks a:hover{background:#66b3ff;color:#002244}
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 6px rgba(0, 255, 106, 0);
+            }
 
-    /* Punto verde “Cortexa” */
-    .navlinks a.cx-live{display:inline-flex;align-items:center;gap:8px}
-    .navlinks a.cx-live .cx-dot{
-      width:10px;height:10px;border-radius:50%;
-      background:#00ff40e7;
-      box-shadow:0 0 10px rgba(0,255,106,.75);
-      margin-right:0;
-      position:relative;
-      animation:pulseDot 2.5s ease-in-out infinite;
-      transform-origin:center center;
-    }
-    .navlinks a.cx-live .cx-dot::after{
-      content:"";position:absolute;inset:-6px;border-radius:inherit;
-      background:rgba(0,255,106,.28);
-      filter:blur(2px);
-    }
-    @keyframes pulseDot{
-      0%   { transform:scale(1.00); box-shadow:0 0 10px rgba(0,255,106,.75); }
-      45%  { transform:scale(0.82); box-shadow:0 0 6px  rgba(0,255,106,.50); }
-      100% { transform:scale(1.00); box-shadow:0 0 10px rgba(0,255,106,.75); }
-    }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(0, 255, 106, 0);
+            }
+        }
 
-    /* ===== COVER ===== */
-    .cover{position:relative;min-height:24vh;display:grid;place-items:center;color:#fff;text-align:center}
-    .cover::before{content:"";position:absolute;inset:0;background:url('img/fondoazul.jpg') center/cover no-repeat;filter:brightness(.9)}
-    .cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,29,61,.38) 0%,rgba(0,51,102,.78) 60%,rgba(0,51,102,.92) 100%)}
-    .cover-inner{position:relative;z-index:1;padding:20px}
-    .hero-ava{
-      width:116px;height:116px;border-radius:50%;object-fit:cover;
-      background:#fff; border:3px solid #ffffffcc;
-      box-shadow:0 14px 36px rgba(0,0,0,.25), 0 0 0 6px rgba(255,255,255,.12);
-      margin:6px auto 10px; display:block;
-    }
-    .cover h2{margin:.1rem 0 .35rem;font-size:36px}
-    .lead{opacity:.95;font-size:15px;margin:0}
-    .on-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:12px}
-    .btn{border:none;border-radius:999px;padding:10px 16px;font-weight:900;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-size:.95rem}
-    .btn.primary{background:linear-gradient(90deg,var(--blue-700),var(--accent));color:#fff;box-shadow:0 8px 18px rgba(0,0,0,.14)}
-    .btn.ghost{background:#f1f6ff;border:1.5px solid #d7e7ff;color:#0c3a6b}
-    .pill{display:inline-flex;align-items:center;gap:8px;background:#eef6ff;border:1.5px solid #cfe2ff;color:#113a6e;border-radius:999px;padding:8px 12px;font-weight:800;font-size:.9rem}
+        .bento-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1.5px solid rgba(26, 51, 80, 0.1);
+            box-shadow: 0 8px 32px -12px rgba(26, 51, 80, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
 
-    /* ===== LAYOUT ===== */
-    .container{max-width:1180px;margin:auto;padding:28px 14px}
-    .chat-wrap{display:grid;grid-template-columns:1.7fr .95fr;gap:18px;align-items:start}
-    @media (max-width:1100px){.chat-wrap{grid-template-columns:1fr}}
+        html.dark .bento-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
 
-    /* ===== CHAT ===== */
-    .chat-card{border-radius:22px;overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid #e6f2ff;background:linear-gradient(180deg,#ffffffcc,#ffffff99);backdrop-filter:blur(8px)}
-    .chat-header{padding:12px 16px;background:linear-gradient(90deg,var(--blue-900),var(--blue-700));color:#fff;display:flex;align-items:center;gap:10px}
-    .bot-ava{width:40px;height:40px;border-radius:50%;background:#fff url('cortexa.jpg') center/cover no-repeat;box-shadow:0 8px 18px rgba(0,0,0,.15);flex:0 0 40px}
-    .chat-title{margin:0;font-size:18px}
-    .chat-sub{font-size:12px;opacity:.9}
-    .chat-head-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-    .online-badge{display:inline-flex;align-items:center;gap:6px;background:#e7fbef;border:1.5px solid #b7f1cd;color:#0f5132;border-radius:999px;padding:3px 8px;font-weight:800;font-size:.78rem}
-    .online-badge .status-dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px #10b98133}
+        /* Custom Scrollbar for Chat */
+        #chat::-webkit-scrollbar {
+            width: 6px;
+        }
 
-    .chat-body{
-      padding:14px; min-height:360px; overflow:visible;
-      background:
-        radial-gradient(120px 120px at 8% 16%, #cfe3ff33, transparent 60%),
-        radial-gradient(120px 120px at 92% 86%, #b9d8ff33, transparent 60%),
-        linear-gradient(180deg,#ffffffaa,#ffffff80);
-    }
-    .sticky-title{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:8px;width:max-content;max-width:100%;padding:6px 10px;margin:-4px 0 6px 0;background:linear-gradient(180deg,#ffffffee,#f8fbffcc);backdrop-filter:blur(6px);border:1px solid #e4efff;border-radius:12px;box-shadow:0 8px 18px rgba(0,0,0,.06);opacity:0;transform:translateY(-8px);pointer-events:none;transition:.18s}
-    .chat-body.scrolled .sticky-title{opacity:1;transform:translateY(0)}
-    .sticky-title .ava{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;flex:0 0 22px}
-    .timeline{position:relative;margin:8px 0 4px 6px;color:var(--muted);font-size:11px}
-    .timeline::before{content:"";position:absolute;left:-8px;top:50%;width:4px;height:4px;border-radius:999px;background:var(--blue-600)}
+        #chat::-webkit-scrollbar-track {
+            background: transparent;
+        }
 
-    .msg{display:flex;gap:8px;margin:10px 0;align-items:flex-end}
-    .msg.user{justify-content:flex-end}
-    .bubble{max-width:min(760px,96%);padding:10px 12px;border-radius:14px;line-height:1.5;color:var(--ink);background:rgba(255,255,255,.72);border:1px solid #e8f0ff;box-shadow:0 5px 12px rgba(0,0,0,.06)}
-    .msg.bot .bubble{background:linear-gradient(180deg,#f6faff,#eef6ff)}
-    .meta{display:flex;gap:6px;align-items:center;font-size:10px;color:#muted;margin-top:4px}
-    .ava{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;flex:0 0 28px}
-    .ava.bot{background:#e6f2ff url('cortexa.jpg') center/cover no-repeat;color:transparent;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+        #chat::-webkit-scrollbar-thumb {
+            background: rgba(111, 143, 176, 0.2);
+            border-radius: 10px;
+        }
 
-    .typing{display:inline-flex;gap:6px;align-items:center}
-    .dot{width:7px;height:7px;border-radius:50%;background:#8fb9ff;animation:blink 1.2s infinite ease-in-out}
-    .dot:nth-child(2){animation-delay:.18s}
-    .dot:nth-child(3){animation-delay:.36s}
-    @keyframes blink{0%,80%,100%{opacity:.25;transform:translateY(0)}40%{opacity:1;transform:translateY(-2px)}}
+        #chat::-webkit-scrollbar-thumb:hover {
+            background: rgba(111, 143, 176, 0.4);
+        }
 
-    .composer{display:flex;flex-direction:column;gap:10px;padding:12px;background:linear-gradient(180deg,#f7fbff,#f3f8ff);border-top:1px solid #e6f2ff}
-    .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-    .chip{border:1.5px solid #cfe2ff;background:#eef6ff;color:#004a99;border-radius:999px;padding:7px 11px;font-weight:700;font-size:.9rem;cursor:pointer}
-    .chip:hover{background:#66aaff;color:#002244}
-    .chip.secondary{background:#f5f9ff}
-    .inputrow{display:flex;gap:10px}
-    textarea{resize:none;flex:1;min-height:52px;max-height:140px;padding:10px 12px;border-radius:12px;border:1px solid #dce9ff;font-family:inherit;font-size:15px;outline:none;box-shadow:0 6px 12px rgba(0,0,0,.04) inset}
-    textarea:focus{box-shadow:var(--ring),0 6px 12px rgba(0,0,0,.04) inset}
-    .btn-send{min-width:120px;border:none;border-radius:14px;background:linear-gradient(90deg,var(--blue-700),var(--accent));color:#fff;font-weight:900;padding:12px 16px;cursor:pointer;box-shadow:0 10px 24px rgba(0,0,0,.14);display:inline-flex;gap:8px;align-items:center;justify-content:center}
-    .btn-send:disabled{opacity:.65;cursor:default}
+        /* Main Card Reveal */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.98);
+            }
 
-    .side{background:#fff;border-radius:22px;box-shadow:var(--shadow-md);border:1px solid #e6f2ff;padding:16px;position:sticky;top:84px}
-    .side h3{margin:6px 0 10px;color:var(--blue-900);font-size:18px}
-    .cta-mini{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 6px}
-    .cta-mini a{text-decoration:none;border-radius:999px;padding:9px 12px;font-weight:800;display:inline-flex;align-items:center;gap:8px;border:1.5px solid #cfe2ff;background:#eef6ff;color:#004a99}
-    .cta-mini a.primary{background:#66aaff;color:#002244}
-    .side ul{margin:6px 0 0 18px;color:#24415f;line-height:1.5;font-size:.95rem}
-    .card{border:1px solid #e6f2ff;background:#f8fbff;border-radius:14px;padding:12px;margin-top:12px}
-    .list-check{list-style:none;margin:6px 0 0;padding-left:0}
-    .list-check li{display:flex;gap:8px;align-items:flex-start;margin:6px 0}
-    .list-check i{color:var(--ok);margin-top:2px}
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
 
-    .cx-modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;padding:16px;z-index:4000}
-    .cx-modal.is-open{display:flex}
-    .cx-modal-card{width:min(560px,92vw);background:#fff;border-radius:16px;box-shadow:var(--shadow-lg);border:1px solid #e6f2ff;padding:18px;animation:cx-pop .18s ease}
-    .cx-modal-card h3{margin:0 0 8px;color:#0b2a4a}
-    .cx-modal-card ul{margin:8px 0 0 18px;color:#234}
-    .cx-modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:14px}
-    @keyframes cx-pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+        .reveal-card {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
 
-    .limit-row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:6px;font-size:12px;color:var(--muted)}
-    .counter{font-variant-numeric: tabular-nums}
-    .counter.bad{color:var(--danger);font-weight:800}
-    .counter.good{color:var(--ok);font-weight:800}
-    .hint-inline{font-size:12px;color:var(--muted)}
-    .hint-inline i{margin-right:6px}
+        /* Staggered animation delays */
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
 
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
 
-    /* ===== Responsive para NAV/HEADER ===== */
-    @media (max-width:900px){
-      .navlinks{gap:16px;padding:10px 0}
-      .navlinks a{font-size:1.04rem;padding:12px 18px}
-    }
-  </style>
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.4s;
+        }
+
+        /* Glass Shimmer Animation */
+        @keyframes glass-shimmer {
+            0% {
+                transform: translateX(-150%) skewX(-25deg);
+            }
+
+            100% {
+                transform: translateX(150%) skewX(-25deg);
+            }
+        }
+
+        .glass-shine::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right,
+                    transparent,
+                    rgba(255, 255, 255, 0.05),
+                    transparent);
+            transform: translateX(-150%) skewX(-25deg);
+        }
+
+        .glass-shine:hover::after {
+            animation: glass-shimmer 1.5s ease-in-out infinite;
+        }
+
+        /* Message Slide-in */
+        @keyframes msgSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px) translateX(var(--slide-x, 0));
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) translateX(0);
+            }
+        }
+
+        .msg-reveal {
+            animation: msgSlideIn 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        /* Smooth Breathing for Avatar */
+        @keyframes breath {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(26, 51, 80, 0.1);
+            }
+
+            50% {
+                transform: scale(1.02);
+                box-shadow: 0 0 20px 5px rgba(26, 51, 80, 0.05);
+            }
+        }
+
+        .avatar-breath {
+            animation: breath 4s ease-in-out infinite;
+        }
+
+        /* Chat Specific */
+        .msg-bubble {
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+
+        .msg-bot-bubble {
+            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+            border: 1px solid rgba(111, 143, 176, 0.15);
+            border-bottom-left-radius: 4px;
+            color: #1e293b;
+        }
+
+        html.dark .msg-bot-bubble {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #f1f5f9;
+        }
+
+        .msg-user-bubble {
+            background: linear-gradient(135deg, #1A3350 0%, #2c5282 100%);
+            color: white;
+            border-bottom-right-radius: 4px;
+            box-shadow: 0 10px 25px -5px rgba(26, 51, 80, 0.3);
+        }
+
+        .typing-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #1A3350;
+            animation: blink 1.2s infinite ease-in-out;
+        }
+
+        html.dark .typing-dot {
+            background: #dbeafe;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes blink {
+
+            0%,
+            80%,
+            100% {
+                opacity: 0.3;
+                transform: scale(0.8);
+            }
+
+            40% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+        }
+
+        .chip {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+            transform: scale(0.9);
+            animation: chipIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        @keyframes chipIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .chip:hover {
+            background: #1A3350 !important;
+            color: #ffffff !important;
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 15px 30px -10px rgba(26, 51, 80, 0.3);
+        }
+
+        html.dark .chip:hover {
+            background: #dbeafe !important;
+            color: #1A3350 !important;
+        }
+
+        #prompt:focus {
+            background: #ffffff !important;
+            border-color: #1A3350 !important;
+            box-shadow: 0 10px 40px -10px rgba(26, 51, 80, 0.15);
+            transform: translateY(-2px);
+        }
+
+        html.dark #prompt:focus {
+            background: #1e293b !important;
+            border-color: #dbeafe !important;
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Pulse for Online dot */
+        @keyframes pulse-dot {
+            0% {
+                transform: scale(0.95);
+                opacity: 0.7;
+            }
+
+            50% {
+                transform: scale(1.3);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(0.95);
+                opacity: 0.7;
+            }
+        }
+
+        .dot-glow {
+            animation: pulse-dot 2s infinite;
+        }
+    </style>
 </head>
-<body>
-  <!-- ===== HEADER (definitivo) ===== -->
-  <header>
-    <div class="topbar">
-      <div class="brand"><h1>Neuropsicóloga Rodríguez</h1></div>
-      <div class="quick">
-        <a class="social" href="https://www.facebook.com/share/1Av2BgPo17/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a class="social" href="https://www.instagram.com/neuropsicologa_rodriguez_?igsh=NWZnNnphZTIzNWN6" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      </div>
-    </div>
-  </header>
 
-  <!-- ===== NAV (definitivo con punto en Cortexa) ===== -->
-  <nav>
-    <div class="navlinks">
-      <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
-      <a href="sobremi.html"><i class="fas fa-user"></i> Sobre Mí</a>
-      <a href="cortexa.html" class="cx-live"><span class="cx-dot" aria-hidden="true"></span> Cortexa</a>
-      <a href="especialidades.html"><i class="fas fa-brain" aria-hidden="true"></i> Especialidades</a>
-      <a href="reservarcita.html"><i class="fas fa-calendar-check"></i> Reservar Cita</a>
-    </div>
-  </nav>
+<body class="font-sans text-primary dark:text-slate-100 overflow-x-hidden">
+    <!-- Neural Background Canvas -->
+    <canvas id="neural-bg"
+        style="position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none"></canvas>
 
-  <!-- COVER -->
-  <section class="cover" aria-label="Presentación de Cortexa">
-    <div class="cover-inner">
-      <img class="hero-ava" src="cortexa.jpg" alt="Cortexa"/>
-      <h2>Cortexa</h2>
-      <p class="lead">Un espacio cercano, cálido y confidencial para hablar de lo que necesites.</p>
-      <div class="on-actions">
-        <button id="go-chat" class="btn primary"><i class="fa-solid fa-message"></i> Empezar ahora</button>
-        <button id="how-btn" class="btn ghost"><i class="fa-regular fa-circle-question"></i> ¿Cómo funciona?</button>
-        <span class="pill"><i class="fa-solid fa-lock"></i> Tus mensajes son confidenciales</span>
-      </div>
-    </div>
-  </section>
+    <div class="relative flex min-h-screen w-full flex-col group/design-root">
+        <div class="layout-container flex h-full grow flex-col">
+            <!-- Header (Consistent with novoIndex) -->
+            <header
+                class="sticky top-0 z-50 bg-primary/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-white/10 dark:border-slate-800 px-6 lg:px-20 py-3 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.2),0_10px_20px_-2px_rgba(0,0,0,0.1)] transition-all duration-300">
+                <div class="max-w-7xl mx-auto flex items-center justify-between">
+                    <div class="flex items-center gap-3 group cursor-pointer"
+                        onclick="window.location.href='index.html'">
+                        <img src="../img/cerebro.png" alt="Neuropsicóloga Rodríguez"
+                            class="h-11 w-auto object-contain brain-shine filter drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                        <h1
+                            class="text-white dark:text-white text-[1.1rem] font-extrabold font-display tracking-tight whitespace-nowrap transition-colors duration-300 group-hover:text-accent-light">
+                            Neuropsicóloga Rodríguez</h1>
+                    </div>
+                    <div class="hidden md:flex items-center gap-8 relative w-full">
+                        <nav
+                            class="absolute left-[40%] -translate-x-1/2 flex items-center gap-1.5 p-1.5 bg-white/10 dark:bg-slate-800/60 backdrop-blur-md rounded-full border border-white/20 dark:border-slate-700 shadow-lg whitespace-nowrap ring-1 ring-white/10 hover:ring-white/20 transition-all duration-300">
+                            <a class="px-5 py-2 rounded-full text-white/90 hover:text-white hover:bg-white/10 text-[0.925rem] font-semibold transition-all duration-300 whitespace-nowrap hover:scale-110"
+                                href="index.html">Inicio</a>
+                            <a class="px-5 py-2 rounded-full text-white/90 hover:text-white hover:bg-white/10 text-[0.925rem] font-semibold transition-all duration-300 whitespace-nowrap hover:scale-110"
+                                href="sobremi.html">Sobre Mí</a>
+                            <a class="px-5 py-2 rounded-full bg-white text-primary dark:text-slate-900 text-[0.925rem] font-bold flex items-center shadow-lg shadow-black/20 transition-all duration-300 hover:scale-110 hover:bg-accent-light whitespace-nowrap ring-2 ring-primary/20"
+                                href="javascript:void(0)" onclick="goChatAction();">Cortexa <span
+                                    class="dot-pulse ml-2 scale-75"></span></a>
+                            <a class="px-5 py-2 rounded-full text-white/90 hover:text-white hover:bg-white/10 text-[0.925rem] font-semibold transition-all duration-300 whitespace-nowrap hover:scale-110"
+                                href="especialidades.html">Especialidades</a>
+                            <a class="px-5 py-2 rounded-full text-white/90 hover:text-white hover:bg-white/10 text-[0.925rem] font-semibold transition-all duration-300 whitespace-nowrap hover:scale-110"
+                                href="reservarcita.html">Reservar Cita</a>
+                        </nav>
+                        <div class="flex gap-3 ml-auto">
+                            <button id="theme-toggle"
+                                class="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 dark:bg-slate-800 border border-white/20 dark:border-slate-700 text-white dark:text-yellow-400 hover:bg-white/20 dark:hover:bg-slate-700 hover:text-white dark:hover:text-yellow-300 transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                                aria-label="Cambiar tema">
+                                <span class="material-symbols-outlined text-lg">dark_mode</span>
+                            </button>
+                            <a class="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 dark:bg-slate-800 border border-white/20 dark:border-slate-700 text-white dark:text-slate-400 hover:bg-blue-600 dark:hover:bg-blue-900/30 hover:text-white dark:hover:text-blue-400 hover:border-blue-500 dark:hover:border-blue-800 transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                                href="https://www.facebook.com/share/1Av2BgPo17/" target="_blank" rel="noopener"
+                                aria-label="Facebook">
+                                <i class="fab fa-facebook-f text-lg"></i>
+                            </a>
+                            <a class="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 dark:bg-slate-800 border border-white/20 dark:border-slate-700 text-white dark:text-slate-400 hover:bg-pink-600 dark:hover:bg-pink-900/30 hover:text-white dark:hover:text-pink-400 hover:border-pink-500 dark:hover:border-pink-800 transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                                href="https://www.instagram.com/neuropsicologa_rodriguez_?igsh=NWZnNnphZTIzNWN6"
+                                target="_blank" rel="noopener" aria-label="Instagram">
+                                <i class="fab fa-instagram text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <button
+                        class="md:hidden text-white p-2 bg-white/10 rounded-lg shadow-sm hover:bg-white/20 transition-colors">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                </div>
+            </header>
 
-  <!-- CHAT -->
-  <section class="container">
-    <div class="chat-wrap">
-      <!-- Principal -->
-      <article class="chat-card" aria-live="polite" aria-label="Chat con Cortexa">
-        <div class="chat-header">
-          <div class="bot-ava" title="Cortexa"></div>
-          <div>
-            <div class="chat-head-row">
-              <h3 class="chat-title" style="margin:0">Cortexa</h3>
-              <span class="online-badge"><span class="status-dot"></span> En línea</span>
+            <main class="flex-1 relative z-10">
+                <!-- Cover Section: Minimalist & Professional Edition -->
+                <section class="max-w-7xl mx-auto px-6 lg:px-20 pt-16 pb-20 text-center reveal-card"
+                    aria-label="Introducción de Cortexa">
+                    <div class="flex flex-col items-center justify-center max-w-4xl mx-auto">
+                        <!-- Refined Avatar Container -->
+                        <div class="relative mb-10 group">
+                            <div
+                                class="w-32 h-32 lg:w-36 lg:h-36 rounded-full overflow-hidden p-1 bg-gradient-to-tr from-primary/20 via-white to-accent/20 dark:from-slate-700 dark:to-slate-800 shadow-soft ring-1 ring-black/5 dark:ring-white/10 transition-transform duration-700 group-hover:scale-105 avatar-breath relative z-10">
+                                <img src="../cortexa.jpg" alt="Cortexa Brain Assistant"
+                                    class="w-full h-full rounded-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all">
+                            </div>
+                            <div
+                                class="absolute -bottom-1 -right-1 bg-highlight w-9 h-9 rounded-full border-[3px] border-white dark:border-slate-900 shadow-glow flex items-center justify-center z-20">
+                                <span
+                                    class="material-symbols-outlined text-white text-base font-bold dot-glow">check_circle</span>
+                            </div>
+                        </div>
+
+                        <!-- Premium Typography Section -->
+                        <h2
+                            class="text-6xl lg:text-7xl font-display font-medium text-primary dark:text-white tracking-tight mb-6 leading-none">
+                            Cortexa
+                        </h2>
+
+                        <p
+                            class="text-lg lg:text-xl text-slate-500 dark:text-slate-400 font-normal leading-relaxed mb-12 max-w-2xl balance-text">
+                            Acompañamiento clínico orientado por neurociencia. Conversaciones seguras, <span
+                                class="text-primary dark:text-white font-semibold">confidenciales</span> y al alcance de
+                            tu mano.
+                        </p>
+
+                        <!-- Minimalist Button Row: Primary Call to Action + Secondary Info -->
+                        <div class="flex flex-wrap items-center justify-center gap-4 lg:gap-5">
+                            <button id="go-chat" type="button"
+                                class="px-10 py-4 bg-primary text-white rounded-full font-bold text-[0.95rem] tracking-wide hover:shadow-2xl hover:bg-slate-800 dark:hover:bg-slate-700 hover:scale-105 transition-all flex items-center gap-3">
+                                <span class="material-symbols-outlined !text-xl">chat_bubble</span> Iniciar Conversación
+                            </button>
+
+                            <button id="how-btn-hero"
+                                class="px-8 py-4 bg-white/50 dark:bg-slate-800/50 backdrop-blur-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-full font-bold text-[0.9rem] hover:bg-white/80 dark:hover:bg-slate-700 transition-all flex items-center gap-3">
+                                <span class="material-symbols-outlined !text-xl">help_outline</span> ¿Cómo me ayuda?
+                            </button>
+                        </div>
+
+                        <!-- Subtle Security Badge -->
+                        <div class="mt-8">
+                            <span
+                                class="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.25em] text-slate-400 dark:text-slate-500">
+                                <span class="material-symbols-outlined text-[13px]">verified_user</span>
+                                256-bit Encryption • Private Session
+                            </span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Chat Layout (Stable Height) -->
+                <section class="max-w-7xl mx-auto px-6 lg:px-20 pb-20">
+                    <div class="grid lg:grid-cols-12 gap-8">
+
+                        <!-- Chat Main Column -->
+                        <div class="lg:col-span-8 group/chat reveal-card delay-1">
+                            <div id="chat-container"
+                                class="bento-card rounded-[2.5rem] border-primary/10 flex flex-col h-[600px] lg:h-[720px] max-h-[90vh] shadow-2xl overflow-hidden relative z-10 glass-shine">
+                                <!-- Chat Header: Slim & Modern -->
+                                <div
+                                    class="px-8 py-5 flex items-center justify-between bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800">
+                                    <div class="flex items-center gap-4">
+                                        <div class="relative">
+                                            <div
+                                                class="w-10 h-10 rounded-full border border-primary/10 overflow-hidden shadow-sm">
+                                                <img src="../cortexa.jpg" alt="Avatar"
+                                                    class="w-full h-full object-cover">
+                                            </div>
+                                            <span
+                                                class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-highlight rounded-full border-2 border-white dark:border-slate-900 shadow-sm dot-glow"></span>
+                                        </div>
+                                        <div>
+                                            <h3
+                                                class="text-sm font-bold text-slate-800 dark:text-white leading-none mb-1 tracking-tight">
+                                                Cortexa</h3>
+                                            <div class="flex items-center gap-1.5 opacity-60">
+                                                <span class="w-1 h-1 rounded-full bg-highlight"></span>
+                                                <span
+                                                    class="text-[9px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-200">Activa
+                                                    Ahora</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center gap-2">
+                                        <div
+                                            class="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-slate-50 dark:bg-slate-800/50 rounded-full border border-slate-100 dark:border-slate-700">
+                                            <span class="material-symbols-outlined text-xs text-slate-400">lock</span>
+                                            <span
+                                                class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Canal
+                                                Seguro</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="chat"
+                                    class="flex-1 overflow-y-auto p-6 lg:p-10 space-y-6 bg-gradient-to-b from-slate-50/80 via-white to-slate-50/80 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 relative">
+                                    <!-- Sticky Header inside #chat for correct scrolling/visibility -->
+                                    <div id="sticky-header"
+                                        class="sticky top-0 z-30 opacity-0 -translate-y-2 pointer-events-none transition-all duration-300">
+                                        <div
+                                            class="absolute inset-x-0 -top-8 h-10 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 flex items-center px-6">
+                                            <span
+                                                class="text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-500">Continuar
+                                                conversación</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-center mb-4">
+                                        <span
+                                            class="px-4 py-1.5 bg-white dark:bg-slate-800 text-slate-400 dark:text-slate-500 rounded-full text-[0.65rem] font-bold border border-slate-100 dark:border-slate-700 uppercase tracking-[0.2em]">Conexión
+                                            Neuronal Establecida</span>
+                                    </div>
+
+                                    <!-- Bot Intro -->
+                                    <div class="flex gap-4 max-w-[85%] msg-reveal" style="--slide-x: -15px">
+                                        <div
+                                            class="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-1 shadow-sm overflow-hidden">
+                                            <img src="../cortexa.jpg" class="w-full h-full object-cover">
+                                        </div>
+                                        <div class="space-y-2">
+                                            <div
+                                                class="msg-bubble msg-bot-bubble p-4 px-6 rounded-[24px] shadow-sm text-slate-700 dark:text-slate-200 leading-relaxed text-sm lg:text-base border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-800">
+                                                Hola, soy <strong>Cortexa</strong>. Tu asistente de orientación
+                                                cognitiva. ¿En qué puedo acompañarte hoy?
+                                            </div>
+                                            <div
+                                                class="flex items-center gap-2 text-[9px] text-slate-400 font-bold px-1 uppercase tracking-widest">
+                                                <span class="material-symbols-outlined text-[10px]">shield</span>
+                                                Orientación Segura y Privada
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Sugerencias Rápidas: Minimalist Approach -->
+                                <div
+                                    class="px-6 py-4 bg-slate-50/50 dark:bg-slate-900/50 border-t border-slate-100 dark:border-slate-800">
+                                    <div class="flex flex-nowrap gap-2 overflow-x-auto no-scrollbar py-1 pb-3 px-2">
+                                        <button
+                                            class="chip px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full text-[10.5px] font-medium text-slate-600 dark:text-slate-300 whitespace-nowrap transition-all shadow-sm flex items-center gap-2 shrink-0 delay-1"
+                                            data-suggest="Tengo celos y no sé cómo hablarlo."><span
+                                                class="w-1.5 h-1.5 rounded-full bg-pink-400"></span> Celos</button>
+                                        <button
+                                            class="chip px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full text-[10.5px] font-medium text-slate-600 dark:text-slate-300 whitespace-nowrap transition-all shadow-sm flex items-center gap-2 shrink-0 delay-2"
+                                            data-suggest="Estoy con ansiedad y quiero técnicas rápidas."><span
+                                                class="w-1.5 h-1.5 rounded-full bg-blue-400"></span> Ansiedad</button>
+                                        <button
+                                            class="chip px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full text-[10.5px] font-medium text-slate-600 dark:text-slate-300 whitespace-nowrap transition-all shadow-sm flex items-center gap-2 shrink-0 delay-3"
+                                            data-suggest="Me cuesta concentrarme al estudiar."><span
+                                                class="w-1.5 h-1.5 rounded-full bg-yellow-400"></span> Estudio</button>
+                                        <button
+                                            class="chip px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full text-[10.5px] font-medium text-slate-600 dark:text-slate-300 whitespace-nowrap transition-all shadow-sm flex items-center gap-2 shrink-0 delay-4"
+                                            data-suggest="Me siento estresado/a, ¿cómo bajo la tensión hoy?"><span
+                                                class="w-1.5 h-1.5 rounded-full bg-orange-400"></span> Estrés</button>
+                                        <button
+                                            class="chip px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full text-[10.5px] font-medium text-slate-600 dark:text-slate-300 whitespace-nowrap transition-all shadow-sm flex items-center gap-2 shrink-0 delay-4"
+                                            data-suggest="Tengo ánimo bajo, dame pautas para el día."><span
+                                                class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span> Ánimo
+                                            bajo</button>
+                                        <button
+                                            class="chip px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full text-[10.5px] font-medium text-slate-600 dark:text-slate-300 whitespace-nowrap transition-all shadow-sm flex items-center gap-2 shrink-0 delay-4"
+                                            data-suggest="Estoy en duelo, ¿cómo gestiono estas emociones?"><span
+                                                class="w-1.5 h-1.5 rounded-full bg-slate-400"></span> Duelo</button>
+                                        <button
+                                            class="chip px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full text-[10.5px] font-medium text-slate-600 dark:text-slate-300 whitespace-nowrap transition-all shadow-sm flex items-center gap-2 shrink-0 delay-4"
+                                            data-suggest="Quiero mejorar mi autoestima con ejercicios simples."><span
+                                                class="w-1.5 h-1.5 rounded-full bg-red-400"></span> Autoestima</button>
+                                        <button
+                                            class="chip px-4 py-2 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 rounded-full text-[10.5px] font-bold text-green-700 dark:text-green-400 whitespace-nowrap hover:bg-green-600 hover:text-white transition-all shadow-sm flex items-center gap-2 shrink-0 delay-4"
+                                            data-suggest="¿Cómo agendo una evaluación neuropsicológica?"><span
+                                                class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span> Cita
+                                            Profesional</button>
+                                    </div>
+                                </div>
+
+                                <!-- Composer: Premium Minimalism -->
+                                <div
+                                    class="p-6 lg:p-8 bg-white/50 dark:bg-slate-900/50 backdrop-blur-md border-t border-slate-100 dark:border-slate-800">
+                                    <div class="relative flex items-end gap-3 w-full">
+                                        <textarea id="prompt" placeholder="Escribe un mensaje a Cortexa..."
+                                            class="flex-1 bg-slate-50 dark:bg-slate-800/80 border border-slate-200/50 dark:border-slate-700/50 rounded-[24px] px-8 py-4.5 pr-16 focus:ring-0 focus:border-primary/30 dark:focus:border-white/30 resize-none max-h-40 min-h-[58px] text-slate-700 dark:text-slate-200 transition-all text-[0.95rem]"
+                                            rows="1"></textarea>
+                                        <button id="send"
+                                            class="absolute right-2 bottom-2 w-11 h-11 bg-gradient-to-tr from-primary to-accent text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-primary/40 hover:-translate-y-0.5 active:scale-95 transition-all disabled:opacity-30 disabled:pointer-events-none">
+                                            <span class="material-symbols-outlined !text-xl">arrow_upward</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="mt-4 flex justify-between items-center px-2">
+                                        <div class="flex items-center gap-4">
+                                            <div id="wordCounter"
+                                                class="text-[9px] font-bold text-slate-300 dark:text-slate-600 uppercase tracking-widest">
+                                                0 / 1200</div>
+                                            <div id="dailyCounter"
+                                                class="text-[9px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center gap-1.5">
+                                                <span
+                                                    class="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-600"></span>
+                                                Hoy: 0 / 10
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-1 opacity-40">
+                                            <span
+                                                class="text-[8px] font-black uppercase tracking-widest text-slate-400">Encrypted</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- End #chat-container -->
+                        </div> <!-- End .lg:col-span-8 -->
+
+                        <!-- Sidebar Column (Restored from cortexa.html skeleton) -->
+                        <aside class="lg:col-span-4 space-y-8">
+                            <!-- Appointment Card: Premium Minimalist -->
+                            <div
+                                class="bento-card p-6 rounded-[2.2rem] border-slate-200 dark:border-slate-700/50 bg-white/40 dark:bg-slate-800/40 backdrop-blur-xl shadow-soft shrink-0">
+                                <div
+                                    class="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center mb-4 border border-primary/20">
+                                    <span
+                                        class="material-symbols-outlined text-primary dark:text-accent-light text-xl">event_upcoming</span>
+                                </div>
+                                <h4 class="text-base font-bold text-slate-800 dark:text-white mb-2 font-display">Sesión
+                                    Profesional</h4>
+                                <p class="text-slate-500 dark:text-slate-400 text-[11px] leading-relaxed mb-5">
+                                    Orientación personalizada con la Neuropsicóloga Rodríguez.</p>
+                                <div class="space-y-2">
+                                    <a href="https://api.whatsapp.com/send?phone=51954056912&text=Hola%2C%20Neuropsic%C3%B3loga%20Mabela%20Rodr%C3%ADguez.%20%E2%9C%A8%20He%20consultado%20su%20sitio%20web%20y%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20profesional%20para%20agendar%20una%20cita.%20%C2%BFPodr%C3%ADa%20indicarme%20disponibilidad%20de%20horarios%3F%20%C2%A1Muchas%20gracias!%20%F0%9F%A4%9D"
+                                        target="_blank"
+                                        class="w-full py-3 bg-primary text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-slate-800 dark:hover:bg-slate-700 transition-all shadow-lg text-[11px]">
+                                        Agendar Cita <span
+                                            class="material-symbols-outlined text-xs">arrow_outward</span>
+                                    </a>
+                                    <a href="https://wa.me/51943748260" target="_blank" rel="noopener"
+                                        class="w-full py-3 bg-slate-50 dark:bg-slate-800/50 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-white dark:hover:bg-slate-700 transition-all text-[11px]">
+                                        <i class="fab fa-whatsapp text-sm"></i> WhatsApp
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Motivos Card -->
+                            <div
+                                class="bento-card p-6 rounded-[2.2rem] border-slate-100 dark:border-slate-800/80 bg-white/30 dark:bg-slate-800/30 backdrop-blur-md shadow-soft shrink-0">
+                                <h4
+                                    class="text-sm font-bold text-slate-800 dark:text-white mb-5 flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-primary/40"></span>
+                                    Motivos Frecuentes
+                                </h4>
+                                <ul class="space-y-3.5">
+                                    <li class="flex items-center gap-3">
+                                        <span
+                                            class="material-symbols-outlined text-[14px] text-primary/40 dark:text-accent-light/40">check_circle</span>
+                                        <span
+                                            class="text-[11px] font-medium text-slate-500 dark:text-slate-400">Ansiedad,
+                                            estrés y ánimo bajo</span>
+                                    </li>
+                                    <!-- Simplified list for minimalism -->
+                                    <li class="flex items-center gap-3">
+                                        <span
+                                            class="material-symbols-outlined text-[14px] text-primary/40 dark:text-accent-light/40">check_circle</span>
+                                        <span class="text-[11px] font-medium text-slate-500 dark:text-slate-400">TDAH y
+                                            funciones ejecutivas</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <span
+                                            class="material-symbols-outlined text-[14px] text-primary/40 dark:text-accent-light/40">check_circle</span>
+                                        <span class="text-[11px] font-medium text-slate-500 dark:text-slate-400">Duelo y
+                                            gestión emocional</span>
+                                    </li>
+                                </ul>
+                                <button id="how-mini-btn"
+                                    class="mt-6 w-full py-2 bg-slate-50 dark:bg-slate-900/50 rounded-lg text-[9px] font-bold uppercase tracking-[0.2em] text-slate-400 hover:text-primary transition-all">Manual
+                                    de uso</button>
+                            </div>
+
+                            <!-- Specialties Card -->
+                            <div
+                                class="bento-card p-6 rounded-[2rem] border-slate-100 dark:border-slate-800 bg-white/40 dark:bg-slate-800/40 backdrop-blur-md shadow-soft shrink-0 reveal-card delay-4 glass-shine">
+                                <h4
+                                    class="text-base font-bold text-primary dark:text-white mb-2 text-center lg:text-left">
+                                    Especialidades</h4>
+                                <p
+                                    class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed mb-4 text-center lg:text-left">
+                                    Encuentra explicaciones claras y breves de conceptos de psicología y
+                                    neuropsicología, con ejemplos fáciles de aplicar.
+                                </p>
+                                <a href="especialidades.html"
+                                    class="w-full py-2 bg-primary/5 dark:bg-white/5 border border-primary/10 dark:border-white/10 rounded-lg text-[10px] font-black uppercase tracking-widest text-primary dark:text-white hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2">
+                                    <span class="material-symbols-outlined text-xs">info</span> Ver especialidades
+                                </a>
+                            </div>
+                        </aside>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Footer (Consistent) -->
+            <footer class="bg-primary text-white py-16 relative overflow-hidden">
+                <div
+                    class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5">
+                </div>
+                <div class="max-w-7xl mx-auto px-6 lg:px-20 relative z-10">
+                    <div class="grid md:grid-cols-4 gap-12 border-b border-white/10 pb-12">
+                        <div class="col-span-2 space-y-6 text-center md:text-left leading-relaxed">
+                            <div class="flex items-center justify-center md:justify-start gap-3 group cursor-pointer"
+                                onclick="window.location.href='index.html'">
+                                <img src="../img/cerebro.png" alt="Logo"
+                                    class="h-10 w-auto object-contain brain-shine" />
+                                <h2
+                                    class="text-white text-xl font-extrabold font-display tracking-tight transition-colors group-hover:text-accent-light">
+                                    Neuropsicóloga Rodríguez</h2>
+                            </div>
+                            <p class="text-slate-300 max-w-sm mx-auto md:mx-0">Transformando vidas a través de la
+                                neurociencia y la empatía clínica.</p>
+                        </div>
+                        <div class="text-center md:text-left">
+                            <h5 class="font-bold mb-6 text-accent text-lg">Navegación</h5>
+                            <ul class="space-y-4 text-slate-300">
+                                <li><a class="hover:text-white transition-colors flex items-center justify-center md:justify-start gap-2"
+                                        href="index.html"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                                        Inicio</a></li>
+                                <li><a class="hover:text-white transition-colors flex items-center justify-center md:justify-start gap-2"
+                                        href="sobremi.html"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                                        Sobre Mí</a></li>
+                                <li><a class="hover:text-white transition-colors flex items-center justify-center md:justify-start gap-2"
+                                        href="cortexa.html"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                                        Cortexa</a></li>
+                                <li><a class="hover:text-white transition-colors flex items-center justify-center md:justify-start gap-2"
+                                        href="especialidades.html"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-accent"></span> Especialidades</a></li>
+                                <li><a class="hover:text-white transition-colors flex items-center justify-center md:justify-start gap-2"
+                                        href="reservarcita.html"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-accent"></span> Reservar Cita</a></li>
+                            </ul>
+                        </div>
+                        <div class="text-center md:text-left">
+                            <h5 class="font-bold mb-6 text-accent text-lg">Contacto</h5>
+                            <ul class="space-y-4 text-slate-300">
+                                <li class="flex items-center justify-center md:justify-start gap-3"><span
+                                        class="material-symbols-outlined text-sm">mail</span>
+                                    neuropsicologarodriguez@gmail.com
+                                </li>
+                                <li class="flex items-center justify-center md:justify-start gap-3"><span
+                                        class="material-symbols-outlined text-sm">location_on</span> Lima, Lima, Perú
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="pt-12 text-center text-slate-400 text-sm">
+                        <p>© 2024 Neuropsicóloga Rodríguez. Todos los derechos reservados.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Modal How it Works -->
+    <div id="cxHowModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-6 lg:p-12">
+        <div class="absolute inset-0 bg-primary/60 backdrop-blur-sm" id="modal-overlay"></div>
+        <div
+            class="relative bg-white dark:bg-slate-900 w-full max-w-2xl rounded-[2.5rem] p-10 lg:p-14 shadow-2xl reveal-card">
+            <h3 class="text-3xl font-display font-extrabold text-primary dark:text-white mb-6">¿Cómo funciona Cortexa?
+            </h3>
+            <div class="space-y-6 text-slate-600 dark:text-slate-300">
+                <div class="flex gap-4">
+                    <div
+                        class="w-10 h-10 rounded-full bg-highlight/10 text-highlight flex items-center justify-center shrink-0 mt-1">
+                        <span class="material-symbols-outlined">psychology</span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-primary dark:text-white mb-1">Qué hace por ti</p>
+                        <p class="text-sm">Ofrece orientación breve basada en evidencia cognitiva, técnicas prácticas y
+                            psicoeducación inmediata.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div
+                        class="w-10 h-10 rounded-full bg-primary/10 text-primary dark:text-white flex items-center justify-center shrink-0 mt-1">
+                        <span class="material-symbols-outlined">security</span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-primary dark:text-white mb-1">Privacidad Total</p>
+                        <p class="text-sm">Tus mensajes son confidenciales y no almacenamos registros personales
+                            permanentes.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div
+                        class="w-10 h-10 rounded-full bg-accent/10 text-accent flex items-center justify-center shrink-0 mt-1">
+                        <span class="material-symbols-outlined">warning</span>
+                    </div>
+                    <div>
+                        <p class="font-bold text-primary dark:text-white mb-1">Limitaciones</p>
+                        <p class="text-sm">No reemplaza un diagnóstico clínico ni maneja emergencias. Limite diario de
+                            10 mensajes.</p>
+                    </div>
+                </div>
             </div>
-            <div class="chat-sub">Asistente de la neuropsicóloga Rodríguez</div>
-          </div>
+            <button id="cxCloseHow"
+                class="mt-10 w-full py-4 bg-primary text-white rounded-2xl font-bold hover:shadow-xl transition-all">Entendido,
+                cerrar</button>
         </div>
-
-        <div id="chat" class="chat-body" role="log" aria-label="Conversación">
-          <div class="sticky-title" aria-hidden="true">
-            <div class="ava bot" aria-hidden="true"></div><strong>Cortexa</strong>
-          </div>
-
-          <div class="timeline">Inicio de conversación</div>
-          <div class="msg bot">
-            <div class="ava bot" aria-hidden="true"></div>
-            <div>
-              <div class="bubble">Hola, soy Cortexa. Te escucho. ¿Qué te gustaría hablar hoy?</div>
-              <div class="meta"><i class="fa-regular fa-shield"></i> Confidencial • Enter para enviar</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Composer -->
-        <div class="composer">
-          <div class="toolbar" aria-label="Sugerencias rápidas">
-            <!-- Fila 1 -->
-            <button class="chip" data-suggest="Tengo celos y no sé cómo hablarlo.">Celos</button>
-            <button class="chip" data-suggest="Estoy con ansiedad y quiero técnicas rápidas.">Ansiedad</button>
-            <button class="chip" data-suggest="Me cuesta concentrarme al estudiar.">Estudio</button>
-            <button class="chip" data-suggest="Me siento estresado/a, ¿cómo bajo la tensión hoy?">Estrés</button>
-            <button class="chip" data-suggest="Tengo ánimo bajo, dame pautas para el día.">Ánimo bajo</button>
-            <button class="chip" data-suggest="Estoy en duelo, ¿cómo gestiono estas emociones?">Duelo</button>
-            <button class="chip" data-suggest="Quiero mejorar mi autoestima con ejercicios simples.">Autoestima</button>
-            <!-- Fila 2 -->
-            <button class="chip" data-suggest="Ayúdame a organizar mi día en 3 pasos.">Organización</button>
-            <button class="chip" data-suggest="No duermo bien, ¿rutina breve para dormir mejor?">Sueño</button>
-            <button class="chip" data-suggest="Quiero 3 hábitos saludables fáciles de empezar.">Hábitos saludables</button>
-            <button class="chip" data-suggest="Estoy con mi pareja y quiero hablar de límites con calma.">Pareja</button>
-            <button class="chip" data-suggest="Tengo conflictos en familia, ¿pautas para comunicarnos mejor?">Familia</button>
-            <button class="chip" data-suggest="Quiero practicar comunicación asertiva con ejemplos.">Comunicación asertiva</button>
-            <!-- Fila 3 -->
-            <button class="chip" data-suggest="Tengo despistes, ¿qué estrategias de TDAH puedo probar?">TDAH</button>
-            <button class="chip" data-suggest="Necesito ejercicios de funciones ejecutivas.">Funciones ejecutivas</button>
-            <button class="chip" data-suggest="Quiero técnicas simples para la memoria cotidiana.">Memoria</button>
-            <button class="chip secondary" data-suggest="¿Cómo agendo una evaluación neuropsicológica?">Evaluación neuropsicológica</button>
-          </div>
-
-          <div class="inputrow">
-            <label class="sr-only" for="prompt">Escribe tu mensaje</label>
-            <textarea id="prompt" placeholder="Escribe tu pregunta aquí…" rows="2" aria-label="Área de mensaje"></textarea>
-            <button id="send" class="btn-send"><i class="fa-solid fa-paper-plane"></i> Enviar</button>
-          </div>
-
-          <!-- Línea de límites -->
-          <div class="limit-row" aria-live="polite">
-            <span id="wordCounter" class="counter">0 / 1200 caracteres</span>
-            <span class="hint-inline"><i class="fa-regular fa-lightbulb"></i> Máx. 250 palabras por mensaje y 10 mensajes por día.</span>
-            <span id="dailyCounter" class="counter">Hoy: 0 / 10</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- Lateral -->
-      <aside class="side" aria-label="Ayuda y enlaces">
-        <h3>¿Necesitas una cita?</h3>
-        <p style="margin-top:0">Cortexa orienta; la atención profesional es con la Neuropsicóloga Rodríguez.</p>
-        <div class="cta-mini">
-            <a class="primary" href="reservarcita.html"><i class="fas fa-calendar-check"></i> Reservar cita</a>
-            <a href="https://wa.me/51943748260" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-        </div>
-
-        <div class="card">
-          <h3 style="margin:0 0 6px">Motivos frecuentes</h3>
-          <ul class="list-check">
-            <li><i class="fa-solid fa-check-circle"></i> Ansiedad, estrés, ánimo bajo y duelo</li>
-            <li><i class="fa-solid fa-check-circle"></i> Funciones ejecutivas, TDAH, aprendizaje</li>
-            <li><i class="fa-solid fa-check-circle"></i> Familia, pareja y convivencia</li>
-            <li><i class="fa-solid fa-check-circle"></i> Evaluación y rehabilitación neuropsicológica</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3 style="margin:0 0 6px">Especialidades</h3>
-          <p style="margin:6px 0 10px">
-            Encuentra explicaciones claras y breves de conceptos de psicología y neuropsicología (ansiedad, TDAH, funciones ejecutivas, memoria y más), con ejemplos fáciles de aplicar.
-          </p>
-          <div class="cta-mini">
-            <a class="primary" href="especialidades.html"><i class="fa-solid fa-circle-info"></i> Ver especialidades</a>
-          </div>
-        </div>
-      </aside>
     </div>
-  </section>
 
-  <!-- MODAL ¿Cómo funciona? -->
-  <div class="cx-modal" id="cxHowModal" role="dialog" aria-modal="true" aria-labelledby="cxHowTitle">
-    <div class="cx-modal-card">
-      <h3 id="cxHowTitle">¿Cómo funciona?</h3>
-      <ul>
-        <li><strong>Qué hace:</strong> orientación breve, técnicas y psicoeducación.</li>
-        <li><strong>Qué no hace:</strong> no diagnostica ni maneja emergencias.</li>
-        <li><strong>Privacidad:</strong> tus mensajes son confidenciales.</li>
-        <li><strong>Límites de uso:</strong> máx. <u>250 palabras por mensaje</u> y <u>10 mensajes por día</u>.</li>
-      </ul>
-      <div class="cx-modal-actions">
-        <button id="cxCloseHow" class="btn primary">Entendido</button>
-      </div>
-    </div>
-  </div>
+    <!-- IA LOGIC & WEB SCRIPTS -->
+    <script>
+        // ======= CONFIG =======
+        const BACKEND_URL = "https://cortexa-backend.cortexa.workers.dev";
+        const MESSAGES_CONTAINER = document.getElementById("chat");
+        const PROMPT_INPUT = document.getElementById("prompt");
+        const SEND_BTN = document.getElementById("send");
+        const SESSION_ID = "nuevo-cortexa-session-" + Math.random().toString(36).substring(7);
 
-  <script>
-    // ======= CONFIG =======
-    const BACKEND_URL = "https://cortexa-backend.cortexa.workers.dev";
-    const CHAT = document.getElementById("chat");
-    const PROMPT = document.getElementById("prompt");
-    const SEND = document.getElementById("send");
-    const SESSION_ID = "demo-session";
+        // Límites
+        const CHAR_LIMIT = 1200;
+        const DAILY_LIMIT = 10;
 
-    // Límites
-    const CHAR_LIMIT = 1200;   // límite por mensaje en caracteres (incluye espacios)
-    const DAILY_LIMIT = 10;
+        // UI Helpers
+        const nowTime = () => new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const sanitize = (text) => text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\n/g, "<br>");
+        const scrollToBottom = () => MESSAGES_CONTAINER.scrollTo({ top: MESSAGES_CONTAINER.scrollHeight, behavior: 'smooth' });
 
-    // UI
-    const WORD_COUNTER = document.getElementById("wordCounter");
-    const DAILY_COUNTER = document.getElementById("dailyCounter");
+        const addBotMessage = (text) => {
+            const html = `
+                <div class="flex gap-4 max-w-[90%] msg-reveal" style="--slide-x: -15px">
+                    <div class="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-1 shadow-sm overflow-hidden">
+                        <img src="../cortexa.jpg" class="w-full h-full object-cover">
+                    </div>
+                    <div class="space-y-2">
+                        <div class="msg-bubble msg-bot-bubble p-4 px-6 rounded-[24px] shadow-sm text-slate-700 dark:text-slate-200 leading-relaxed text-sm">
+                            ${text}
+                        </div>
+                        <div class="text-[9px] text-slate-400 font-bold px-1 uppercase tracking-widest">${nowTime()} • Cortexa</div>
+                    </div>
+                </div>
+            `;
+            MESSAGES_CONTAINER.insertAdjacentHTML('beforeend', html);
+            scrollToBottom();
+        };
 
-    // ======= helpers =======
-    const el = (html)=>{ const t=document.createElement("template"); t.innerHTML=html.trim(); return t.content.firstChild; };
-    const nowTime = ()=> new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
-    const sanitize = (text)=> String(text).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\n/g,"<br>");
-    const scrollToBottom = ()=> window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        const addUserMessage = (text) => {
+            const html = `
+                <div class="flex flex-row-reverse gap-4 max-w-[90%] ml-auto msg-reveal" style="--slide-x: 15px">
+                    <div class="w-9 h-9 rounded-full bg-primary text-white flex items-center justify-center shrink-0 mt-1 shadow-lg">
+                        <span class="material-symbols-outlined text-sm">person</span>
+                    </div>
+                    <div class="space-y-2 text-right">
+                        <div class="msg-bubble msg-user-bubble p-4 px-6 rounded-[24px] shadow-lg text-white leading-relaxed text-left text-sm">
+                            ${sanitize(text)}
+                        </div>
+                        <div class="text-[9px] text-slate-400 font-bold px-1 uppercase tracking-widest">${nowTime()} • Tú</div>
+                    </div>
+                </div>
+            `;
+            MESSAGES_CONTAINER.insertAdjacentHTML('beforeend', html);
+            scrollToBottom();
+        };
 
-    const addBot = (text)=>{
-      const node = el(`<div class="msg bot"><div class="ava bot" aria-hidden="true"></div><div><div class="bubble">${sanitize(text)}</div><div class="meta">${nowTime()} • Cortexa</div></div></div>`);
-      CHAT.appendChild(node); scrollToBottom();
-    };
-    const addUser = (text)=>{
-      const node = el(`<div class="msg user"><div><div class="bubble">${sanitize(text)}</div><div class="meta">${nowTime()} • Tú</div></div></div>`);
-      CHAT.appendChild(node); scrollToBottom();
-    };
+        let typingIndicator = null;
+        const showTyping = () => {
+            const html = `
+                <div id="typing" class="flex gap-4 max-w-[80%] animate-pulse">
+                    <div class="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-1">
+                        <img src="../cortexa.jpg" class="w-full h-full rounded-full object-cover grayscale opacity-50">
+                    </div>
+                    <div class="msg-bubble msg-bot-bubble p-4 px-6 rounded-[24px] flex items-center gap-1.5">
+                        <span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>
+                    </div>
+                </div>
+            `;
+            MESSAGES_CONTAINER.insertAdjacentHTML('beforeend', html);
+            typingIndicator = document.getElementById("typing");
+            scrollToBottom();
+        };
 
-    // loader
-    let typingNode = null;
-    const showTyping = ()=>{
-      typingNode = el(`
-        <div class="msg bot" id="typing">
-          <div class="ava bot" aria-hidden="true"></div>
-          <div class="bubble">
-            <span class="typing"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>
-          </div>
-        </div>`);
-      CHAT.appendChild(typingNode); scrollToBottom();
-    };
-    const hideTyping = ()=>{ if(typingNode && typingNode.parentNode){ typingNode.parentNode.removeChild(typingNode); typingNode=null; } };
+        const hideTyping = () => { if (typingIndicator) typingIndicator.remove(); };
 
-    // ====== Rate limiting (cliente: preventivo) ======
-    const todayKey = ()=> {
-      const d = new Date();
-      const y = d.getFullYear();
-      const m = String(d.getMonth()+1).padStart(2,'0');
-      const day = String(d.getDate()).padStart(2,'0');
-      return `cx_usage_${y}-${m}-${day}`;
-    };
+        // Usage Limits Tracking
+        const getUsageKey = () => `cortexa_usage_${new Date().toISOString().split('T')[0]}`;
+        const getCount = () => parseInt(localStorage.getItem(getUsageKey()) || "0");
+        const updateUsageUI = () => {
+            const used = getCount();
+            const remaining = Math.max(0, DAILY_LIMIT - used);
 
-    const readTodayCount = ()=> {
-      const raw = localStorage.getItem(todayKey());
-      const n = raw ? parseInt(raw,10) : 0;
-      return isNaN(n) ? 0 : n;
-    };
-    const writeTodayCount = (n)=> {
-      localStorage.setItem(todayKey(), String(Math.max(0, n|0)));
-    };
-    const incrementTodayCount = ()=> {
-      const n = readTodayCount()+1;
-      writeTodayCount(n);
-      return n;
-    };
-    const setMaxedToday = ()=> writeTodayCount(DAILY_LIMIT);
+            // Legacy element (if still exists)
+            const legacyEl = document.getElementById("dailyCounter");
+            if (legacyEl) {
+                legacyEl.textContent = `Hoy: ${used} / ${DAILY_LIMIT}`;
+                legacyEl.classList.toggle('text-highlight', used < DAILY_LIMIT);
+                legacyEl.classList.toggle('text-red-500', used >= DAILY_LIMIT);
+            }
 
-    // === Caracteres (incluye espacios) ===
-    const countChars = (text)=> String(text ?? "").length;
+            // New UI Elements
+            const displayEl = document.getElementById("daily-limit-display");
+            const progressEl = document.getElementById("daily-progress-bar");
 
-    // Estado UI
-    let isBusy = false;
-    const setBusy = (b)=>{ isBusy=b; updateSendEnabled(); };
+            if (displayEl) displayEl.textContent = remaining;
+            if (progressEl) {
+                const percent = (remaining / DAILY_LIMIT) * 100;
+                progressEl.style.width = `${percent}%`;
 
-    const updateWordUI = ()=>{
-      const n = countChars(PROMPT.value);
-      WORD_COUNTER.textContent = `${n} / ${CHAR_LIMIT} caracteres`;
-      WORD_COUNTER.classList.toggle('bad', n > CHAR_LIMIT);
-    };
+                // Color shift
+                if (percent < 30) {
+                    progressEl.classList.remove('bg-primary');
+                    progressEl.classList.add('bg-red-500');
+                } else {
+                    progressEl.classList.add('bg-primary');
+                    progressEl.classList.remove('bg-red-500');
+                }
+            }
+        };
 
-    const updateDailyUI = ()=>{
-      const used = readTodayCount();
-      DAILY_COUNTER.textContent = `Hoy: ${used} / ${DAILY_LIMIT}`;
-      DAILY_COUNTER.classList.toggle('good', used < DAILY_LIMIT);
-      DAILY_COUNTER.classList.toggle('bad', used >= DAILY_LIMIT);
-    };
+        // Core Send Logic
+        async function handleSend() {
+            const q = PROMPT_INPUT.value.trim();
+            const used = getCount();
 
-    const canSend = ()=>{
-      const chars = countChars(PROMPT.value.trim());
-      const used = readTodayCount();
-      return !isBusy && chars > 0 && chars <= CHAR_LIMIT && used < DAILY_LIMIT;
-    };
+            if (!q || used >= DAILY_LIMIT) return;
 
-    const updateSendEnabled = ()=>{
-      SEND.disabled = !canSend();
-    };
+            addUserMessage(q);
+            PROMPT_INPUT.value = "";
+            PROMPT_INPUT.style.height = "auto";
 
-    const softError = (msg)=>{
-      addBot(`⚠️ ${msg}`);
-    };
+            showTyping();
+            try {
+                // Instrucción de brevedad añadida al prompt (interna)
+                const briefPrompt = `${q} (POR FAVOR: Responde de forma MUY breve, máximo 3 líneas de texto).`;
 
-    // auto-grow + contadores
-    const autoGrow = ()=>{
-      PROMPT.style.height='auto';
-      PROMPT.style.height=Math.min(PROMPT.scrollHeight, 140)+"px";
-      updateWordUI();
-      updateSendEnabled();
-    };
-    PROMPT.addEventListener('input', autoGrow);
+                const res = await fetch(BACKEND_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ question: briefPrompt, sessionId: SESSION_ID })
+                });
+                const data = await res.json();
+                hideTyping();
 
-    // chips
-    document.querySelectorAll('.chip').forEach(ch=>{
-      ch.addEventListener('click', ()=>{
-        const s = ch.getAttribute('data-suggest');
-        PROMPT.value = s; autoGrow(); PROMPT.focus();
-      });
-    });
-
-    // backend
-    async function askBackend(payload){
-      const res = await fetch(BACKEND_URL, {
-        method:"POST", headers:{ "Content-Type":"application/json" }, body: JSON.stringify(payload)
-      });
-      const status = res.status;
-      let data = null;
-      try { data = await res.json(); } catch(_){}
-      return { status, data };
-    }
-
-    // enviar
-    async function handleSend(){
-      const q = PROMPT.value.trim();
-      const chars = countChars(q);
-      const used = readTodayCount();
-
-      if(!q) return;
-
-      if(chars > CHAR_LIMIT){
-        softError(`Tu mensaje tiene ${chars} caracteres. Reduce a ${CHAR_LIMIT} o menos.`);
-        return;
-      }
-      if(used >= DAILY_LIMIT){
-        softError(`Has alcanzado el límite diario de ${DAILY_LIMIT} mensajes. Inténtalo nuevamente en 24 horas o agenda una cita.`);
-        updateSendEnabled();
-        return;
-      }
-
-      addUser(q);
-      PROMPT.value = ""; autoGrow();
-      setBusy(true); showTyping();
-
-      try{
-        const { status, data } = await askBackend({ question: q, sessionId: SESSION_ID });
-
-        hideTyping();
-
-        if(status === 429){
-          setMaxedToday();
-          updateDailyUI(); updateSendEnabled();
-          const retry = data && data.retry_after
-            ? `Vuelve en ${Math.ceil(data.retry_after/60)} min.`
-            : `Vuelve en 24 horas.`;
-          softError(`Límite diario alcanzado. ${retry}`);
-          return;
+                if (res.ok) {
+                    addBotMessage(data.answer);
+                    localStorage.setItem(getUsageKey(), (used + 1).toString());
+                    updateUsageUI();
+                } else {
+                    addBotMessage("⚠️ " + (data.error || "Algo salió mal. Intenta de nuevo."));
+                }
+            } catch (e) {
+                hideTyping();
+                addBotMessage("⚠️ Error de conexión. Revisa tu internet.");
+            }
         }
 
-        if(status === 400 && data && /caracteres/i.test(String(data.error || ""))){
-          softError(data.error || "Mensaje demasiado largo.");
-          return;
+        // Event Listeners
+        SEND_BTN.addEventListener("click", handleSend);
+        PROMPT_INPUT.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                handleSend();
+            }
+        });
+
+        PROMPT_INPUT.addEventListener("input", function () {
+            this.style.height = "auto";
+            this.style.height = (this.scrollHeight) + "px";
+            const len = this.value.length;
+            document.getElementById("wordCounter").textContent = `${len} / ${CHAR_LIMIT} caracteres`;
+            document.getElementById("wordCounter").classList.toggle('text-red-500', len > CHAR_LIMIT);
+            SEND_BTN.disabled = len === 0 || len > CHAR_LIMIT || getCount() >= DAILY_LIMIT;
+        });
+
+        document.querySelectorAll('.chip').forEach(chip => {
+            chip.addEventListener('click', () => {
+                const suggestion = chip.getAttribute('data-suggest');
+                PROMPT_INPUT.value = suggestion;
+                PROMPT_INPUT.dispatchEvent(new Event('input'));
+                PROMPT_INPUT.focus();
+            });
+        });
+
+        // Theme Toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = themeToggleBtn?.querySelector('span');
+
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            if (themeIcon) themeIcon.textContent = 'light_mode';
         }
 
-        if(status >= 400){
-          softError((data && data.error) ? data.error : `Error ${status}. Intenta de nuevo.`);
-          return;
+        themeToggleBtn?.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.theme = isDark ? 'dark' : 'light';
+            if (themeIcon) themeIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
+        });
+
+        // Hero and Sidebar Button Listeners
+        const howModal = document.getElementById('cxHowModal');
+
+        const goChatAction = () => {
+            const chatSection = document.getElementById('chat-container') || document.getElementById('chat');
+            if (chatSection) {
+                const yOffset = -60;
+                const y = chatSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+                // We use preventScroll: true to avoid a second scroll/jump from focusing the textarea
+                setTimeout(() => PROMPT_INPUT.focus({ preventScroll: true }), 800);
+            }
+        };
+
+        const openHowModal = () => {
+            if (howModal) {
+                howModal.classList.remove('hidden');
+                howModal.classList.add('flex');
+            }
+        };
+
+        document.getElementById('go-chat')?.addEventListener('click', goChatAction);
+        document.getElementById('how-btn-hero')?.addEventListener('click', openHowModal);
+        document.getElementById('how-mini-btn')?.addEventListener('click', openHowModal);
+        document.getElementById('how-btn')?.addEventListener('click', openHowModal);
+
+        document.getElementById('cxCloseHow')?.addEventListener('click', () => {
+            howModal?.classList.add('hidden');
+            howModal?.classList.remove('flex');
+        });
+        document.getElementById('modal-overlay')?.addEventListener('click', () => {
+            howModal?.classList.add('hidden');
+            howModal?.classList.remove('flex');
+        });
+
+        // Sticky Header Logic
+        MESSAGES_CONTAINER.addEventListener('scroll', () => {
+            const sticky = document.getElementById('sticky-header');
+            if (MESSAGES_CONTAINER.scrollTop > 50) {
+                sticky.classList.remove('opacity-0', '-translate-y-2');
+                sticky.classList.add('opacity-100', 'translate-y-0');
+            } else {
+                sticky.classList.add('opacity-0', '-translate-y-2');
+                sticky.classList.remove('opacity-100', 'translate-y-0');
+            }
+        });
+
+        updateUsageUI();
+    </script>
+
+    <!-- Neural Canvas Script (Simplified/Standard) -->
+    <script>
+        const canvas = document.getElementById('neural-bg');
+        const ctx = canvas.getContext('2d');
+        let neurons = [];
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            neurons = [];
+            const count = Math.floor(window.innerWidth / 60);
+            for (let i = 0; i < count; i++) neurons.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5,
+                r: 1.5 + Math.random() * 2
+            });
         }
 
-        incrementTodayCount();
-        updateDailyUI(); updateSendEnabled();
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const isDark = document.documentElement.classList.contains('dark');
+            ctx.fillStyle = isDark ? 'rgba(dbeafe, 0.4)' : 'rgba(26, 51, 80, 0.2)';
+            ctx.strokeStyle = isDark ? 'rgba(dbeafe, 0.05)' : 'rgba(26, 51, 80, 0.03)';
 
-        const answer = data && data.answer ? data.answer : "No pude generar una respuesta ahora.";
-        addBot(answer);
+            neurons.forEach((n, i) => {
+                n.x += n.vx; n.y += n.vy;
+                if (n.x < 0 || n.x > canvas.width) n.vx *= -1;
+                if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
 
-      }catch(e){
-        hideTyping();
-        softError("Error de conexión. Intenta de nuevo.");
-      }finally{
-        setBusy(false); PROMPT.focus();
-      }
-    }
+                ctx.beginPath();
+                ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+                ctx.fill();
 
-    SEND.addEventListener("click", handleSend);
-    PROMPT.addEventListener("keydown", (e)=>{
-      if(e.key==="Enter" && !e.shiftKey){
-        e.preventDefault();
-        if(canSend()) handleSend();
-        else{
-          const q = PROMPT.value.trim();
-          if(!q) return;
-          const chars = countChars(q);
-          const used = readTodayCount();
-          if(chars > CHAR_LIMIT) softError(`Tu mensaje tiene ${chars} caracteres. Máximo permitido: ${CHAR_LIMIT}.`);
-          else if(used >= DAILY_LIMIT) softError(`Has alcanzado el límite diario de ${DAILY_LIMIT} mensajes.`);
+                for (let j = i + 1; j < neurons.length; j++) {
+                    const n2 = neurons[j];
+                    const d = Math.hypot(n.x - n2.x, n.y - n2.y);
+                    if (d < 150) {
+                        ctx.beginPath();
+                        ctx.moveTo(n.x, n.y);
+                        ctx.lineTo(n2.x, n2.y);
+                        ctx.stroke();
+                    }
+                }
+            });
+            requestAnimationFrame(draw);
         }
-      }
-    });
 
-    // sticky helper
-    function toggleStickyTitle(){ CHAT.classList.toggle('scrolled', CHAT.scrollTop > 24); }
-    CHAT.addEventListener('scroll', toggleStickyTitle); toggleStickyTitle();
-
-    // acciones cover
-    document.getElementById('go-chat')?.addEventListener('click', ()=>{
-      document.querySelector('.chat-card').scrollIntoView({behavior:'smooth', block:'start'});
-      setTimeout(()=>{ PROMPT?.focus(); }, 300);
-    });
-
-    // MODAL
-    const howBtn = document.getElementById('how-btn');
-    const cxModal = document.getElementById('cxHowModal');
-    const cxClose = document.getElementById('cxCloseHow');
-    if(howBtn && cxModal && cxClose){
-      howBtn.addEventListener('click', ()=> cxModal.classList.add('is-open'));
-      cxClose.addEventListener('click', ()=> cxModal.classList.remove('is-open'));
-      cxModal.addEventListener('click', (e)=>{ if(e.target===cxModal) cxModal.classList.remove('is-open'); });
-      window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') cxModal.classList.remove('is-open'); });
-    }
-
-    // Inicializa contadores
-    updateWordUI();
-    updateDailyUI();
-    updateSendEnabled();
-  </script>
+        window.addEventListener('resize', resize);
+        resize(); draw();
+    </script>
+    <!-- Botón Flotante WhatsApp -->
+    <a href="https://api.whatsapp.com/send?phone=51954056912&text=Hola%2C%20Neuropsic%C3%B3loga%20Mabela%20Rodr%C3%ADguez.%20%E2%9C%A8%20He%20consultado%20su%20sitio%20web%20y%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20profesional%20para%20agendar%20una%20cita.%20%C2%BFPodr%C3%ADa%20indicarme%20disponibilidad%20de%20horarios%3F%20%C2%A1Muchas%20gracias!%20%F0%9F%A4%9D"
+        target="_blank" rel="noopener"
+        class="fixed bottom-8 right-8 z-[100] w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 hover:-translate-y-2 transition-all duration-300 group ring-4 ring-white/10"
+        aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp text-2xl"></i>
+        <span
+            class="absolute right-full mr-4 px-4 py-2 bg-white dark:bg-slate-800 text-primary dark:text-white text-[10px] font-bold rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-xl whitespace-nowrap border border-slate-100 dark:border-slate-700">
+            ¿Prefieres hablar con un humano?
+        </span>
+    </a>
 </body>
+
 </html>

@@ -1,571 +1,1482 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Neuropsicóloga Rodríguez</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Neuropsicóloga Rodríguez - Sobre Mí</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Raleway:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1A3350",
+                        "accent": "#6F8FB0",
+                        "accent-light": "#dbeafe",
+                        "background-light": "#f0f9ff",
+                        "background-alt": "#e0f2fe",
+                        "background-dark": "#14181e",
+                        "highlight": "#22c55e",
+                    },
+                    fontFamily: {
+                        "display": ["Raleway", "sans-serif"],
+                        "sans": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "2xl": "2rem",
+                        "3xl": "2.5rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        "soft": "0 10px 40px -10px rgba(26, 51, 80, 0.08)",
+                        "premium": "0 20px 50px -12px rgba(0, 0, 0, 0.1)"
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f0f9ff 0%, #FFFFFF 50%, #e0f2fe 100%);
+            min-height: 100vh;
+            transition: background 0.3s ease-in-out;
+        }
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WY5H8SE6RL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-WY5H8SE6RL');
-  </script>
+        html.dark body {
+            background: linear-gradient(135deg, #020617 0%, #0f172a 50%, #020617 100%);
+        }
 
-  <!-- Favicon -->
-  <link rel="icon" href="img/cerebro.png" type="image/png" />
-  <!-- Fuente -->
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
-  <!-- Iconos -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+        .organic-shape {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
 
-  <style>
-    :root{
-      --blue-900:#002b5c;
-      --blue-800:#003366;
-      --blue-700:#004a99;
-      --blue-600:#005bbf;
-      --blue-500:#2f6cb8;
-      --sky-100:#e6f2ff;
-      --white:#ffffff;
-      --shadow:0 14px 30px rgba(0,0,0,.12);
-      --radius:18px;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:'Raleway',sans-serif;background:linear-gradient(135deg,var(--sky-100),#fff);color:var(--blue-800);overflow-x:hidden}
-    a{color:inherit}
+        .organic-frame {
+            border-radius: 2rem;
+            position: relative;
+        }
 
-    /* ===== HEADER (idéntico) ===== */
-    header{
-      position:sticky;top:0;z-index:1000;
-      background:linear-gradient(90deg,var(--blue-900),var(--blue-700));
-      color:#fff;
-      padding:14px 20px;
-      box-shadow:0 12px 28px rgba(0,0,0,.10);
-    }
-    .topbar{
-      max-width:1200px;margin:auto;
-      display:flex;align-items:center;gap:14px;justify-content:space-between;
-    }
-    .brand{display:flex;align-items:center;gap:10px}
-    .brand h1{font-size:26px;margin:0;letter-spacing:.6px}
-    .brand .logo{height:1em;width:auto;object-fit:contain;display:block}
+        .organic-frame::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 2.2rem;
+            border: 2px solid #6F8FB0;
+            z-index: -1;
+            transform: rotate(-2deg);
+        }
 
-    .quick{display:flex;gap:10px;opacity:.95}
-    .quick a.social{
-      display:inline-grid;place-items:center;
-      width:36px;height:36px;border-radius:999px;
-      background:rgba(255,255,255,.14);
-      border:1.5px solid rgba(255,255,255,.28);
-      color:#fff;text-decoration:none;
-      transition:.25s;font-size:16px
-    }
-    .quick a.social:hover{background:#66b3ff;color:#002244}
+        .dot-pulse {
+            position: relative;
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #00ff6a;
+            margin-left: 6px;
+            box-shadow: 0 0 10px #00ff6a;
+            animation: pulse-green 2s infinite;
+        }
 
-    /* ===== NAV (idéntico) ===== */
-    nav{background:var(--blue-800)}
-    .navlinks{
-      max-width:1200px;margin:auto;
-      display:flex;justify-content:center;gap:18px;
-      padding:12px 0;
-      flex-wrap:wrap
-    }
-    .navlinks a{
-      color:#fff;text-decoration:none;background:rgba(255,255,255,.12);
-      border:1.5px solid rgba(255,255,255,.28);border-radius:999px;
-      padding:12px 20px;
-      font-weight:800;font-size:1.04rem;
-      transition:.3s;display:inline-flex;align-items:center;gap:8px
-    }
-    .navlinks a:hover{background:#66b3ff;color:#002244}
+        @keyframes pulse-green {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(0, 255, 106, 0.7);
+            }
 
-    /* Punto verde “Cortexa” (latido suave) */
-    .navlinks a.cx-live{display:inline-flex;align-items:center;gap:8px}
-    .navlinks a.cx-live .cx-dot{
-      width:10px;height:10px;border-radius:50%;
-      background:#00ff40e7;
-      box-shadow:0 0 10px rgba(0,255,106,.75);
-      margin-right:0;
-      position:relative;
-      animation:pulseDot 2.5s ease-in-out infinite;
-      transform-origin:center center;
-    }
-    .navlinks a.cx-live .cx-dot::after{
-      content:"";position:absolute;inset:-6px;border-radius:inherit;
-      background:rgba(0,255,106,.28);
-      filter:blur(2px);
-    }
-    @keyframes pulseDot{
-      0%   { transform:scale(1.00); box-shadow:0 0 10px rgba(0,255,106,.75); }
-      45%  { transform:scale(0.82); box-shadow:0 0 6px  rgba(0,255,106,.50); }
-      100% { transform:scale(1.00); box-shadow:0 0 10px rgba(0,255,106,.75); }
-    }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 6px rgba(0, 255, 106, 0);
+            }
 
-    /* ===== CONTENIDO (diseño bonito/minimalista) ===== */
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(0, 255, 106, 0);
+            }
+        }
 
-    /* Hero */
-    .hero{
-      position:relative;min-height:72vh;display:grid;place-items:center;text-align:left;color:#fff;
-    }
-    .hero::before{
-      content:"";position:absolute; inset:0;
-      background:url('img/fondoazul.jpg') center/cover no-repeat;filter:brightness(.8);
-    }
-    .hero::after{
-      content:"";position:absolute; inset:0;
-      background:linear-gradient(180deg,rgba(0,29,61,.30) 0%,rgba(0,51,102,.65) 55%,rgba(0,51,102,.85) 100%);
-    }
-    .hero-inner{position:relative; z-index:1; padding:24px;}
-    .glass{
-      backdrop-filter: blur(10px);background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.22);border-radius: 28px;padding: 28px;
-      box-shadow: 0 20px 60px rgba(0,0,0,.25);
-    }
-    .hero-grid{
-      display:grid;grid-template-columns: 260px 1fr;gap: 26px;align-items:center;max-width: 1000px;
-    }
-    .hero-photo{
-      width:240px; height:240px; object-fit:cover; border-radius:50%;
-      border: 6px solid rgba(255,255,255,.55);
-      box-shadow: 0 20px 50px rgba(0,0,0,.35), 0 0 0 8px rgba(255,255,255,.08) inset;
-    }
-    .hero h2{font-family:'Raleway',sans-serif; font-size:46px; margin:6px 0 8px;}
-    .hero p{margin:4px 0 14px; font-size:18px; opacity:.95}
+        .bento-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1.5px solid var(--card-color-alpha);
+            box-shadow: 0 8px 32px -12px var(--card-color-alpha), 0 0 10px -2px var(--card-color-alpha);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            cursor: pointer;
+        }
 
-    .chips{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:12px}
-    .chip{background: rgba(255,255,255,.14);border: 1px solid rgba(255,255,255,.28);padding: 6px 12px;border-radius: 999px;font-size: 13px;}
-    .cta{display:flex; gap:14px; flex-wrap:wrap; align-items:center; margin-top:8px}
-    .btn{border:none; border-radius:999px; padding:14px 22px; font-weight:800; cursor:pointer; box-shadow:0 10px 24px rgba(0,0,0,.18)}
-    .btn-primary{background:#66aaff; color:#002244}
-    .btn-outline{background:transparent; color:#fff; border:1.6px solid #cde3ff}
-    .btn:hover{transform:translateY(-2px)}
+        html.dark .bento-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 40px -15px rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+        }
 
-    /* Wave divider */
-    .wave{display:block;line-height:0}
-    .wave svg{display:block;width:100%;height:80px}
+        .bento-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top right, var(--card-color-light), transparent 70%);
+            opacity: 0.1;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
 
-    /* Sections */
-    .container{max-width:1200px;margin:auto;padding:38px 20px}
-    .section-title{font-size:28px;text-align:center;margin:10px 0 26px;color:var(--blue-900)}
+        .bento-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 20px 40px -12px rgba(26, 51, 80, 0.1);
+            border-color: var(--card-color);
+        }
 
-    /* Bio */
-    .bio{display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:center}
-    .bio-photo{width:260px;height:260px;border-radius:50%;object-fit:cover;border:6px solid #cde3ff;box-shadow:var(--shadow)}
-    .bio-list{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:8px}
-    .bio-list li{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #e6f2ff;border-radius:12px;padding:10px 12px;box-shadow:0 8px 18px rgba(0,0,0,.05)}
+        .bento-card:hover::after {
+            opacity: 0.3;
+        }
 
-    /* Feature cards (servicios) */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
-    .card{background:#fff;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);transition:.35s;position:relative;overflow:hidden}
-    .card:hover{transform:translateY(-6px)}
-    .card i{font-size:26px;color:var(--blue-600)}
-    .card h3{margin:10px 0;color:var(--blue-800)}
-    .card p{margin:0;color:#24415f;font-size:15px}
-    .badge{position:absolute;top:14px;right:-18px;background:#e6f2ff;color:var(--blue-700);padding:6px 18px;border-radius:999px;transform:rotate(15deg);font-size:12px;border:1px solid #cfe2ff}
+        .card-icon-container {
+            width: 48px;
+            height: 48px;
+            background: var(--card-color);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 8px 16px -4px var(--card-color-alpha);
+        }
 
-    /* Timeline */
-    .timeline{position:relative;max-width:950px;margin:0 auto}
-    .timeline::before{content:"";position:absolute;left:26px;top:0;bottom:0;width:4px;background:#cfe2ff;border-radius:2px}
-    .tl-item{position:relative;margin:16px 0;padding-left:72px}
-    .tl-item::before{
-      content:"";position:absolute;left:18px;top:14px;width:18px;height:18px;border-radius:50%;
-      background:#66aaff;border:3px solid #fff;box-shadow:0 0 0 5px rgba(102,170,255,.22)
-    }
-    .tl-card{background:#fff;border:1px solid #e6f2ff;border-radius:14px;box-shadow:var(--shadow);padding:16px}
-    .tl-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
-    .tl-head h4{margin:0;color:var(--blue-800)}
-    .tl-head .when{color:#55779e;font-weight:700}
-    .tl-meta{color:#2f6cb8;font-weight:700;margin-top:2px}
-    .tl-note{margin-top:6px;color:#24415f}
-    .tl-badge{display:inline-block;margin-top:8px;background:#eef6ff;border:1px solid #cde3ff;color:#004a99;border-radius:999px;padding:4px 10px;font-size:12px}
+        /* Carousel Styles */
+        .xp-carousel-container {
+            overflow: hidden;
+            width: 100%;
+            padding: 40px 0;
+            position: relative;
+        }
 
-    /* Experiencia (scroller) */
-    .scroller{display:flex;gap:16px;overflow:auto;padding:10px;scroll-snap-type:x mandatory}
-    .scroller::-webkit-scrollbar{height:10px}
-    .scroller::-webkit-scrollbar-thumb{background:#cde3ff;border-radius:20px}
-    .xp-card{flex:0 0 300px;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;scroll-snap-align:start}
-    .xp-card h4{margin:8px 0 6px;color:#55779e}
-    .xp-card small{color:#55779e}
+        .xp-carousel-track {
+            display: flex;
+            width: max-content;
+            animation: scroll-kf 40s linear infinite;
+        }
 
-    /* Tiras de credenciales */
-    .strip{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:10px}
-    .pill{background:#eef6ff;border:1px solid #cde3ff;color:#2f6cb8;padding:8px 12px;border-radius:999px;font-size:13px}
+        .xp-carousel-track:hover {
+            animation-play-state: paused;
+        }
 
-    /* Band */
-    .band{background:linear-gradient(90deg,#004a99,#003366);color:#fff}
-    .band .container{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center}
-    .band .msg{font-size:18px;line-height:1.5}
-    .band .poster{background:url('img/fondoazul.jpg') center/cover;border-radius:20px;min-height:220px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.3)}
+        @keyframes scroll-kf {
+            0% {
+                transform: translateX(0);
+            }
 
-    /* FAQ */
-    details{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:16px;margin:12px 0}
-    summary{cursor:pointer;font-weight:700;color:var(--blue-800)}
-    details p{margin:10px 0 0;color:#24415f}
+            100% {
+                transform: translateX(-50%);
+            }
+        }
 
-    /* Floating WhatsApp */
-    .whatsapp{position:fixed;right:16px;bottom:16px;background:#25d366;color:#fff;border-radius:999px;padding:12px 16px;display:flex;align-items:center;gap:8px;text-decoration:none;box-shadow:var(--shadow);z-index:999}
+        .xp-card-wrapper {
+            padding: 0 16px;
+            width: 380px;
+        }
 
-    footer{background:var(--blue-800);color:#fff;text-align:center;padding:24px;margin-top:24px}
+        @media (max-width: 640px) {
+            .xp-card-wrapper {
+                width: 300px;
+            }
 
-    /* ====== Responsive (idéntico header/nav + ajustes) ====== */
-    @media (max-width:900px){
-      .container{padding:28px 16px}
-      .section-title{font-size:24px}
-      .grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-      .navlinks{gap:16px;padding:10px 0}
-      .navlinks a{font-size:1.04rem;padding:12px 18px}
-      .brand h1{font-size:24px}
-      .quick a.social{width:36px;height:36px;font-size:16px}
-      .hero-grid{grid-template-columns:1fr}
-      .hero h2{font-size:34px}
-      .hero p{font-size:16px}
-      .hero-photo{width:200px;height:200px;margin:auto}
-      .btn{padding:12px 18px}
-      .band .container{grid-template-columns:1fr;gap:16px}
+            .bento-card:hover .card-icon-container {
+                transform: rotate(-5deg) scale(1.1);
+                background: var(--card-color);
+                color: white;
+                box-shadow: 0 10px 20px -5px var(--card-color-alpha);
+            }
+        }
 
-      /* Biografía: texto debajo de la foto en móvil */
-      .bio{
-        grid-template-columns:1fr;
-        gap:16px;
-        justify-items:center;
-      }
-      .bio-photo{
-        width:200px;
-        height:200px;
-        margin:0 auto;
-      }
-      .bio-copy{width:100%}
-    }
-    @media (max-width:420px){
-      .brand h1{font-size:22px}
-      .section-title{font-size:22px}
-      .navlinks{gap:12px}
-      .navlinks a{padding:9px 14px}
-      .chip{font-size:12px}
-    }
-  </style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .reveal-card {
+            opacity: 0;
+        }
+
+        .reveal-card.is-visible {
+            animation: fadeInUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            opacity: 0;
+        }
+
+        .animate-fade-in-left {
+            animation: fadeInLeft 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            opacity: 0;
+        }
+
+        .animate-fade-in-right {
+            animation: fadeInRight 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            opacity: 0;
+        }
+
+        .animate-scale-in {
+            animation: scaleIn 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            opacity: 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Timeline Styles */
+        .timeline-container {
+            position: relative;
+            padding-left: 2.5rem;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 0.75rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(111, 143, 176, 0.2);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            top: 1.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            background: white;
+            border: 4px solid var(--card-color);
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        html.dark .timeline-dot {
+            background: #1e293b;
+        }
+
+        /* Scroller Styles */
+        .xp-scroller {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(111, 143, 176, 0.4) transparent;
+        }
+
+        .xp-scroller::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .xp-scroller::-webkit-scrollbar-thumb {
+            background: rgba(111, 143, 176, 0.4);
+            border-radius: 10px;
+        }
+
+        /* Prevent blue selection/shade when clicking rapidly */
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        img {
+            -webkit-user-drag: none;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .layout-container {
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        span,
+        a,
+        button {
+            user-select: text;
+            -webkit-user-select: text;
+        }
+
+        @keyframes shine-glow {
+
+            0%,
+            100% {
+                filter: drop-shadow(0 0 2px rgba(111, 143, 176, 0.2)) brightness(1);
+                transform: scale(1);
+            }
+
+            50% {
+                filter: drop-shadow(0 0 10px rgba(111, 143, 176, 0.5)) brightness(1.1);
+                transform: scale(1.05);
+            }
+        }
+
+        .brain-shine {
+            animation: shine-glow 3s infinite ease-in-out;
+        }
+    </style>
 </head>
 
-<body>
-  <!-- ====== AUDIO (sin autoplay) ====== -->
-  <audio id="site-bgm" preload="auto" loop playsinline style="display:none" aria-hidden="true">
-    <source src="Aftonland.mp3" type="audio/mpeg">
-  </audio>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const bgm = document.getElementById('site-bgm');
-      if (!bgm) return;
-      bgm.volume = 0.3;
-    });
-  </script>
-  <!-- ====== FIN AUDIO ====== -->
+<body class="font-sans text-primary dark:text-slate-100">
+    <canvas id="neural-bg"
+        style="position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none"></canvas>
+    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <!-- Floating Backdrops -->
+        <div
+            class="absolute top-0 right-0 w-[500px] h-[500px] bg-accent-light/30 dark:bg-accent/10 rounded-full blur-[120px] -z-10 animate-float">
+        </div>
+        <div class="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-highlight/10 dark:bg-highlight/5 rounded-full blur-[100px] -z-10 animate-float"
+            style="animation-delay: 1.5s;"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-background-alt/40 dark:bg-slate-800/20 rounded-full blur-[150px] -z-10 animate-float"
+            style="animation-delay: 3s;"></div>
 
-  <!-- ===== HEADER (idéntico) ===== -->
-  <header>
-    <div class="topbar">
-      <div class="brand">
-        <h1>Neuropsicóloga Rodríguez</h1>
-      </div>
-      <div class="quick">
-        <a class="social" href="https://www.facebook.com/share/1Av2BgPo17/" target="_blank" rel="noopener" aria-label="Facebook">
-          <i class="fab fa-facebook-f" aria-hidden="true"></i>
-        </a>
-        <a class="social" href="https://www.instagram.com/neuropsicologa_rodriguez_?igsh=NWZnNnphZTIzNWN6" target="_blank" rel="noopener" aria-label="Instagram">
-          <i class="fab fa-instagram" aria-hidden="true"></i>
-        </a>
-      </div>
+        <div class="layout-container flex h-full grow flex-col">
+            <header
+                class="sticky top-0 z-50 bg-primary/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-white/10 dark:border-slate-800 px-6 lg:px-20 py-3 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.2),0_10px_20px_-2px_rgba(0,0,0,0.1)] transition-all duration-300">
+                <div class="max-w-7xl mx-auto flex items-center justify-between">
+                    <div class="flex items-center gap-3 group cursor-pointer"
+                        onclick="window.location.href='index.html'">
+                        <img src="../img/cerebro.png" alt="Neuropsicóloga Rodríguez"
+                            class="h-11 w-auto object-contain brain-shine filter drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
+                        <h1
+                            class="text-white dark:text-white text-[1.1rem] font-extrabold font-display tracking-tight whitespace-nowrap transition-colors duration-300 group-hover:text-accent-light">
+                            Neuropsicóloga Rodríguez</h1>
+                    </div>
+                    <div class="hidden md:flex items-center gap-8 relative w-full">
+                        <nav
+                            class="absolute left-[40%] -translate-x-1/2 flex items-center gap-1.5 p-1.5 bg-white/10 dark:bg-slate-800/60 backdrop-blur-md rounded-full border border-white/20 dark:border-slate-700 shadow-lg whitespace-nowrap ring-1 ring-white/10 hover:ring-white/20 transition-all duration-300">
+                            <a class="px-5 py-2 rounded-full text-white/90 hover:text-white hover:bg-white/10 text-[0.925rem] font-semibold transition-all duration-300 whitespace-nowrap hover:scale-110"
+                                href="index.html">Inicio</a>
+                            <a class="px-5 py-2 rounded-full bg-white text-primary dark:text-slate-900 text-[0.925rem] font-bold flex items-center shadow-lg shadow-black/20 transition-all duration-300 hover:scale-110 hover:bg-accent-light whitespace-nowrap ring-2 ring-primary/20"
+                                href="sobremi.html">Sobre Mí</a>
+                            <a class="px-5 py-2 rounded-full text-white/90 hover:text-white hover:bg-white/10 text-[0.925rem] font-semibold transition-all duration-300 whitespace-nowrap hover:scale-110"
+                                href="cortexa.html">Cortexa <span class="dot-pulse ml-2 scale-75"></span></a>
+                            <a class="px-5 py-2 rounded-full text-white/90 hover:text-white hover:bg-white/10 text-[0.925rem] font-semibold transition-all duration-300 whitespace-nowrap hover:scale-110"
+                                href="especialidades.html">Especialidades</a>
+                            <a class="px-5 py-2 rounded-full text-white/90 hover:text-white hover:bg-white/10 text-[0.925rem] font-semibold transition-all duration-300 whitespace-nowrap hover:scale-110"
+                                href="reservarcita.html">Reservar Cita</a>
+                        </nav>
+                        <div class="flex gap-3 ml-auto">
+                            <button id="theme-toggle"
+                                class="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 dark:bg-slate-800 border border-white/20 dark:border-slate-700 text-white dark:text-yellow-400 hover:bg-white/20 dark:hover:bg-slate-700 hover:text-white dark:hover:text-yellow-300 transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                                aria-label="Cambiar tema">
+                                <span class="material-symbols-outlined text-lg">dark_mode</span>
+                            </button>
+
+                            <a class="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 dark:bg-slate-800 border border-white/20 dark:border-slate-700 text-white dark:text-slate-400 hover:bg-blue-600 dark:hover:bg-blue-900/30 hover:text-white dark:hover:text-blue-400 hover:border-blue-500 dark:hover:border-blue-800 transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                                href="https://www.facebook.com/share/1Av2BgPo17/" target="_blank" rel="noopener"
+                                aria-label="Facebook">
+                                <i class="fab fa-facebook-f text-lg"></i>
+                            </a>
+                            <a class="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 dark:bg-slate-800 border border-white/20 dark:border-slate-700 text-white dark:text-slate-400 hover:bg-pink-600 dark:hover:bg-pink-900/30 hover:text-white dark:hover:text-pink-400 hover:border-pink-500 dark:hover:border-pink-800 transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                                href="https://www.instagram.com/neuropsicologa_rodriguez_?igsh=NWZnNnphZTIzNWN6"
+                                target="_blank" rel="noopener" aria-label="Instagram">
+                                <i class="fab fa-instagram text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <button
+                        class="md:hidden text-white p-2 bg-white/10 rounded-lg shadow-sm hover:bg-white/20 transition-colors">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                </div>
+            </header>
+
+            <main class="flex-1">
+                <!-- Hero Section About Me -->
+                <section class="max-w-7xl mx-auto px-6 lg:px-20 py-12 lg:py-20">
+                    <div class="grid lg:grid-cols-2 gap-16 items-center">
+                        <div class="order-2 lg:order-1 space-y-8">
+                            <div class="space-y-4">
+                                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-light/80 dark:bg-slate-800 border-2 border-accent/20 dark:border-slate-700 text-primary dark:text-accent-light text-xs font-bold tracking-wider uppercase shadow-sm w-fit animate-fade-in-left"
+                                    style="animation-delay: 0.1s;">
+                                    <span class="w-2 h-2 rounded-full bg-accent"></span>
+                                    Conoce a tu Especialista
+                                </div>
+                                <h1 class="text-primary dark:text-white text-4xl lg:text-6xl font-display font-extrabold leading-[1.1] tracking-tighter animate-fade-in-left"
+                                    style="animation-delay: 0.2s;">
+                                    Mabela Rodríguez
+                                </h1>
+                                <p class="text-slate-600 dark:text-slate-300 text-lg font-normal leading-relaxed max-w-lg animate-fade-in-left"
+                                    style="animation-delay: 0.3s;">
+                                    Psicóloga clínica y neuropsicóloga dedicada a acompañar procesos de cambio con
+                                    ciencia, empatía y una calidez humana que marca la diferencia.
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-4 animate-fade-in-left" style="animation-delay: 0.4s;">
+                                <div
+                                    class="group flex items-center gap-3 px-5 py-2.5 bg-white dark:bg-slate-800 border-2 border-primary/10 dark:border-slate-700 rounded-2xl shadow-sm transition-all hover:border-primary/30 hover:shadow-md">
+                                    <span
+                                        class="material-symbols-outlined text-primary dark:text-accent-light text-xl">badge</span>
+                                    <div class="flex flex-col">
+                                        <span
+                                            class="text-[0.6rem] uppercase tracking-wider font-black text-slate-400">Colegiatura</span>
+                                        <span class="text-sm font-bold text-primary dark:text-white">C.Ps.P.
+                                            21962</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="group flex items-center gap-3 px-5 py-2.5 bg-white dark:bg-slate-800 border-2 border-primary/10 dark:border-slate-700 rounded-2xl shadow-sm transition-all hover:border-primary/30 hover:shadow-md">
+                                    <span
+                                        class="material-symbols-outlined text-primary dark:text-accent-light text-xl">gavel</span>
+                                    <div class="flex flex-col">
+                                        <span
+                                            class="text-[0.6rem] uppercase tracking-wider font-black text-slate-400">Especialidad</span>
+                                        <span class="text-sm font-bold text-primary dark:text-white">RNE 496</span>
+                                    </div>
+                                </div>
+                                <div
+                                    class="flex items-center gap-3 px-5 py-2.5 bg-highlight/10 border-2 border-highlight/20 rounded-2xl shadow-sm group hover:bg-highlight/20 transition-all">
+                                    <span
+                                        class="material-symbols-outlined text-highlight text-xl animate-pulse">lock</span>
+                                    <span class="text-sm font-bold text-highlight uppercase tracking-tight">Espacio
+                                        Confidencial</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-1 lg:order-2 flex justify-center relative animate-fade-in-right"
+                            style="animation-delay: 0.5s;">
+                            <div class="relative w-full max-w-[420px]">
+                                <!-- Colorful Aura -->
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-tr from-accent/40 to-highlight/30 rounded-full blur-[80px] opacity-50 -z-10 animate-pulse">
+                                </div>
+                                <div
+                                    class="aspect-square bg-white dark:bg-slate-800 rounded-[3rem] p-3 shadow-2xl overflow-hidden organic-frame">
+                                    <img src="../img/mabela2.png" alt="Mabela Rodríguez Neyra"
+                                        class="w-full h-full object-cover rounded-[2.5rem]" />
+                                </div>
+                                <div class="absolute -bottom-6 -right-6 animate-scale-in"
+                                    style="animation-delay: 0.8s;">
+                                    <div
+                                        class="bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-xl border border-accent-light dark:border-slate-700 animate-float">
+                                        <div class="flex items-center gap-3">
+                                            <div
+                                                class="w-10 h-10 bg-accent-light dark:bg-slate-700 text-primary dark:text-accent-light rounded-full flex items-center justify-center">
+                                                <span class="material-symbols-outlined text-xl">favorite</span>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm font-bold text-primary dark:text-white">Empatía
+                                                    Clínica</p>
+                                                <p class="text-xs text-slate-500">Atención Humana</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Biografía Section -->
+                <section class="py-24 relative overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-[#f0f9ff]/50 via-white/80 to-[#e0f2fe]/50 dark:from-[#0f172a]/50 dark:via-transparent dark:to-[#0f172a]/50 pointer-events-none">
+                    </div>
+                    <div class="max-w-7xl mx-auto px-6 lg:px-20">
+                        <div class="grid lg:grid-cols-2 gap-16 items-center">
+                            <div class="reveal-card">
+                                <h3
+                                    class="text-accent dark:text-accent-light font-bold tracking-widest text-sm uppercase mb-4">
+                                    Mi Enfoque</h3>
+                                <h2
+                                    class="text-primary dark:text-white text-3xl lg:text-4xl font-display font-extrabold mb-6">
+                                    Compromiso con tu Bienestar</h2>
+                                <div class="space-y-6 text-slate-600 dark:text-slate-300 text-lg leading-relaxed">
+                                    <p>
+                                        Acompaño a niños, adolescentes, adultos y adultos mayores con una atención
+                                        cercana y basada en evidencia. Mi objetivo es que te sientas comprendido/a y
+                                        avances con herramientas prácticas y efectivas.
+                                    </p>
+                                    <ul class="space-y-4">
+                                        <li class="flex items-start gap-4">
+                                            <div
+                                                class="w-6 h-6 rounded-full bg-highlight/20 text-highlight flex items-center justify-center shrink-0 mt-1">
+                                                <span class="material-symbols-outlined text-sm font-bold">check</span>
+                                            </div>
+                                            <span>Evaluación y rehabilitación neuropsicológica especializada.</span>
+                                        </li>
+                                        <li class="flex items-start gap-4">
+                                            <div
+                                                class="w-6 h-6 rounded-full bg-highlight/20 text-highlight flex items-center justify-center shrink-0 mt-1">
+                                                <span class="material-symbols-outlined text-sm font-bold">check</span>
+                                            </div>
+                                            <span>Psicoterapia cognitivo-conductual y enfoque sistémico.</span>
+                                        </li>
+                                        <li class="flex items-start gap-4">
+                                            <div
+                                                class="w-6 h-6 rounded-full bg-highlight/20 text-highlight flex items-center justify-center shrink-0 mt-1">
+                                                <span class="material-symbols-outlined text-sm font-bold">check</span>
+                                            </div>
+                                            <span>Atención integral tanto presencial como en línea.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="grid gap-6 reveal-card" style="animation-delay: 0.2s;">
+                                <div class="bento-card p-8 rounded-3xl"
+                                    style="--card-color: #6F8FB0; --card-color-light: #E1EBF4; --card-color-alpha: rgba(111, 143, 176, 0.2);">
+                                    <div class="card-icon-container mb-4"
+                                        style="--card-color: #6F8FB0; --card-color-alpha: rgba(111, 143, 176, 0.4);">
+                                        <span class="material-symbols-outlined">psychology</span>
+                                    </div>
+                                    <h4 class="text-xl font-bold text-primary dark:text-white mb-2">Ciencia y Evidencia
+                                    </h4>
+                                    <p class="text-slate-500 dark:text-slate-400 text-sm">Métodos clínicos probados para
+                                        garantizar resultados reales en tu proceso terapéutico.</p>
+                                </div>
+                                <div class="bento-card p-8 rounded-3xl"
+                                    style="--card-color: #22c55e; --card-color-light: #f0fdf4; --card-color-alpha: rgba(34, 197, 94, 0.2);">
+                                    <div class="card-icon-container mb-4"
+                                        style="--card-color: #22c55e; --card-color-alpha: rgba(34, 197, 94, 0.4);">
+                                        <span class="material-symbols-outlined">volunteer_activism</span>
+                                    </div>
+                                    <h4 class="text-xl font-bold text-primary dark:text-white mb-2">Calidez y Cercanía
+                                    </h4>
+                                    <p class="text-slate-500 dark:text-slate-400 text-sm">Un trato humano donde tu
+                                        historia es escuchada con el respeto y la empatía que mereces.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Formación Académica -->
+                <section class="py-24 bg-white/30 dark:bg-slate-900/10 relative overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-accent-light/10 to-transparent pointer-events-none">
+                    </div>
+                    <div class="max-w-7xl mx-auto px-6 lg:px-20 relative z-10">
+                        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                            <div class="space-y-3">
+                                <span
+                                    class="text-[#1A3350]/60 dark:text-accent-light font-bold tracking-[0.3em] text-[0.65rem] uppercase">Excelencia
+                                    Profesional</span>
+                                <h3
+                                    class="text-[#1A3350] dark:text-white text-3xl lg:text-5xl font-display font-extrabold tracking-tight">
+                                    Formación Académica</h3>
+                            </div>
+                            <div
+                                class="h-px flex-1 bg-gradient-to-r from-[#1A3350]/10 to-transparent mb-2 hidden md:block">
+                            </div>
+                        </div>
+
+                        <div class="max-w-4xl mx-auto space-y-4">
+                            <!-- Magíster -->
+                            <div class="group relative reveal-card">
+                                <div
+                                    class="bg-white/80 dark:bg-slate-800/60 backdrop-blur-md border border-slate-100 dark:border-slate-800 p-8 rounded-3xl transition-all duration-500 hover:border-[#1A3350]/30 hover:shadow-soft border-l-4 border-l-[#1A3350]/10 hover:border-l-[#1A3350]">
+                                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                                        <div class="flex gap-6 items-start">
+                                            <div
+                                                class="w-14 h-14 rounded-2xl bg-accent dark:bg-accent flex items-center justify-center text-white shrink-0 shadow-lg shadow-accent/20 transition-transform group-hover:scale-110">
+                                                <span class="material-symbols-outlined text-2xl">school</span>
+                                            </div>
+                                            <div class="space-y-1">
+                                                <div class="flex items-center gap-2 mb-1">
+                                                    <span
+                                                        class="text-accent dark:text-[#E1EBF4] text-[0.65rem] font-black uppercase tracking-widest bg-accent/10 dark:bg-slate-700 px-2 py-0.5 rounded-md">Posgrado</span>
+                                                </div>
+                                                <h4
+                                                    class="text-xl font-display font-bold text-[#1A3350] dark:text-white">
+                                                    Magíster en
+                                                    Psicología Clínica</h4>
+                                                <p class="text-sm font-medium text-[#1A3350]/70 dark:text-slate-400">
+                                                    Universidad Peruana
+                                                    Cayetano Heredia</p>
+                                                <p class="text-[0.7rem] text-slate-400 mt-2 italic font-medium">Mención
+                                                    en
+                                                    Neuropsicología. Grado obtenido en 2025.</p>
+                                            </div>
+                                        </div>
+                                        <div class="md:text-right">
+                                            <span
+                                                class="text-sm font-bold text-[#1A3350] dark:text-slate-300 font-sans tracking-tight bg-[#E1EBF4]/50 dark:bg-slate-700/50 px-3 py-1 rounded-full">2023
+                                                — 2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Diplomado 1 -->
+                            <div class="group relative reveal-card" style="animation-delay: 0.1s;">
+                                <div
+                                    class="bg-white/80 dark:bg-slate-800/60 backdrop-blur-md border border-slate-100 dark:border-slate-800 p-8 rounded-3xl transition-all duration-500 hover:border-[#1A3350]/30 hover:shadow-soft border-l-4 border-l-[#1A3350]/10 hover:border-l-[#1A3350]">
+                                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                                        <div class="flex gap-6 items-start">
+                                            <div
+                                                class="w-14 h-14 rounded-2xl bg-accent dark:bg-accent flex items-center justify-center text-white shrink-0 shadow-lg shadow-accent/20 transition-transform group-hover:scale-110">
+                                                <span class="material-symbols-outlined text-2xl">account_balance</span>
+                                            </div>
+                                            <div class="space-y-1">
+                                                <div class="flex items-center gap-2 mb-1">
+                                                    <span
+                                                        class="text-accent dark:text-[#E1EBF4] text-[0.65rem] font-black uppercase tracking-widest bg-accent/10 dark:bg-slate-700 px-2 py-0.5 rounded-md">Diplomado</span>
+                                                </div>
+                                                <h4
+                                                    class="text-xl font-display font-bold text-[#1A3350] dark:text-white">
+                                                    Neuropsicología Involutiva y las Demencias</h4>
+                                                <p class="text-sm font-medium text-[#1A3350]/70 dark:text-slate-400">
+                                                    Universidad Nacional
+                                                    Daniel Alcides Carrión</p>
+                                            </div>
+                                        </div>
+                                        <div class="md:text-right">
+                                            <span
+                                                class="text-sm font-bold text-[#1A3350] dark:text-slate-300 font-sans tracking-tight bg-[#E1EBF4]/50 dark:bg-slate-700/50 px-3 py-1 rounded-full">2023
+                                                — 2024</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Diplomado 2 -->
+                            <div class="group relative reveal-card" style="animation-delay: 0.2s;">
+                                <div
+                                    class="bg-white/80 dark:bg-slate-800/60 backdrop-blur-md border border-slate-100 dark:border-slate-800 p-8 rounded-3xl transition-all duration-500 hover:border-accent/30 hover:shadow-soft border-l-4 border-l-accent/10 hover:border-l-accent">
+                                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                                        <div class="flex gap-6 items-start">
+                                            <div
+                                                class="w-14 h-14 rounded-2xl bg-accent dark:bg-accent flex items-center justify-center text-white shrink-0 shadow-lg shadow-accent/20 transition-transform group-hover:scale-110">
+                                                <span class="material-symbols-outlined text-2xl">child_care</span>
+                                            </div>
+                                            <div class="space-y-1">
+                                                <div class="flex items-center gap-2 mb-1">
+                                                    <span
+                                                        class="text-accent dark:text-[#E1EBF4] text-[0.65rem] font-black uppercase tracking-widest bg-accent/10 dark:bg-slate-700 px-2 py-0.5 rounded-md">Diplomado</span>
+                                                </div>
+                                                <h4
+                                                    class="text-xl font-display font-bold text-[#1A3350] dark:text-white">
+                                                    Neuropsicología Pediátrica</h4>
+                                                <p class="text-sm font-medium text-[#1A3350]/70 dark:text-slate-400">
+                                                    Universidad Nacional
+                                                    Daniel Alcides Carrión</p>
+                                            </div>
+                                        </div>
+                                        <div class="md:text-right">
+                                            <span
+                                                class="text-sm font-bold text-[#1A3350] dark:text-slate-300 font-sans tracking-tight bg-[#E1EBF4]/50 dark:bg-slate-700/50 px-3 py-1 rounded-full">2021
+                                                — 2022</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Especialidad -->
+                            <div class="group relative reveal-card" style="animation-delay: 0.3s;">
+                                <div
+                                    class="bg-white/80 dark:bg-slate-800/60 backdrop-blur-md border border-slate-100 dark:border-slate-800 p-8 rounded-3xl transition-all duration-500 hover:border-accent/30 hover:shadow-soft border-l-4 border-l-accent/10 hover:border-l-accent">
+                                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                                        <div class="flex gap-6 items-start">
+                                            <div
+                                                class="w-14 h-14 rounded-2xl bg-accent dark:bg-accent flex items-center justify-center text-white shrink-0 shadow-lg shadow-accent/20 transition-transform group-hover:scale-110">
+                                                <span class="material-symbols-outlined text-2xl">verified</span>
+                                            </div>
+                                            <div class="space-y-1">
+                                                <div class="flex items-center gap-2 mb-1">
+                                                    <span
+                                                        class="text-accent dark:text-[#E1EBF4] text-[0.65rem] font-black uppercase tracking-widest bg-accent/10 dark:bg-slate-700 px-2 py-0.5 rounded-md">Especialidad</span>
+                                                </div>
+                                                <h4
+                                                    class="text-xl font-display font-bold text-[#1A3350] dark:text-white">
+                                                    Segunda
+                                                    Especialidad en Neuropsicología</h4>
+                                                <p class="text-sm font-medium text-[#1A3350]/70 dark:text-slate-400">
+                                                    Universidad Nacional
+                                                    Federico Villarreal</p>
+                                            </div>
+                                        </div>
+                                        <div class="md:text-right">
+                                            <span
+                                                class="text-sm font-bold text-[#1A3350] dark:text-slate-300 font-sans tracking-tight bg-[#E1EBF4]/50 dark:bg-slate-700/50 px-3 py-1 rounded-full">2019
+                                                — 2021</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pregrado -->
+                            <div class="group relative reveal-card" style="animation-delay: 0.4s;">
+                                <div
+                                    class="bg-white/80 dark:bg-slate-800/60 backdrop-blur-md border border-slate-100 dark:border-slate-800 p-8 rounded-3xl transition-all duration-500 hover:border-accent/30 hover:shadow-soft border-l-4 border-l-accent/10 hover:border-l-accent">
+                                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                                        <div class="flex gap-6 items-start">
+                                            <div
+                                                class="w-14 h-14 rounded-2xl bg-accent dark:bg-accent flex items-center justify-center text-white shrink-0 shadow-lg shadow-accent/20 transition-transform group-hover:scale-110">
+                                                <span class="material-symbols-outlined text-2xl">history_edu</span>
+                                            </div>
+                                            <div class="space-y-1">
+                                                <div class="flex items-center gap-2 mb-1">
+                                                    <span
+                                                        class="text-accent dark:text-[#E1EBF4] text-[0.65rem] font-black uppercase tracking-widest bg-accent/10 dark:bg-slate-700 px-2 py-0.5 rounded-md">Pregrado</span>
+                                                </div>
+                                                <h4
+                                                    class="text-xl font-display font-bold text-[#1A3350] dark:text-white">
+                                                    Psicología
+                                                </h4>
+                                                <p class="text-sm font-medium text-[#1A3350]/70 dark:text-slate-400">
+                                                    Universidad Nacional
+                                                    Hermilio Valdizán</p>
+                                            </div>
+                                        </div>
+                                        <div class="md:text-right">
+                                            <span
+                                                class="text-sm font-bold text-[#1A3350] dark:text-slate-300 font-sans tracking-tight bg-[#E1EBF4]/50 dark:bg-slate-700/50 px-3 py-1 rounded-full">2007
+                                                — 2013</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Formación Continua -->
+                <section class="py-24 bg-white/40 dark:bg-slate-900/20 relative overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,_var(--tw-gradient-stops))] from-highlight/5 via-transparent to-transparent pointer-events-none">
+                    </div>
+                    <div class="max-w-7xl mx-auto px-6 lg:px-20 text-center mb-16 relative z-10">
+                        <span
+                            class="text-[#1A3350] dark:text-accent-light font-bold tracking-[0.4em] text-[0.6rem] uppercase mb-4 block opacity-60">Especialización
+                            Continua</span>
+                        <h3
+                            class="text-[#1A3350] dark:text-white text-3xl lg:text-5xl font-display font-extrabold tracking-tight">
+                            Cursos y Talleres</h3>
+                    </div>
+
+                    <div class="max-w-7xl mx-auto px-6 lg:px-20">
+                        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <!-- Item 1 -->
+                            <div
+                                class="group relative bg-white/90 dark:bg-slate-900/60 backdrop-blur-md border border-slate-200 dark:border-white/10 p-8 rounded-3xl transition-all duration-500 hover:-translate-y-2 hover:shadow-premium border-t-4 border-t-primary/10 dark:border-t-accent/20 hover:border-t-primary dark:hover:border-t-accent">
+                                <div
+                                    class="w-12 h-12 rounded-2xl bg-primary dark:bg-accent text-white flex items-center justify-center mb-6 shadow-lg shadow-primary/20 dark:shadow-accent/40 transition-transform group-hover:scale-110">
+                                    <span class="material-symbols-outlined text-xl">diversity_3</span>
+                                </div>
+                                <h4
+                                    class="text-[#1A3350] dark:text-white font-display font-bold text-base leading-tight mb-6 h-12 flex items-center">
+                                    Psicoterapia Sistémica (Pareja y Familia)</h4>
+                                <div
+                                    class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-white/5">
+                                    <span
+                                        class="text-[0.65rem] font-black text-primary/70 dark:text-accent-light uppercase tracking-widest bg-primary/5 dark:bg-white/10 px-2.5 py-1 rounded-lg">Postítulo</span>
+                                    <span class="text-xs font-bold text-primary dark:text-slate-400">2016-17</span>
+                                </div>
+                            </div>
+
+                            <!-- Item 2 -->
+                            <div
+                                class="group relative bg-white/90 dark:bg-slate-900/60 backdrop-blur-md border border-slate-200 dark:border-white/10 p-8 rounded-3xl transition-all duration-500 hover:-translate-y-2 hover:shadow-premium border-t-4 border-t-primary/10 dark:border-t-accent/20 hover:border-t-primary dark:hover:border-t-accent">
+                                <div
+                                    class="w-12 h-12 rounded-2xl bg-primary dark:bg-accent text-white flex items-center justify-center mb-6 shadow-lg shadow-primary/20 dark:shadow-accent/40 transition-transform group-hover:scale-110">
+                                    <span class="material-symbols-outlined text-xl">psychology</span>
+                                </div>
+                                <h4
+                                    class="text-[#1A3350] dark:text-white font-display font-bold text-base leading-tight mb-6 h-12 flex items-center">
+                                    Formación en Psicoterapia Cognitivo-Conductual</h4>
+                                <div
+                                    class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-white/5">
+                                    <span
+                                        class="text-[0.65rem] font-black text-primary/70 dark:text-accent-light uppercase tracking-widest bg-primary/5 dark:bg-white/10 px-2.5 py-1 rounded-lg">Especialidad</span>
+                                    <span class="text-xs font-bold text-primary dark:text-slate-400">2014-15</span>
+                                </div>
+                            </div>
+
+                            <!-- Item 3 -->
+                            <div
+                                class="group relative bg-white/90 dark:bg-slate-900/60 backdrop-blur-md border border-slate-200 dark:border-white/10 p-8 rounded-3xl transition-all duration-500 hover:-translate-y-2 hover:shadow-premium border-t-4 border-t-primary/10 dark:border-t-accent/20 hover:border-t-primary dark:hover:border-t-accent">
+                                <div
+                                    class="w-12 h-12 rounded-2xl bg-primary dark:bg-accent text-white flex items-center justify-center mb-6 shadow-lg shadow-primary/20 dark:shadow-accent/40 transition-transform group-hover:scale-110">
+                                    <span class="material-symbols-outlined text-xl">sentiment_satisfied</span>
+                                </div>
+                                <h4
+                                    class="text-[#1A3350] dark:text-white font-display font-bold text-base leading-tight mb-6 h-12 flex items-center">
+                                    Psicoterapia Emocional (Niños y Adolescentes)</h4>
+                                <div
+                                    class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-white/5">
+                                    <span
+                                        class="text-[0.65rem] font-black text-primary/70 dark:text-accent-light uppercase tracking-widest bg-primary/5 dark:bg-white/10 px-2.5 py-1 rounded-lg">Taller</span>
+                                    <span class="text-xs font-bold text-primary dark:text-slate-400">2015</span>
+                                </div>
+                            </div>
+
+                            <!-- Item 4 -->
+                            <div
+                                class="group relative bg-white/90 dark:bg-slate-900/60 backdrop-blur-md border border-slate-200 dark:border-white/10 p-8 rounded-3xl transition-all duration-500 hover:-translate-y-2 hover:shadow-premium border-t-4 border-t-primary/10 dark:border-t-accent/20 hover:border-t-primary dark:hover:border-t-accent">
+                                <div
+                                    class="w-12 h-12 rounded-2xl bg-primary dark:bg-accent text-white flex items-center justify-center mb-6 shadow-lg shadow-primary/20 dark:shadow-accent/40 transition-transform group-hover:scale-110">
+                                    <span class="material-symbols-outlined text-xl">account_tree</span>
+                                </div>
+                                <h4
+                                    class="text-[#1A3350] dark:text-white font-display font-bold text-base leading-tight mb-6 h-12 flex items-center">
+                                    Formación en Análisis Transaccional</h4>
+                                <div
+                                    class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-white/5">
+                                    <span
+                                        class="text-[0.65rem] font-black text-primary/70 dark:text-accent-light uppercase tracking-widest bg-primary/5 dark:bg-white/10 px-2.5 py-1 rounded-lg">Habilitante</span>
+                                    <span class="text-xs font-bold text-primary dark:text-slate-400">2012</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+
+                <!-- FAQ Section -->
+                <section class="max-w-7xl mx-auto px-6 lg:px-20 py-24">
+                    <div class="text-center mb-12">
+                        <span
+                            class="text-[#1A3350]/60 dark:text-accent-light font-bold tracking-[0.3em] text-[0.6rem] uppercase mb-4 block">Resolviendo
+                            dudas</span>
+                        <h3
+                            class="text-[#1A3350] dark:text-white text-3xl lg:text-5xl font-display font-extrabold tracking-tight">
+                            Preguntas Frecuentes</h3>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4 items-start">
+                        <!-- ¿Atiendes de forma online? -->
+                        <div class="reveal-card">
+                            <details
+                                class="group bg-white/60 dark:bg-slate-800/40 backdrop-blur-md border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md open:ring-1 open:ring-[#1A3350]/10">
+                                <summary
+                                    class="flex items-center justify-between p-4 cursor-pointer list-none font-bold text-[#1A3350] dark:text-white group-hover:bg-[#1A3350]/5 transition-colors">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-8 h-8 rounded-lg bg-[#E1EBF4] dark:bg-slate-700 flex items-center justify-center text-[#1A3350] dark:text-accent-light shrink-0">
+                                            <span class="material-symbols-outlined text-lg">videocam</span>
+                                        </div>
+                                        <span class="text-base font-display">¿Atiendes de forma online?</span>
+                                    </div>
+                                    <span
+                                        class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">expand_more</span>
+                                </summary>
+                                <div
+                                    class="px-4 pb-4 ml-11 text-slate-600 dark:text-slate-300 text-sm leading-relaxed border-l-2 border-[#1A3350]/10">
+                                    Sí. Trabajo sesiones por videollamada con pautas y materiales digitales para
+                                    continuar la práctica en casa.
+                                </div>
+                            </details>
+                        </div>
+
+                        <!-- ¿Cuánto dura una evaluación neuropsicológica? -->
+                        <div class="reveal-card" style="animation-delay: 0.05s;">
+                            <details
+                                class="group bg-white/60 dark:bg-slate-800/40 backdrop-blur-md border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md open:ring-1 open:ring-[#1A3350]/10">
+                                <summary
+                                    class="flex items-center justify-between p-4 cursor-pointer list-none font-bold text-[#1A3350] dark:text-white group-hover:bg-[#1A3350]/5 transition-colors">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-8 h-8 rounded-lg bg-[#E1EBF4] dark:bg-slate-700 flex items-center justify-center text-[#1A3350] dark:text-accent-light shrink-0">
+                                            <span class="material-symbols-outlined text-lg">timer</span>
+                                        </div>
+                                        <span class="text-base font-display">¿Cuánto dura una evaluación?</span>
+                                    </div>
+                                    <span
+                                        class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">expand_more</span>
+                                </summary>
+                                <div
+                                    class="px-4 pb-4 ml-11 text-slate-600 dark:text-slate-300 text-sm leading-relaxed border-l-2 border-[#1A3350]/10">
+                                    Depende del objetivo clínico, pero suele realizarse en 2 a 3 sesiones más la
+                                    devolución con informe.
+                                </div>
+                            </details>
+                        </div>
+
+                        <!-- ¿Puedo ir con un familiar a la primera cita? -->
+                        <div class="reveal-card" style="animation-delay: 0.1s;">
+                            <details
+                                class="group bg-white/60 dark:bg-slate-800/40 backdrop-blur-md border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md open:ring-1 open:ring-[#1A3350]/10">
+                                <summary
+                                    class="flex items-center justify-between p-4 cursor-pointer list-none font-bold text-[#1A3350] dark:text-white group-hover:bg-[#1A3350]/5 transition-colors">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-8 h-8 rounded-lg bg-[#E1EBF4] dark:bg-slate-700 flex items-center justify-center text-[#1A3350] dark:text-accent-light shrink-0">
+                                            <span class="material-symbols-outlined text-lg">group</span>
+                                        </div>
+                                        <span class="text-base font-display">¿Acompañado en la primera cita?</span>
+                                    </div>
+                                    <span
+                                        class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">expand_more</span>
+                                </summary>
+                                <div
+                                    class="px-4 pb-4 ml-11 text-slate-600 dark:text-slate-300 text-sm leading-relaxed border-l-2 border-[#1A3350]/10">
+                                    Claro. Si lo deseas, podemos incluir una breve entrevista de contexto para
+                                    comprender mejor tu historia.
+                                </div>
+                            </details>
+                        </div>
+
+                        <!-- ¿Qué debo llevar a la primera sesión? -->
+                        <div class="reveal-card" style="animation-delay: 0.15s;">
+                            <details
+                                class="group bg-white/60 dark:bg-slate-800/40 backdrop-blur-md border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md open:ring-1 open:ring-[#1A3350]/10">
+                                <summary
+                                    class="flex items-center justify-between p-4 cursor-pointer list-none font-bold text-[#1A3350] dark:text-white group-hover:bg-[#1A3350]/5 transition-colors">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-8 h-8 rounded-lg bg-[#E1EBF4] dark:bg-slate-700 flex items-center justify-center text-[#1A3350] dark:text-accent-light shrink-0">
+                                            <span class="material-symbols-outlined text-lg">inventory_2</span>
+                                        </div>
+                                        <span class="text-base font-display">¿Qué llevar a la sesión?</span>
+                                    </div>
+                                    <span
+                                        class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">expand_more</span>
+                                </summary>
+                                <div
+                                    class="px-4 pb-4 ml-11 text-slate-600 dark:text-slate-300 text-sm leading-relaxed border-l-2 border-[#1A3350]/10">
+                                    DNI, informes o recetas previas, resultados de exámenes, lista de medicamentos y el
+                                    motivo de consulta.
+                                </div>
+                            </details>
+                        </div>
+
+                        <!-- ¿Cuánto dura cada sesión y con qué frecuencia? -->
+                        <div class="reveal-card" style="animation-delay: 0.2s;">
+                            <details
+                                class="group bg-white/60 dark:bg-slate-800/40 backdrop-blur-md border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md open:ring-1 open:ring-[#1A3350]/10">
+                                <summary
+                                    class="flex items-center justify-between p-4 cursor-pointer list-none font-bold text-[#1A3350] dark:text-white group-hover:bg-[#1A3350]/5 transition-colors">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-8 h-8 rounded-lg bg-[#E1EBF4] dark:bg-slate-700 flex items-center justify-center text-[#1A3350] dark:text-accent-light shrink-0">
+                                            <span class="material-symbols-outlined text-lg">event_repeat</span>
+                                        </div>
+                                        <span class="text-base font-display">¿Duración y frecuencia?</span>
+                                    </div>
+                                    <span
+                                        class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">expand_more</span>
+                                </summary>
+                                <div
+                                    class="px-4 pb-4 ml-11 text-slate-600 dark:text-slate-300 text-sm leading-relaxed border-l-2 border-[#1A3350]/10">
+                                    Suele durar 50 minutos. En psicoterapia, normalmente una vez por semana; se ajusta
+                                    según tu caso.
+                                </div>
+                            </details>
+                        </div>
+
+                        <!-- ¿Atiendes a niños, adolescentes y adultos mayores? -->
+                        <div class="reveal-card" style="animation-delay: 0.25s;">
+                            <details
+                                class="group bg-white/60 dark:bg-slate-800/40 backdrop-blur-md border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md open:ring-1 open:ring-[#1A3350]/10">
+                                <summary
+                                    class="flex items-center justify-between p-4 cursor-pointer list-none font-bold text-[#1A3350] dark:text-white group-hover:bg-[#1A3350]/5 transition-colors">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-8 h-8 rounded-lg bg-[#E1EBF4] dark:bg-slate-700 flex items-center justify-center text-[#1A3350] dark:text-accent-light shrink-0">
+                                            <span class="material-symbols-outlined text-lg">diversity_1</span>
+                                        </div>
+                                        <span class="text-base font-display">¿Para todas las edades?</span>
+                                    </div>
+                                    <span
+                                        class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">expand_more</span>
+                                </summary>
+                                <div
+                                    class="px-4 pb-4 ml-11 text-slate-600 dark:text-slate-300 text-sm leading-relaxed border-l-2 border-[#1A3350]/10">
+                                    Sí. Adapto la intervención a cada etapa de vida e incluyo psicoeducación familiar
+                                    cuando es necesario.
+                                </div>
+                            </details>
+                        </div>
+
+                        <!-- ¿Entregas informes o certificados? -->
+                        <div class="reveal-card" style="animation-delay: 0.3s;">
+                            <details
+                                class="group bg-white/60 dark:bg-slate-800/40 backdrop-blur-md border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md open:ring-1 open:ring-[#1A3350]/10">
+                                <summary
+                                    class="flex items-center justify-between p-4 cursor-pointer list-none font-bold text-[#1A3350] dark:text-white group-hover:bg-[#1A3350]/5 transition-colors">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-8 h-8 rounded-lg bg-[#E1EBF4] dark:bg-slate-700 flex items-center justify-center text-[#1A3350] dark:text-accent-light shrink-0">
+                                            <span class="material-symbols-outlined text-lg">description</span>
+                                        </div>
+                                        <span class="text-base font-display">¿Informes o certificados?</span>
+                                    </div>
+                                    <span
+                                        class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">expand_more</span>
+                                </summary>
+                                <div
+                                    class="px-4 pb-4 ml-11 text-slate-600 dark:text-slate-300 text-sm leading-relaxed border-l-2 border-[#1A3350]/10">
+                                    Sí. Tras las evaluaciones neuropsicológicas se entrega informe. En procesos
+                                    clínicos, se emiten constancias.
+                                </div>
+                            </details>
+                        </div>
+
+                        <!-- ¿Qué métodos de pago aceptas? -->
+                        <div class="reveal-card" style="animation-delay: 0.35s;">
+                            <details
+                                class="group bg-white/60 dark:bg-slate-800/40 backdrop-blur-md border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md open:ring-1 open:ring-[#1A3350]/10">
+                                <summary
+                                    class="flex items-center justify-between p-4 cursor-pointer list-none font-bold text-[#1A3350] dark:text-white group-hover:bg-[#1A3350]/5 transition-colors">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-8 h-8 rounded-lg bg-[#E1EBF4] dark:bg-slate-700 flex items-center justify-center text-[#1A3350] dark:text-accent-light shrink-0">
+                                            <span class="material-symbols-outlined text-lg">payments</span>
+                                        </div>
+                                        <span class="text-base font-display">¿Métodos de pago?</span>
+                                    </div>
+                                    <span
+                                        class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">expand_more</span>
+                                </summary>
+                                <div
+                                    class="px-4 pb-4 ml-11 text-slate-600 dark:text-slate-300 text-sm leading-relaxed border-l-2 border-[#1A3350]/10">
+                                    Transferencia bancaria y efectivo. Si necesitas otra opción, conversemos en la
+                                    reserva.
+                                </div>
+                            </details>
+                        </div>
+
+                        <!-- ¿Cuál es la política de reprogramación o cancelación? -->
+                        <div class="reveal-card" style="animation-delay: 0.4s;">
+                            <details
+                                class="group bg-white/60 dark:bg-slate-800/40 backdrop-blur-md border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md open:ring-1 open:ring-[#1A3350]/10">
+                                <summary
+                                    class="flex items-center justify-between p-4 cursor-pointer list-none font-bold text-[#1A3350] dark:text-white group-hover:bg-[#1A3350]/5 transition-colors">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-8 h-8 rounded-lg bg-[#E1EBF4] dark:bg-slate-700 flex items-center justify-center text-[#1A3350] dark:text-accent-light shrink-0">
+                                            <span class="material-symbols-outlined text-lg">event_busy</span>
+                                        </div>
+                                        <span class="text-base font-display">¿Reprogramación?</span>
+                                    </div>
+                                    <span
+                                        class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">expand_more</span>
+                                </summary>
+                                <div
+                                    class="px-4 pb-4 ml-11 text-slate-600 dark:text-slate-300 text-sm leading-relaxed border-l-2 border-[#1A3350]/10">
+                                    Favor avisar con 24 horas de anticipación si necesitas reprogramar o cancelar tu
+                                    cita.
+                                </div>
+                            </details>
+                        </div>
+
+                        <!-- ¿La información es confidencial? -->
+                        <div class="reveal-card" style="animation-delay: 0.45s;">
+                            <details
+                                class="group bg-white/60 dark:bg-slate-800/40 backdrop-blur-md border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md open:ring-1 open:ring-[#1A3350]/10">
+                                <summary
+                                    class="flex items-center justify-between p-4 cursor-pointer list-none font-bold text-[#1A3350] dark:text-white group-hover:bg-[#1A3350]/5 transition-colors">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-8 h-8 rounded-lg bg-[#E1EBF4] dark:bg-slate-700 flex items-center justify-center text-[#1A3350] dark:text-accent-light shrink-0">
+                                            <span class="material-symbols-outlined text-lg">lock</span>
+                                        </div>
+                                        <span class="text-base font-display">¿Es confidencial?</span>
+                                    </div>
+                                    <span
+                                        class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">expand_more</span>
+                                </summary>
+                                <div
+                                    class="px-4 pb-4 ml-11 text-slate-600 dark:text-slate-300 text-sm leading-relaxed border-l-2 border-[#1A3350]/10">
+                                    Sí, toda la información es confidencial según el código de ética, salvo riesgo vital
+                                    o legal.
+                                </div>
+                            </details>
+                        </div>
+
+                        <!-- ¿La atención online es igual de efectiva? -->
+                        <div class="reveal-card" style="animation-delay: 0.5s;">
+                            <details
+                                class="group bg-white/60 dark:bg-slate-800/40 backdrop-blur-md border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden shadow-sm transition-all duration-300 hover:shadow-md open:ring-1 open:ring-[#1A3350]/10">
+                                <summary
+                                    class="flex items-center justify-between p-4 cursor-pointer list-none font-bold text-[#1A3350] dark:text-white group-hover:bg-[#1A3350]/5 transition-colors">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-8 h-8 rounded-lg bg-[#E1EBF4] dark:bg-slate-700 flex items-center justify-center text-[#1A3350] dark:text-accent-light shrink-0">
+                                            <span class="material-symbols-outlined text-lg">star</span>
+                                        </div>
+                                        <span class="text-base font-display">¿Efectividad online?</span>
+                                    </div>
+                                    <span
+                                        class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180">expand_more</span>
+                                </summary>
+                                <div
+                                    class="px-4 pb-4 ml-11 text-slate-600 dark:text-slate-300 text-sm leading-relaxed border-l-2 border-[#1A3350]/10">
+                                    Sí, para muchos casos es muy efectiva. Uso herramientas digitales para mantener la
+                                    calidad.
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <footer class="bg-primary text-white py-16 relative overflow-hidden">
+                <div
+                    class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5">
+                </div>
+                <div class="max-w-7xl mx-auto px-6 lg:px-20 relative z-10">
+                    <div class="grid md:grid-cols-4 gap-12 border-b border-white/10 pb-12">
+                        <div class="col-span-2 space-y-6">
+                            <div class="flex items-center gap-3 group cursor-pointer"
+                                onclick="window.location.href='index.html'">
+                                <img src="../img/cerebro.png" alt="Neuropsicóloga Rodríguez"
+                                    class="h-10 w-auto object-contain brain-shine filter drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]" />
+                                <h2
+                                    class="text-white text-xl font-extrabold font-display tracking-tight transition-colors duration-300 group-hover:text-accent-light">
+                                    Neuropsicóloga Rodríguez</h2>
+                            </div>
+                            <p class="text-slate-300 max-w-sm leading-relaxed">
+                                Transformando vidas a través de la neurociencia y la empatía clínica. Tu salud mental es
+                                nuestra prioridad.
+                            </p>
+                        </div>
+                        <div>
+                            <h5 class="font-bold mb-6 text-accent text-lg">Navegación</h5>
+                            <ul class="space-y-4 text-slate-300">
+                                <li><a class="hover:text-white transition-colors flex items-center gap-2"
+                                        href="index.html"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                                        Inicio</a></li>
+                                <li><a class="hover:text-white transition-colors flex items-center gap-2"
+                                        href="sobremi.html"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                                        Sobre Mí</a></li>
+                                <li><a class="hover:text-white transition-colors flex items-center gap-2"
+                                        href="cortexa.html"><span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                                        Cortexa</a></li>
+                                <li><a class="hover:text-white transition-colors flex items-center gap-2"
+                                        href="especialidades.html"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-accent"></span> Especialidades</a></li>
+                                <li><a class="hover:text-white transition-colors flex items-center gap-2"
+                                        href="reservarcita.html"><span
+                                            class="w-1.5 h-1.5 rounded-full bg-accent"></span> Reservar Cita</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-bold mb-6 text-accent text-lg">Contacto</h5>
+                            <ul class="space-y-4 text-slate-300">
+                                <li class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
+                                        <span class="material-symbols-outlined text-sm">mail</span>
+                                    </div>
+                                    neuropsicologarodriguez@gmail.com
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
+                                        <span class="material-symbols-outlined text-sm">location_on</span>
+                                    </div>
+                                    Lima, Lima, Perú
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div
+                        class="pt-12 flex flex-col md:flex-row justify-between items-center gap-6 text-slate-400 text-sm">
+                        <p>© 2024 Neuropsicóloga Rodríguez. Todos los derechos reservados.</p>
+                        <div class="flex flex-wrap gap-4 mt-4 md:mt-0">
+                            <a class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/15 text-slate-300 hover:text-white text-xs font-semibold tracking-wide border border-white/10 hover:border-white/20 transition-all duration-300 flex items-center gap-2 group backdrop-blur-sm shadow-sm"
+                                href="privacidad.html">
+                                <span
+                                    class="material-symbols-outlined text-sm group-hover:scale-110 transition-transform text-accent-light">shield_lock</span>
+                                Política de Privacidad
+                            </a>
+                            <a class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/15 text-slate-300 hover:text-white text-xs font-semibold tracking-wide border border-white/10 hover:border-white/20 transition-all duration-300 flex items-center gap-2 group backdrop-blur-sm shadow-sm"
+                                href="terminos.html">
+                                <span
+                                    class="material-symbols-outlined text-sm group-hover:scale-110 transition-transform text-accent-light">gavel</span>
+                                Términos de Servicio
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
     </div>
-  </header>
 
-  <!-- ===== NAV (idéntico, con puntito en Cortexa) ===== -->
-  <nav>
-    <div class="navlinks">
-      <a href="index.html"><i class="fas fa-home" aria-hidden="true"></i> Inicio</a>
-      <a href="sobremi.html"><i class="fas fa-user" aria-hidden="true"></i> Sobre Mí</a>
-      <a href="cortexa.html" class="cx-live">
-        <span class="cx-dot" aria-hidden="true"></span> Cortexa
-      </a>
-      <a href="especialidades.html"><i class="fas fa-brain" aria-hidden="true"></i> Especialidades</a>
-      <a href="reservarcita.html"><i class="fas fa-calendar-check" aria-hidden="true"></i> Reservar Cita</a>
-    </div>
-  </nav>
+    <!-- Scripts (Neural Background, Theme Toggle, Scroll Reveal) -->
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        const icon = themeToggleBtn.querySelector('span');
 
-  <!-- ===== HERO ===== -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="glass hero-grid">
-        <img src="img/cerebro.png" alt="Mabela Rodríguez" class="hero-photo">
-        <div class="hero-copy">
-          <h2>Mabela Rodríguez Neyra</h2>
-          <p>Psicóloga clínica y neuropsicóloga. Acompaño procesos de cambio con ciencia, empatía y calidez humana.</p>
-          <div class="chips">
-            <span class="chip">C.Ps.P. 21962</span>
-            <span class="chip">RNE 496</span>
-            <span class="chip">Espacio confidencial</span>
-            <span class="chip">+10 años de experiencia</span>
-          </div>
-          <div class="cta">
-            <a class="btn btn-primary" href="reservarcita.html">
-              <i class="fas fa-calendar-check"></i> Reservar Cita
-            </a>
-            <a class="btn btn-outline" href="https://wa.me/51943748260" target="_blank" rel="noopener">
-              <i class="fab fa-whatsapp"></i> WhatsApp
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="wave">
-    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-      <path fill="#ffffff" d="M0,64L80,69.3C160,75,320,85,480,74.7C640,64,800,32,960,26.7C1120,21,1280,43,1360,53.3L1440,64L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
-    </svg>
-  </div>
-
-  <!-- ===== BIO ===== -->
-  <section class="container" id="bio">
-    <h3 class="section-title">Biografía</h3>
-    <div class="bio">
-      <img src="img/mabela2.png" alt="Foto de Mabela Rodríguez Neyra" class="bio-photo"/>
-      <div class="bio-copy">
-        <p style="margin-top:0">Soy psicóloga clínica y neuropsicóloga. Acompaño a niños, adolescentes, adultos y adultos mayores con una atención cercana y basada en evidencia. Mi objetivo es que te sientas comprendido/a y avances con herramientas prácticas.</p>
-        <ul class="bio-list">
-          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Evaluación y rehabilitación neuropsicológica</li>
-          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Psicoterapia cognitivo-conductual y sistémica</li>
-          <li><i class="fas fa-check-circle" aria-hidden="true"></i> Atención presencial y online</li>
-        </ul>
-        <div class="cta" style="justify-content:flex-start">
-          <a class="btn btn-primary" href="reservarcita.html"><i class="fas fa-calendar-plus"></i> Ver disponibilidad</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SERVICIOS ===== -->
-  <section class="container" id="servicios">
-    <h3 class="section-title">¿Cómo te ayudo?</h3>
-    <div class="grid">
-      <article class="card">
-        <span class="badge">Evaluación</span>
-        <i class="fas fa-microscope" aria-hidden="true"></i>
-        <h3>Evaluación Neuropsicológica</h3>
-        <p>Exploro funciones cognitivas clave (atención, memoria, lenguaje, funciones ejecutivas) para comprender tu perfil y diseñar un plan de intervención.</p>
-      </article>
-      <article class="card">
-        <span class="badge">Psicoterapia</span>
-        <i class="fas fa-hand-holding-heart"></i>
-        <h3>Psicoterapia Cognitivo-Conductual</h3>
-        <p>Intervenciones basadas en evidencia para ansiedad, estrés, depresión y dificultades emocionales en niños, adolescentes y adultos.</p>
-      </article>
-      <article class="card">
-        <span class="badge">Rehabilitación</span>
-        <i class="fas fa-brain"></i>
-        <h3>Rehabilitación Neuropsicológica</h3>
-        <p>Programas personalizados para daño cerebral adquirido, demencias y dificultades de aprendizaje, orientados a recuperar funcionalidad.</p>
-      </article>
-      <article class="card">
-        <span class="badge">Familia</span>
-        <i class="fas fa-users"></i>
-        <h3>Acompañamiento Familiar</h3>
-        <p>Orientación, psicoeducación y estrategias prácticas para el hogar y la escuela. Trabajo coordinado con redes de apoyo.</p>
-      </article>
-    </div>
-
-    <div class="strip">
-      <span class="pill">Psicóloga Clínica</span>
-      <span class="pill">Neuropsicóloga</span>
-      <span class="pill">Formación Sistémica y Emocional</span>
-      <span class="pill">Atención presencial y online</span>
-    </div>
-  </section>
-
-  <!-- ===== FORMACIÓN ===== -->
-  <section class="container" id="formacion">
-    <h3 class="section-title">Formación académica</h3>
-
-    <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-card">
-          <div class="tl-head">
-            <h4>Magíster en Psicología Clínica (mención en Neuropsicología)</h4>
-            <span class="when">2023 – 2025</span>
-          </div>
-          <div class="tl-meta">Universidad Peruana Cayetano Heredia</div>
-          <p class="tl-note">Grado de Magíster obtenido en 2025.</p>
-          <span class="tl-badge">Posgrado</span>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-card">
-          <div class="tl-head">
-            <h4>Diplomado en Neuropsicología Involutiva y las Demencias</h4>
-            <span class="when">2023 – 2024</span>
-          </div>
-          <div class="tl-meta">Universidad Nacional Daniel Alcides Carrión</div>
-          <span class="tl-badge">Diplomado</span>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-card">
-          <div class="tl-head">
-            <h4>Diplomado en Neuropsicología Pediátrica</h4>
-            <span class="when">2021 – 2022</span>
-          </div>
-          <div class="tl-meta">Universidad Nacional Daniel Alcides Carrión</div>
-          <span class="tl-badge">Diplomado</span>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-card">
-          <div class="tl-head">
-            <h4>Segunda Especialidad en Neuropsicología</h4>
-            <span class="when">2019 – 2021</span>
-          </div>
-          <div class="tl-meta">Universidad Nacional Federico Villarreal</div>
-          <span class="tl-badge">Especialidad</span>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-card">
-          <div class="tl-head">
-            <h4>Psicología (Pregrado)</h4>
-            <span class="when">2007 – 2013</span>
-          </div>
-          <div class="tl-meta">Universidad Nacional Hermilio Valdizán</div>
-          <span class="tl-badge">Pregrado</span>
-        </div>
-      </div>
-    </div>
-
-    <h3 class="section-title" style="margin-top:28px">Formación continua</h3>
-    <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-card">
-          <div class="tl-head">
-            <h4>Formación en Psicoterapia Sistémica (familia y pareja)</h4>
-            <span class="when">2016 – 2017</span>
-          </div>
-          <span class="tl-badge">Psicoterapia</span>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-card">
-          <div class="tl-head">
-            <h4>Formación en Psicoterapia Cognitivo-Conductual</h4>
-            <span class="when">2014 – 2015</span>
-          </div>
-          <span class="tl-badge">Psicoterapia</span>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-card">
-          <div class="tl-head">
-            <h4>Formación en Psicoterapia Emocional (niños y adolescentes)</h4>
-            <span class="when">2015</span>
-          </div>
-          <span class="tl-badge">Psicoterapia</span>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-card">
-          <div class="tl-head">
-            <h4>Formación en Análisis Transaccional</h4>
-            <span class="when">2012</span>
-          </div>
-          <span class="tl-badge">Psicoterapia</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== EXPERIENCIA ===== -->
-  <section class="container">
-    <h3 class="section-title">Experiencia</h3>
-    <div class="scroller" aria-label="Experiencia profesional">
-      <div class="xp-card"><h4>ALLSALUD</h4><small>2014 – Actualidad</small><p>Psicóloga clínica y neuropsicóloga: evaluación, informes y rehabilitación.</p></div>
-      <div class="xp-card"><h4>Centro Renzulli</h4><small>2022 – Actualidad</small><p>Evaluación, psicoterapia y programas de intervención individuales y grupales.</p></div>
-      <div class="xp-card"><h4>Consultorio Déjalo Ser</h4><small>2017 – Actualidad</small><p>Psicoterapia, acompañamiento y psicoeducación para familias.</p></div>
-      <div class="xp-card"><h4>Policlínico Chincha (EsSalud)</h4><small>2021 – 2022</small><p>Neuropsicología: evaluación e informes especializados.</p></div>
-      <div class="xp-card"><h4>MINSA – Laderas de Chillón</h4><small>2014 – 2015</small><p>Atención clínica integral y promoción de salud mental comunitaria.</p></div>
-      <div class="xp-card"><h4>H. San Bartolomé</h4><small>2012 – 2013</small><p>Internado en psicología clínica y neuropsicología.</p></div>
-    </div>
-  </section>
-
-  <!-- ===== BAND ===== -->
-  <section class="band">
-    <div class="container">
-      <div class="msg">
-        <h3 class="section-title" style="color:#fff;margin-top:0">Un espacio seguro para ti</h3>
-        <p>Tu proceso se trabaja con metas claras y acompañamiento cercano. Cada sesión está diseñada para que avances paso a paso, a tu ritmo, con herramientas prácticas y humanas.</p>
-        <div class="cta" style="justify-content:flex-start">
-          <a class="btn btn-primary" href="reservarcita.html"><i class="fas fa-calendar-check"></i> Agenda tu primera sesión</a>
-        </div>
-      </div>
-      <div class="poster" aria-hidden="true"></div>
-    </div>
-  </section>
-
-  <!-- ===== FAQ ===== -->
-  <section class="container">
-    <h3 class="section-title">Preguntas frecuentes</h3>
-    <details><summary>¿Atiendes de forma online?</summary><p>Sí. Trabajo sesiones por videollamada con pautas y materiales digitales para continuar la práctica en casa.</p></details>
-    <details><summary>¿Cuánto dura una evaluación neuropsicológica?</summary><p>Depende del objetivo clínico, pero suele realizarse en 2 a 3 sesiones más la devolución con informe.</p></details>
-    <details><summary>¿Puedo ir con un familiar a la primera cita?</summary><p>Claro. Si lo deseas, podemos incluir una breve entrevista de contexto para comprender mejor tu historia.</p></details>
-    <details><summary>¿Qué debo llevar a la primera sesión?</summary><p>DNI, informes o recetas previas (si las tienes), resultados de exámenes, lista de medicamentos y el motivo de tu consulta.</p></details>
-    <details><summary>¿Cuánto dura cada sesión y con qué frecuencia se recomiendan?</summary><p>La sesión clínica suele durar 50 minutos. En psicoterapia, normalmente una vez por semana; la frecuencia se ajusta a tu caso.</p></details>
-    <details><summary>¿Atiendes a niños, adolescentes y adultos mayores?</summary><p>Sí. Adapto la intervención a cada etapa de vida e incluyo psicoeducación para la familia cuando es necesario.</p></details>
-    <details><summary>¿Entregas informes o certificados?</summary><p>Sí, cuando corresponde. El informe de evaluación se entrega en un plazo breve acordado en consulta (usualmente entre 3 y 7 días hábiles).</p></details>
-    <details><summary>¿Qué métodos de pago aceptas?</summary><p>Transferencia bancaria y efectivo. Si necesitas otra opción, conversemos en la reserva.</p></details>
-    <details><summary>¿Cuál es la política de reprogramación o cancelación?</summary><p>Para respetar agendas, te pido avisar con 24 horas de anticipación si necesitas reprogramar o cancelar.</p></details>
-    <details><summary>¿La información es confidencial?</summary><p>Sí, toda la información es confidencial según el código de ética. Excepciones: riesgo vital u obligación legal.</p></details>
-    <details><summary>¿La atención online es igual de efectiva?</summary><p>Para muchos motivos de consulta, sí. Utilizo herramientas y materiales digitales para mantener la calidad del proceso.</p></details>
-  </section>
-
-  <!-- WHATSAPP FLOAT -->
-  <a class="whatsapp" href="https://wa.me/51943748260" target="_blank" rel="noopener" aria-label="Chatear por WhatsApp">
-    <i class="fab fa-whatsapp"></i> Consultar ahora
-  </a>
-
-  <footer>
-    <p>© 2025 Neuropsicóloga Rodríguez</p>
-  </footer>
-
-  <!-- Script de audio (seguro si no hay botón) -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const bgm = document.getElementById('site-bgm');
-      const btn = document.getElementById('audioToggle'); // no existe en este nav; se ignora
-      if (!bgm || !btn) return;
-      const icon = btn.querySelector('i');
-      const labelSpan = btn.querySelector('.nav-audio-text');
-      const setState = (playing) => {
-        btn.setAttribute('aria-pressed', playing ? 'true' : 'false');
-        const label = playing ? 'Pausar música relajante' : 'Reproducir música relajante';
-        btn.setAttribute('aria-label', label);
-        btn.title = label;
-        if (labelSpan) labelSpan.textContent = label;
-        icon.className = playing ? 'fas fa-pause' : 'fas fa-play';
-      };
-      setState(false);
-      bgm.addEventListener('play',  () => setState(true));
-      bgm.addEventListener('pause', () => setState(false));
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (bgm.paused) {
-          bgm.play().then(() => setState(true)).catch(() => {});
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+            icon.textContent = 'light_mode';
         } else {
-          bgm.pause();
-          setState(false);
+            htmlElement.classList.remove('dark');
+            icon.textContent = 'dark_mode';
         }
-      });
-    });
-  </script>
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.theme = 'light';
+                icon.textContent = 'dark_mode';
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.theme = 'dark';
+                icon.textContent = 'light_mode';
+            }
+        });
+    </script>
+    <script>
+        const neuralCanvas = document.getElementById('neural-bg');
+        const nctx = neuralCanvas.getContext('2d');
+        let dpr = 1;
+        let network = [];
+        let pulses = [];
+        let tGlobal = 0;
+
+        function setCanvasSize() {
+            dpr = Math.min(window.devicePixelRatio || 1, 2);
+            neuralCanvas.width = window.innerWidth * dpr;
+            neuralCanvas.height = window.innerHeight * dpr;
+            nctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+
+        function palette() {
+            const dark = document.documentElement.classList.contains('dark');
+            return dark ? {
+                line: [148, 163, 184, 0.12],
+                soma: [100, 180, 255, 0.6],
+                pulse: [200, 230, 255, 0.9],
+                synapse: [100, 180, 255, 0.05]
+            } : {
+                line: [30, 60, 90, 0.08],
+                soma: [26, 51, 80, 0.4],
+                pulse: [111, 143, 176, 0.7],
+                synapse: [26, 51, 80, 0.03]
+            };
+        }
+
+        function rgba(arr, alphaScale = 1) {
+            return `rgba(${arr[0]},${arr[1]},${arr[2]},${arr[3] * alphaScale})`;
+        }
+
+        function createNeuron(x, y) {
+            const somaRad = 4 + Math.random() * 4;
+            const maxLife = 400 + Math.random() * 600;
+            const somaPoints = [];
+            const sides = 5 + Math.floor(Math.random() * 3);
+            for (let i = 0; i < sides; i++) {
+                const a = (i / sides) * Math.PI * 2;
+                const r = somaRad * (0.7 + Math.random() * 0.6);
+                somaPoints.push({ x: Math.cos(a) * r, y: Math.sin(a) * r });
+            }
+            const branches = [];
+            const branchCount = 5 + Math.floor(Math.random() * 4);
+            const axonIndex = Math.floor(Math.random() * branchCount);
+
+            function createBranch(angle, length, depth, isAxon) {
+                const points = [];
+                const segments = isAxon ? 12 : 6;
+                const step = length / segments;
+                let curX = 0, curY = 0, curAngle = angle;
+                points.push({ x: 0, y: 0 });
+                for (let s = 1; s <= segments; s++) {
+                    curAngle += (Math.random() - 0.5) * 0.5;
+                    curX += Math.cos(curAngle) * step;
+                    curY += Math.sin(curAngle) * step;
+                    points.push({ x: curX, y: curY });
+                }
+                let L = 0;
+                const cum = [0];
+                for (let i = 1; i < points.length; i++) {
+                    L += Math.hypot(points[i].x - points[i - 1].x, points[i].y - points[i - 1].y);
+                    cum.push(L);
+                }
+                return { points, L, cum, isAxon, origin: { x: 0, y: 0 } };
+            }
+
+            for (let i = 0; i < branchCount; i++) {
+                const isAxon = (i === axonIndex);
+                const angle = (i / branchCount) * Math.PI * 2 + (Math.random() - 0.5) * 0.5;
+                const length = isAxon ? (120 + Math.random() * 80) : (40 + Math.random() * 30);
+                branches.push(createBranch(angle, length, 0, isAxon));
+            }
+
+            return { x, y, vx: (Math.random() - 0.5) * 0.5, vy: (Math.random() - 0.5) * 0.5, somaPoints, somaRad, branches, alpha: 0, life: 0, maxLife, phase: Math.random() * Math.PI * 2 };
+        }
+
+        function update() {
+            tGlobal += 0.012;
+            const targetCount = window.innerWidth < 768 ? 15 : 28;
+            for (let i = network.length - 1; i >= 0; i--) {
+                const n = network[i];
+                n.x += n.vx; n.y += n.vy; n.life++;
+                const margin = 250;
+                if (n.x < -margin) n.x = window.innerWidth + margin;
+                if (n.x > window.innerWidth + margin) n.x = -margin;
+                if (n.y < -margin) n.y = window.innerHeight + margin;
+                if (n.y > window.innerHeight + margin) n.y = -margin;
+
+                if (n.life < 80) n.alpha = Math.max(n.alpha, n.life / 80);
+                else if (n.life > n.maxLife - 80) n.alpha = Math.min(n.alpha, (n.maxLife - n.life) / 80);
+                else {
+                    if (n.alpha > 1) n.alpha -= 0.05;
+                    else n.alpha = 1;
+                }
+                if (n.life >= n.maxLife || n.alpha <= 0) network.splice(i, 1);
+            }
+            while (network.length < targetCount) {
+                network.push(createNeuron(Math.random() * window.innerWidth, Math.random() * window.innerHeight));
+            }
+            if (Math.random() < 0.15 && network.length > 0 && pulses.length < 500) {
+                const n = network[Math.floor(Math.random() * network.length)];
+                const b = n.branches[Math.floor(Math.random() * n.branches.length)];
+                if (n.alpha > 0.4) pulses.push({ n, b, t: 0, speed: 0.02 + Math.random() * 0.02 });
+            }
+            for (let i = pulses.length - 1; i >= 0; i--) {
+                const p = pulses[i]; p.t += p.speed;
+                if (p.t >= 1) pulses.splice(i, 1);
+            }
+        }
+
+        function draw() {
+            const pal = palette();
+            nctx.clearRect(0, 0, neuralCanvas.width, neuralCanvas.height);
+            network.forEach(n => {
+                if (n.alpha <= 0) return;
+                const globalAlpha = n.alpha;
+                nctx.save();
+                nctx.translate(n.x, n.y);
+                nctx.lineCap = 'round';
+                nctx.lineJoin = 'round';
+                n.branches.forEach(b => {
+                    nctx.beginPath();
+                    nctx.moveTo(0, 0);
+                    for (let i = 1; i < b.points.length; i++) {
+                        const p = b.points[i];
+                        const off = Math.sin(tGlobal * 2 + n.phase + i * 0.3) * 1.2;
+                        const progress = i / b.points.length;
+                        const width = (b.isAxon ? 1.5 : 2.5) * (1 - progress * 0.7) * globalAlpha;
+                        nctx.lineWidth = width;
+                        nctx.strokeStyle = rgba(pal.line, globalAlpha * (1 - progress * 0.5));
+                        nctx.lineTo(p.x + off, p.y + off);
+                        nctx.stroke();
+                        nctx.beginPath();
+                        nctx.moveTo(p.x + off, p.y + off);
+                    }
+                });
+                nctx.beginPath();
+                n.somaPoints.forEach((p, i) => { if (i === 0) nctx.moveTo(p.x, p.y); else nctx.lineTo(p.x, p.y); });
+                nctx.closePath();
+                const grd = nctx.createRadialGradient(0, 0, 0, 0, 0, n.somaRad * 2);
+                grd.addColorStop(0, rgba(pal.soma, globalAlpha));
+                grd.addColorStop(1, rgba(pal.soma, 0));
+                nctx.fillStyle = grd; nctx.fill();
+                nctx.restore();
+            });
+            pulses.forEach(p => {
+                const n = p.n; const b = p.b;
+                const idx = Math.floor(p.t * (b.points.length - 1));
+                const p1 = b.points[idx];
+                const p2 = b.points[Math.min(idx + 1, b.points.length - 1)];
+                const tSub = (p.t * (b.points.length - 1)) % 1;
+                const x = n.x + p1.x + (p2.x - p1.x) * tSub;
+                const y = n.y + p1.y + (p2.y - p1.y) * tSub;
+                const off = Math.sin(tGlobal * 2 + n.phase + idx * 0.3) * 1.2;
+                nctx.beginPath();
+                nctx.arc(x + off, y + off, 2, 0, Math.PI * 2);
+                nctx.fillStyle = rgba(pal.pulse, Math.min(n.alpha, 1.0));
+                nctx.fill();
+            });
+        }
+
+        function loop() { update(); draw(); requestAnimationFrame(loop); }
+        setCanvasSize(); loop();
+        window.addEventListener('resize', () => { setCanvasSize(); network = []; });
+
+        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    cardObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.reveal-card').forEach(card => cardObserver.observe(card));
+    </script>
+    <!-- Botón Flotante WhatsApp -->
+    <a href="https://api.whatsapp.com/send?phone=51954056912&text=Hola%2C%20Neuropsic%C3%B3loga%20Mabela%20Rodr%C3%ADguez.%20%E2%9C%A8%20He%20consultado%20su%20sitio%20web%20y%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20profesional%20para%20agendar%20una%20cita.%20%C2%BFPodr%C3%ADa%20indicarme%20disponibilidad%20de%20horarios%3F%20%C2%A1Muchas%20gracias!%20%F0%9F%A4%9D"
+        target="_blank" rel="noopener"
+        class="fixed bottom-8 right-8 z-[100] w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 hover:-translate-y-2 transition-all duration-300 group ring-4 ring-white/10"
+        aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp text-3xl"></i>
+        <span
+            class="absolute right-full mr-4 px-4 py-2 bg-white dark:bg-slate-800 text-primary dark:text-white text-sm font-bold rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-xl whitespace-nowrap border border-slate-100 dark:border-slate-700">
+            ¿En qué puedo ayudarte?
+        </span>
+    </a>
 </body>
+
 </html>
