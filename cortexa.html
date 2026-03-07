@@ -990,9 +990,13 @@
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeIcon = themeToggleBtn?.querySelector('span');
 
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        // Check local storage for preference
+        if (localStorage.theme === 'dark') {
             document.documentElement.classList.add('dark');
             if (themeIcon) themeIcon.textContent = 'light_mode';
+        } else {
+            document.documentElement.classList.remove('dark');
+            if (themeIcon) themeIcon.textContent = 'dark_mode';
         }
 
         themeToggleBtn?.addEventListener('click', () => {
