@@ -346,7 +346,9 @@
                             class="h-11 w-auto object-contain brain-shine filter drop-shadow-[0_0_8px_rgba(255,255,255,0.3)]" />
                         <h1
                             class="text-white dark:text-white text-[1.1rem] font-extrabold font-display tracking-tight whitespace-nowrap transition-colors duration-300 group-hover:text-accent-light">
-                            Neuropsicóloga Rodríguez</h1>
+                            <span class="hidden sm:inline">Neuropsicóloga</span><span class="sm:hidden">Nps.</span>
+                            Rodríguez
+                        </h1>
                     </div>
                     <div class="hidden md:flex items-center gap-8 relative w-full">
                         <nav
@@ -380,12 +382,88 @@
                             </a>
                         </div>
                     </div>
-                    <button
-                        class="md:hidden text-white p-2 bg-white/10 rounded-lg shadow-sm hover:bg-white/20 transition-colors">
-                        <span class="material-symbols-outlined">menu</span>
-                    </button>
+                    <div class="flex items-center gap-2 md:hidden">
+                        <button id="theme-toggle-mobile"
+                            class="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 dark:bg-slate-800 border border-white/20 dark:border-slate-700 text-white dark:text-yellow-400 transition-all duration-300">
+                            <span class="material-symbols-outlined text-lg">dark_mode</span>
+                        </button>
+                        <button id="mobile-menu-btn"
+                            class="text-white p-2 bg-white/10 rounded-lg shadow-sm hover:bg-white/20 transition-colors">
+                            <span class="material-symbols-outlined">menu</span>
+                        </button>
+                    </div>
                 </div>
             </header>
+
+            <!-- Mobile Menu Overlay -->
+            <div id="mobile-menu"
+                class="fixed inset-0 z-[150] bg-primary/95 dark:bg-slate-900/98 backdrop-blur-2xl transition-all duration-500 opacity-0 pointer-events-none flex flex-col p-6 md:hidden overflow-y-auto">
+                <div class="flex items-center justify-between mb-8 flex-shrink-0">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center p-2 shadow-inner">
+                            <img src="../img/cerebro.png" class="w-full h-full object-contain brain-shine" alt="Logo">
+                        </div>
+                        <div class="flex flex-col">
+                            <span
+                                class="text-white font-display font-bold text-lg tracking-tight leading-none">Menú</span>
+                            <span
+                                class="text-white/30 text-[9px] font-bold uppercase tracking-[0.2em] mt-1">Navegación</span>
+                        </div>
+                    </div>
+                    <button id="close-menu-btn"
+                        class="w-10 h-10 rounded-xl bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-all active:scale-95 shadow-lg">
+                        <span class="material-symbols-outlined text-xl">close</span>
+                    </button>
+                </div>
+                <nav class="flex flex-col gap-1.5 mb-8">
+                    <a href="index.html"
+                        class="text-lg font-display font-bold text-white/50 p-3.5 rounded-xl hover:bg-white/5 hover:text-white transition-all flex items-center justify-between group">
+                        <span>Inicio</span>
+                        <span class="material-symbols-outlined text-xl opacity-30">home</span>
+                    </a>
+                    <a href="sobremi.html"
+                        class="text-lg font-display font-bold text-white/50 p-3.5 rounded-xl hover:bg-white/5 hover:text-white transition-all flex items-center justify-between group">
+                        <span>Sobre Mí</span>
+                        <span class="material-symbols-outlined text-xl opacity-30">person</span>
+                    </a>
+                    <a href="cortexa.html"
+                        class="text-lg font-display font-bold text-white/50 p-3.5 rounded-xl hover:bg-white/5 hover:text-white transition-all flex items-center justify-between group">
+                        <div class="flex items-center gap-3">
+                            <span>Cortexa</span>
+                            <span
+                                class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]"></span>
+                        </div>
+                        <span class="material-symbols-outlined text-xl opacity-30">psychology</span>
+                    </a>
+                    <a href="especialidades.html"
+                        class="text-lg font-display font-bold text-white/50 p-3.5 rounded-xl hover:bg-white/5 hover:text-white transition-all flex items-center justify-between group">
+                        <span>Especialidades</span>
+                        <span class="material-symbols-outlined text-xl opacity-30">category</span>
+                    </a>
+                    <a href="reservarcita.html"
+                        class="text-lg font-display font-bold text-white/50 p-3.5 rounded-xl hover:bg-white/5 hover:text-white transition-all flex items-center justify-between group">
+                        <span>Reservar Cita</span>
+                        <span class="material-symbols-outlined text-xl opacity-30">calendar_month</span>
+                    </a>
+                </nav>
+                <div class="mt-auto pt-6 border-t border-white/5 flex-shrink-0">
+                    <div class="flex flex-col gap-5">
+                        <div class="flex items-center justify-center gap-8">
+                            <a href="https://www.facebook.com/share/1Av2BgPo17/" target="_blank"
+                                class="text-white/40 hover:text-white transition-all"><i
+                                    class="fab fa-facebook-f text-lg"></i></a>
+                            <a href="https://www.instagram.com/neuropsicologa_rodriguez_?igsh=NWZnNnphZTIzNWN6"
+                                target="_blank" class="text-white/40 hover:text-white transition-all"><i
+                                    class="fab fa-instagram text-lg"></i></a>
+                            <a href="https://api.whatsapp.com/send?phone=51954056912" target="_blank"
+                                class="text-[#25D366] hover:scale-110 transition-all"><i
+                                    class="fab fa-whatsapp text-2xl"></i></a>
+                        </div>
+                        <p class="text-center text-white/20 text-[9px] font-bold uppercase tracking-[0.3em]">Lima, Perú
+                            • 2024</p>
+                    </div>
+                </div>
+            </div>
             <main class="flex-1">
                 <section class="max-w-4xl mx-auto px-6 lg:px-20 py-20 lg:py-32">
                     <div
@@ -517,28 +595,57 @@
 
     <script>
         const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleBtnMobile = document.getElementById('theme-toggle-mobile');
         const htmlElement = document.documentElement;
-        const icon = themeToggleBtn.querySelector('span');
+        const themeIcon = themeToggleBtn.querySelector('span');
 
-        // Check local storage or system preference
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            htmlElement.classList.add('dark');
-            icon.textContent = 'light_mode';
-        } else {
-            htmlElement.classList.remove('dark');
-            icon.textContent = 'dark_mode';
+        function updateThemeIcon(isDark) {
+            const icons = [themeIcon, themeToggleBtnMobile?.querySelector('span')];
+            icons.forEach(icon => {
+                if (icon) icon.textContent = isDark ? 'light_mode' : 'dark_mode';
+            });
         }
 
-        themeToggleBtn.addEventListener('click', () => {
-            if (htmlElement.classList.contains('dark')) {
-                htmlElement.classList.remove('dark');
-                localStorage.theme = 'light';
-                icon.textContent = 'dark_mode';
+        // Check local storage for preference
+        if (localStorage.theme === 'dark') {
+            htmlElement.classList.add('dark');
+            updateThemeIcon(true);
+        } else {
+            htmlElement.classList.remove('dark');
+            updateThemeIcon(false);
+        }
+
+        const toggleTheme = () => {
+            const isDark = htmlElement.classList.toggle('dark');
+            localStorage.theme = isDark ? 'dark' : 'light';
+            updateThemeIcon(isDark);
+        };
+
+        themeToggleBtn.addEventListener('click', toggleTheme);
+        themeToggleBtnMobile?.addEventListener('click', toggleTheme);
+
+        // Mobile Menu Logic
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+
+        const toggleMenu = (show) => {
+            if (show) {
+                mobileMenu.classList.remove('pointer-events-none', 'opacity-0');
+                mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+                document.body.style.overflow = 'hidden';
             } else {
-                htmlElement.classList.add('dark');
-                localStorage.theme = 'dark';
-                icon.textContent = 'light_mode';
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                document.body.style.overflow = '';
             }
+        };
+
+        mobileMenuBtn?.addEventListener('click', () => toggleMenu(true));
+        closeMenuBtn?.addEventListener('click', () => toggleMenu(false));
+        // Close menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => toggleMenu(false));
         });
     </script>
     <script>
